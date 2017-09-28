@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="blog,Markdown," />
 
 
 
@@ -70,12 +70,13 @@
 
 
 <meta name="description" content="弄了半天终于把博客搭出来了，然后很尴尬的发现不会用，于是博客的第一课就出来了，如何写博客。 教程借鉴于：http://blog.leanote.com/post/freewalk/Markdown-语法手册      .split{         background-color:#EEE;         font-size:30px;     }   1.斜体和粗体  *斜体*或_斜体_ *">
+<meta name="keywords" content="blog,Markdown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客">
 <meta property="og:url" content="http://yoursite.com/2017/09/28/博客/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="弄了半天终于把博客搭出来了，然后很尴尬的发现不会用，于是博客的第一课就出来了，如何写博客。 教程借鉴于：http://blog.leanote.com/post/freewalk/Markdown-语法手册      .split{         background-color:#EEE;         font-size:30px;     }   1.斜体和粗体  *斜体*或_斜体_ *">
-<meta property="og:updated_time" content="2017-09-28T08:34:23.105Z">
+<meta property="og:updated_time" content="2017-09-28T10:45:15.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客">
 <meta name="twitter:description" content="弄了半天终于把博客搭出来了，然后很尴尬的发现不会用，于是博客的第一课就出来了，如何写博客。 教程借鉴于：http://blog.leanote.com/post/freewalk/Markdown-语法手册      .split{         background-color:#EEE;         font-size:30px;     }   1.斜体和粗体  *斜体*或_斜体_ *">
@@ -169,22 +170,52 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-主页">
           <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            主页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -248,7 +279,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:21:27+08:00">
                 2017-09-28
@@ -260,6 +291,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog使用/" itemprop="url" rel="index">
+                    <span itemprop="name">blog使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,7 +387,7 @@
 <pre><code>&lt;http://example.com/&gt;
 &lt;address@example.com&gt;
 </code></pre><p><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a></p>
-<p><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x61;&#100;&#x64;&#114;&#101;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#100;&#x64;&#114;&#101;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x61;&#x64;&#x64;&#x72;&#101;&#x73;&#x73;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;">&#x61;&#x64;&#x64;&#x72;&#101;&#x73;&#x73;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;</a></p>
 <p><br></p>
 <div class="split">4.锚点</div>
 
@@ -356,6 +409,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          
+        </div>
       
 
       
@@ -414,6 +475,10 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.gif"
+              alt="John Doe" />
+          
             <p class="site-author-name" itemprop="name">John Doe</p>
             <p class="site-description motion-element" itemprop="description"></p>
         </div>
@@ -423,16 +488,34 @@
           
             <div class="site-state-item site-state-posts">
             
-              <a href="/archives/">
+              <a href="/archives">
             
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -481,7 +564,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
