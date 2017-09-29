@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog,javascript,php,正则表达式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.基本语法1.1元字符 字符簇 1234567[a-z] 			匹配小写字母a-z中的任一字符[A-Z]			匹配大写字母A-Z中的任一字符[0-9]			匹配数字从0-9中的任一数字   [0-9a-z]		匹配数字0-9或小写a-z中的任一字符[0-9a-zA-Z]		匹配数字0-9或字母a-z中的任一字符[abcd]			匹配字母abcd中的任一字符[1234]			匹配数字1234中的任">
+<meta name="keywords" content="blog,javascript,php,正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2017/09/29/正则表达式/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.基本语法1.1元字符 字符簇 1234567[a-z] 			匹配小写字母a-z中的任一字符[A-Z]			匹配大写字母A-Z中的任一字符[0-9]			匹配数字从0-9中的任一数字   [0-9a-z]		匹配数字0-9或小写a-z中的任一字符[0-9a-zA-Z]		匹配数字0-9或字母a-z中的任一字符[abcd]			匹配字母abcd中的任一字符[1234]			匹配数字1234中的任">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-29T09:50:09.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="1.基本语法1.1元字符 字符簇 1234567[a-z] 			匹配小写字母a-z中的任一字符[A-Z]			匹配大写字母A-Z中的任一字符[0-9]			匹配数字从0-9中的任一数字   [0-9a-z]		匹配数字0-9或小写a-z中的任一字符[0-9a-zA-Z]		匹配数字0-9或字母a-z中的任一字符[abcd]			匹配字母abcd中的任一字符[1234]			匹配数字1234中的任">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/29/正则表达式/"/>
+
+
+
+
+
+  <title>正则表达式 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T15:25:31+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a><strong>1.基本语法</strong></h2><h3 id="1-1元字符"><a href="#1-1元字符" class="headerlink" title="1.1元字符"></a><strong>1.1元字符</strong></h3><ul>
+<li><p>字符簇</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[a-z] 			匹配小写字母a-z中的任一字符</div><div class="line">[A-Z]			匹配大写字母A-Z中的任一字符</div><div class="line">[0-9]			匹配数字从0-9中的任一数字   </div><div class="line">[0-9a-z]		匹配数字0-9或小写a-z中的任一字符</div><div class="line">[0-9a-zA-Z]		匹配数字0-9或字母a-z中的任一字符</div><div class="line">[abcd]			匹配字母abcd中的任一字符</div><div class="line">[1234]			匹配数字1234中的任一数字</div></pre></td></tr></table></figure>
+</li>
+<li><p>转义字符（查什么）  /\d/     &lt;===&gt;  /[0-9]/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">\d ：		匹配一个数字字符[0-9] </div><div class="line">\D ：		匹配一个非数字字符 [^\d] </div><div class="line">\w ：		匹配包括下划线的任何单词字符[0-9a-zA-Z_]，不包括空格</div><div class="line">\W ：		匹配任何非单词字符 [^\w] </div><div class="line">\s ：		匹配任何空白字符制表符（\t）、空格、回车(\n)  [\t\n\f]</div><div class="line">\S ：		匹配任何非空白字符 [^\s] </div><div class="line">.  ：		匹配除 &quot;\n&quot; 之外的任何单个字符　</div><div class="line">我们可以用[\w\W],[\d\D],[\s\S],这几个组合来代替&quot;所有字符&quot; 也就是相当于”.”</div></pre></td></tr></table></figure>
+</li>
+<li><p>限定符（查多少）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">限定符可以指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。</div><div class="line">*			匹配前面的子表达式零次或多次0到多&#123;0, &#125;</div><div class="line">+			匹配前面的子表达式一次或多次 1到多 &#123;1,&#125;</div><div class="line">?			匹配前面的子表达式零次或一次 0或1&#123;0,1&#125;</div><div class="line">&#123;n&#125;			匹配确定的 n 次			&#123;5&#125;</div><div class="line">&#123;n,&#125;			至少匹配n 次			&#123;5, &#125;</div><div class="line">&#123;n,m&#125; 		最少匹配 n 次且最多匹配 m 次	&#123;5, 10&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>定位符（从哪儿）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">定位符可以将一个正则表达式固定在一行的开始或结束，也可以创建只在单词内或只在</div><div class="line">单词的开始或结尾处出现的正则表达式。</div><div class="line">^ 			匹配输入字符串的开始位置</div><div class="line">$ 			匹配输入字符串的结束位置</div><div class="line">\b 			匹配一个单词边界border</div><div class="line">\B 			匹配非单词边界</div><div class="line"></div><div class="line">在Javascript代码中，可以通过反斜杠 \ 对特殊字符进行转义</div><div class="line">*  +  ？[  ]  &#123;  &#125;  (  )  .  /  ^   $ </div><div class="line">\*  \+  \? 等表示匹配特殊字符串本身、</div></pre></td></tr></table></figure>
+</li>
+<li><p>选择匹配符 表达式组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">“| “ 可以匹配多个规则 ()为组合</div><div class="line">匹配  hellophp或hellojavascript的字符串。</div><div class="line">hello(php|javascript)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-2模式修正符"><a href="#1-2模式修正符" class="headerlink" title="1.2模式修正符"></a><strong>1.2模式修正符</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">模式不是正则表达式的一部分,但是能够影响正则式的作用效果. </div><div class="line">g：全局模式</div><div class="line">i ,ignore,忽略(大小写) </div><div class="line">s:代表单行模式,把整个字符串当成一行来看待，js目前不支持单行模式</div><div class="line">m:多行模式</div></pre></td></tr></table></figure>
+<h3 id="1-3贪婪模式"><a href="#1-3贪婪模式" class="headerlink" title="1.3贪婪模式"></a><strong>1.3贪婪模式</strong></h3><p>1.贪婪匹配原则：在正则表达式中，我们把能匹配多的就不匹配少的这种情况就称之为“贪婪匹配”，默认正则表达式采用的就是贪婪匹配原则。<br>2.非贪婪匹配原则：在正则表达中，可以通过？问号把一个正则表达式由贪婪匹配转化为“非贪婪匹配” <code>&lt;div&gt;[/d/D]*?&lt;/div&gt;</code></p>
+<h3 id="1-4反向引用"><a href="#1-4反向引用" class="headerlink" title="1.4反向引用"></a><strong>1.4反向引用</strong></h3><p>在正则表达式中，通过一对圆括号括起来的内容，我们就称之为子表达式。在运行过程中，子表达式所匹配到的内容会被系统所捕获，并放入系统的缓冲区中。通过反向引用 使用存储到缓存区里面的内容。<br>在正则表达式可以通过\n（n大于等于1）来引入缓存区中的内容。<br>\1表示第一个缓存区里面的内容 （也就是第一个（）里面的内容）<br>\2表示第二个缓存区里面的内容（也就是第二个（）里面的内容）<br>    (\d)(\d)\2\1  匹配abba模式</p>
+<h2 id="2-javascript中的正则表达式"><a href="#2-javascript中的正则表达式" class="headerlink" title="2.javascript中的正则表达式"></a><strong>2.javascript中的正则表达式</strong></h2><h3 id="2-1创建正则"><a href="#2-1创建正则" class="headerlink" title="2.1创建正则"></a><strong>2.1创建正则</strong></h3><p>1.直接创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var 正则名称 =  /正则表达式/匹配模式; </div><div class="line">var reg = /o/g ;</div></pre></td></tr></table></figure></p>
+<p>g：(global)全局，全局搜索  RegExp.prototype.global是只读的属性<br>i：(ignoreCase)忽略大小写。RegExp.prototype.ignoreCase也是只读的属性  </p>
+<p>2.var reg = new RegExp(pattern, attributes);</p>
+<h3 id="2-2执行正则"><a href="#2-2执行正则" class="headerlink" title="2.2执行正则"></a><strong>2.2执行正则</strong></h3><p>1.RegExp方法  </p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>用法用例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RegExp.prototype.test(str)</td>
+<td>reg.test(str)</td>
+<td>匹配到返回true否则false</td>
+</tr>
+<tr>
+<td>RegExp.prototype.exec(str)</td>
+<td>reg.exec(str)</td>
+<td>返回匹配结果 数组形式（匹配到的值、索引位置、源字符串）  </td>
+</tr>
+</tbody>
+</table>
+<p>属性：lastInexof<br>每次执行方法后指针会后移，所以需要清0  </p>
+<p>2.String方法</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>用法用例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String.prototype.match(reg)</td>
+<td>str.match(reg)</td>
+<td>返回所有结果的数组,如果没有匹配到返回null.</td>
+</tr>
+<tr>
+<td>String.prototype.search(reg)</td>
+<td>str.search(reg)</td>
+<td>返回指定模式的字符在字符串第一次出现的位置（默认从0开始），如果没有返回-1.</td>
+</tr>
+<tr>
+<td>String.prototype.replace(reg)</td>
+<td>str.replace(reg,’替换后的字符’)</td>
+<td>返回替换后的字符串</td>
+</tr>
+<tr>
+<td>String.prototype.split(reg)</td>
+<td>str.split(reg)</td>
+<td>返回分割的数组  </td>
+</tr>
+</tbody>
+</table>
+<p>str.replace(reg,function (match){return match;})  match为匹配到的字符串</p>
+<h2 id="3-PHP中的正则表达式"><a href="#3-PHP中的正则表达式" class="headerlink" title="3.PHP中的正则表达式"></a><strong>3.PHP中的正则表达式</strong></h2><h3 id="3-1正则查找"><a href="#3-1正则查找" class="headerlink" title="3.1正则查找"></a><strong>3.1正则查找</strong></h3><p>1.preg_match($reg, $str, $matches[, PREG_OFFSET_CAPTURE])<br>使用正则去匹配一段字符串 如果找到返回1 找不到返回0 有错返回false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* int preg_match ( string $pattern , string $subject [, array &amp;$matches [, int $flags = 0 [, int $offset = 0 ]]] )</div><div class="line"> * 返回0或1</div><div class="line"> * @param   string    $pattern    正则，带引号</div><div class="line"> * @param   string    $subject    字符串</div><div class="line"> * @param   array     $matches    结果，包括字符和索引（如果捕获索引）</div><div class="line"> * @param   const     PREG_OFFSET_CAPTURE	是否捕获索引</div><div class="line"> * @param	int		  $offset	起始位置</div><div class="line"> *</div><div class="line"> * 只找到第一个</div><div class="line"> */</div><div class="line">$str=&apos;hello world&apos;;</div><div class="line">$rs=preg_match(&quot;/o/&quot;, $str, $matches, PREG_OFFSET_CAPTURE)	;</div><div class="line">echo $rs;</div><div class="line">var_dump($matches);</div></pre></td></tr></table></figure>
+<p>2.preg_math_all($reg, $str, $matches, [, PREG_OFFSET_CAPTURE])<br>全局匹配</p>
+<h3 id="3-2正则替换"><a href="#3-2正则替换" class="headerlink" title="3.2正则替换"></a><strong>3.2正则替换</strong></h3><p>1.preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * </div><div class="line"> * mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</div><div class="line"> * </div><div class="line"> * @param   mixed   $pattren    正则，带引号</div><div class="line"> * @param   string  $replacement    替换后的字符串</div><div class="line"> * @param   mixed   $subject   字符串</div><div class="line"> * @param   int     $limit      最大替换次数    -1表示无限</div><div class="line"> * @param   int     $count      实际替换次数</div><div class="line"> * </div><div class="line"> * 返回替换后的字符串</div><div class="line"> */</div><div class="line">$str=&apos;hello world&apos;;</div><div class="line">echo preg_replace ( &quot;/o/&quot;,&quot;O&quot;,$str,1,$count);</div><div class="line">echo $count;</div></pre></td></tr></table></figure>
+<p>2.preg_replace_callback ( mixed $pattern , callable $callback , mixed $subject [, int $limit = -1 [, int &amp;$count ]])</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * </div><div class="line"> * preg_replace_callback ( mixed $pattern , callable $callback , mixed $subject [, int $limit = -1 [, int &amp;$count ]])</div><div class="line"> * </div><div class="line"> * @param   mixed    $pattren    正则，带引号</div><div class="line"> * @param   callable $callback   回掉函数</div><div class="line"> * @param   mixed    $subject    字符串</div><div class="line"> * @param   int      $limit      最大替换次数    -1表示无限</div><div class="line"> * @param   int      $count      实际替换次数</div><div class="line"> * </div><div class="line"> * 返回替换后的字符串</div><div class="line"> */</div><div class="line">$str=&apos;hello world&apos;;</div><div class="line">echo preg_replace_callback ( &quot;/o/&quot;,function ($m)&#123; var_dump($m);return O;&#125;,$str,-1,$count);</div><div class="line">echo $count;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/28/博客/" rel="next" title="博客编写">
+                <i class="fa fa-chevron-left"></i> 博客编写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本语法"><span class="nav-text">1.基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1元字符"><span class="nav-text">1.1元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2模式修正符"><span class="nav-text">1.2模式修正符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3贪婪模式"><span class="nav-text">1.3贪婪模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4反向引用"><span class="nav-text">1.4反向引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-javascript中的正则表达式"><span class="nav-text">2.javascript中的正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1创建正则"><span class="nav-text">2.1创建正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2执行正则"><span class="nav-text">2.2执行正则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-PHP中的正则表达式"><span class="nav-text">3.PHP中的正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1正则查找"><span class="nav-text">3.1正则查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2正则替换"><span class="nav-text">3.2正则替换</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
