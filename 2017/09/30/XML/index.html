@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog,XML,javascript,php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.简介XML全称 eXtensible Markup Language（可扩展标记语言）    可扩展是指XML支持用户自定义标签来描述自身携带的信息，一般也叫做“自我描述性”。   XML的设计是用来存储数据 它没有显示效果。 XML和HTML对比（差异）1.HTML中只能使用预定义的标签 自定义标签没有显示效果 而XML支持且必须是用户自定义标签。2.HTML标签除了存储内容外 还有显示样式">
+<meta name="keywords" content="blog,XML,javascript,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/XML/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.简介XML全称 eXtensible Markup Language（可扩展标记语言）    可扩展是指XML支持用户自定义标签来描述自身携带的信息，一般也叫做“自我描述性”。   XML的设计是用来存储数据 它没有显示效果。 XML和HTML对比（差异）1.HTML中只能使用预定义的标签 自定义标签没有显示效果 而XML支持且必须是用户自定义标签。2.HTML标签除了存储内容外 还有显示样式">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-01T09:50:05.691Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XML">
+<meta name="twitter:description" content="1.简介XML全称 eXtensible Markup Language（可扩展标记语言）    可扩展是指XML支持用户自定义标签来描述自身携带的信息，一般也叫做“自我描述性”。   XML的设计是用来存储数据 它没有显示效果。 XML和HTML对比（差异）1.HTML中只能使用预定义的标签 自定义标签没有显示效果 而XML支持且必须是用户自定义标签。2.HTML标签除了存储内容外 还有显示样式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/30/XML/"/>
+
+
+
+
+
+  <title>XML | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/XML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">XML</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T21:25:22+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/XML/" itemprop="url" rel="index">
+                    <span itemprop="name">XML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a><strong>1.简介</strong></h2><p>XML全称 eXtensible Markup Language（可扩展标记语言）  </p>
+<ul>
+<li>可扩展是指XML支持用户自定义标签来描述自身携带的信息，一般也叫做“自我描述性”。  </li>
+<li>XML的设计是用来存储数据 它没有显示效果。</li>
+<li>XML和HTML对比（差异）<br>1.HTML中只能使用预定义的标签 自定义标签没有显示效果 而XML支持且必须是用户自定义标签。<br>2.HTML标签除了存储内容外 还有显示样式 标签的使用取决于要显示的样式（区分样式）。  而XML标签没有显示样式 使用不同的标签是为了区分不同类型的数据（区分数据）<br>3.HTML标签语法松散，例如 标签可以不关闭 属性可以不加单双引号。而XML语法严谨 必须严格遵循W3C的标准 否则报错。      </li>
+</ul>
+<h2 id="2-XML的使用"><a href="#2-XML的使用" class="headerlink" title="2.XML的使用"></a><strong>2.XML的使用</strong></h2><h3 id="2-1XML标签的语法组成"><a href="#2-1XML标签的语法组成" class="headerlink" title="2.1XML标签的语法组成"></a><strong>2.1XML标签的语法组成</strong></h3><p>1.文档声明<br>2.元素（标签）<br>3.元素属性<br>4.注释                 <!-- 注释内容 --><br>5.特殊字符（&lt; &gt; ‘ “）      使用字符实体补充&lt; &gt;的字符<br>6.CDATA区<br>7.处理指令</p>
+<h3 id="2-2XML的创建及语法"><a href="#2-2XML的创建及语法" class="headerlink" title="2.2XML的创建及语法"></a><strong>2.2XML的创建及语法</strong></h3><p>XML文件以“.xml”作为后缀名，文档需要声明头信息<code>&lt;?xml version=”1.0” encoding=”utf-8” ?&gt;</code></p>
+<ul>
+<li>XML的标签必须关闭 否则解析时报错</li>
+<li>XML标签区分大小写，例如title和Title是不一样的标签</li>
+<li>XML标签只能嵌套不能交叉</li>
+<li>XML标签可以有属性 但属性必须有值 且用单双引号括起来 否则解析出错。</li>
+<li>当XML标签中的内容含有特殊字符（&lt;、&gt;、’、”）时 为避免解析时的歧义 需要使用字符实体替代(&lt;$gt;&amp;&copy;)，当内容较多时 可以将它们放入CDATA（character data）段中 表示这是一段字符数据 不要当成标签来解析。<code>&lt;![CDATA[&lt;&lt;&gt;???///]]&gt;</code></li>
+</ul>
+<h2 id="3-XML的用途"><a href="#3-XML的用途" class="headerlink" title="3.XML的用途"></a><strong>3.XML的用途</strong></h2><p>XML是用来存储数据的，它有很强的数据存储能力，是介于记事本和数据库之间的存储神器，相比记事本它可以结构化的存储数据 通过标签来检索和提取数据。同时 比数据库使用起来更加简便、灵活 无需安装 不用通过复杂的sql指令来查询数据。</p>
+<ul>
+<li>用作配置文件：数据库配置、项目配置、应用程序配置等</li>
+<li>xml格式的数据具有通用性，绝大多数语言均支持对XML数据的解析 因此被用于不同语言之间 交换数据。</li>
+<li>作为开放平台接口返回的数据，要求具有通用性，绝大多数语言都能使用。</li>
+</ul>
+<h2 id="4-PHP解析XML"><a href="#4-PHP解析XML" class="headerlink" title="4.PHP解析XML"></a><strong>4.PHP解析XML</strong></h2><p>存储在XML结构中的数据（XML文件内容、XML格式的字符串）需要被提取出来使用这个过程称为“解析” 它包括XML节点和节点数据（值）的操作。</p>
+<h3 id="4-1SimpleXMLElement"><a href="#4-1SimpleXMLElement" class="headerlink" title="4.1SimpleXMLElement"></a><strong>4.1SimpleXMLElement</strong></h3><p>载入一段要解析的xml字符串 返回一个数据对象.<br>这是一个类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</div><div class="line">&lt;info&gt;</div><div class="line">	&lt;person id=&quot;1&quot;&gt;</div><div class="line">		&lt;name&gt;李白&lt;/name&gt;</div><div class="line">		&lt;age&gt;30&lt;/age&gt;</div><div class="line">		&lt;gender&gt;男&lt;/gender&gt;</div><div class="line">	&lt;/person&gt;</div><div class="line">	&lt;person id=&quot;2&quot;&gt;</div><div class="line">		&lt;name&gt;杜甫&lt;/name&gt;</div><div class="line">		&lt;age&gt;36&lt;/age&gt;</div><div class="line">		&lt;gender&gt;男&lt;/gender&gt;</div><div class="line">	&lt;/person&gt;</div><div class="line">	&lt;person id=&quot;3&quot;&gt;</div><div class="line">		&lt;name&gt;李清照&lt;/name&gt;</div><div class="line">		&lt;age&gt;22&lt;/age&gt;</div><div class="line">		&lt;gender&gt;女&lt;/gender&gt;</div><div class="line">		&lt;content&gt;&lt;![CDATA[&lt;&lt;&gt;???///]]&gt;&lt;/content&gt;</div><div class="line">	&lt;/person&gt;</div><div class="line">&lt;/info&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$str=file_get_contents(&apos;xml.xml&apos;);</div><div class="line">$obj=new SimpleXMLElement($str);</div><div class="line">var_dump($obj);</div></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">object(SimpleXMLElement)[1]</div><div class="line">  public &apos;person&apos; =&gt; </div><div class="line">    array (size=3)</div><div class="line">      0 =&gt; </div><div class="line">        object(SimpleXMLElement)[2]</div><div class="line">          public &apos;@attributes&apos; =&gt; </div><div class="line">            array (size=1)</div><div class="line">              ...</div><div class="line">          public &apos;name&apos; =&gt; string &apos;李白&apos; (length=6)</div><div class="line">          public &apos;age&apos; =&gt; string &apos;30&apos; (length=2)</div><div class="line">          public &apos;gender&apos; =&gt; string &apos;男&apos; (length=3)</div><div class="line">      1 =&gt; </div><div class="line">        object(SimpleXMLElement)[3]</div><div class="line">          public &apos;@attributes&apos; =&gt; </div><div class="line">            array (size=1)</div><div class="line">              ...</div><div class="line">          public &apos;name&apos; =&gt; string &apos;杜甫&apos; (length=6)</div><div class="line">          public &apos;age&apos; =&gt; string &apos;36&apos; (length=2)</div><div class="line">          public &apos;gender&apos; =&gt; string &apos;男&apos; (length=3)</div><div class="line">      2 =&gt; </div><div class="line">        object(SimpleXMLElement)[4]</div><div class="line">          public &apos;@attributes&apos; =&gt; </div><div class="line">            array (size=1)</div><div class="line">              ...</div><div class="line">          public &apos;name&apos; =&gt; string &apos;李清照&apos; (length=9)</div><div class="line">          public &apos;age&apos; =&gt; string &apos;22&apos; (length=2)</div><div class="line">          public &apos;gender&apos; =&gt; string &apos;女&apos; (length=3)</div><div class="line">          public &apos;content&apos; =&gt; </div><div class="line">            object(SimpleXMLElement)[5]</div><div class="line">              ...</div></pre></td></tr></table></figure></p>
+<p>属性：<br>从数据对象中 取数据 属性要通过attributes()方法来取<br><code>echo $obj-&gt;person[2]-&gt;attributes()-&gt;id;</code><br>结果：<br><code>3</code><br>值：用-&gt;去访问，不写[index]表示第一个<br><code>$obj-&gt;person[0]-&gt;name;</code><br>结果<br><code>李白</code><br>$obj在根节点处</p>
+<h3 id="4-2simplexml-load-string"><a href="#4-2simplexml-load-string" class="headerlink" title="4.2simplexml_load_string"></a><strong>4.2simplexml_load_string</strong></h3><p>simplexml_load_string用来载入一段要解析的xml字符串，返回一个解析过的SimpleXMLElement对象。<br>这是一个方法，<code>simplexml_load_string($str)</code>相当于<code>new SimpleXMLElement($str)</code></p>
+<h3 id="4-3simplexml-load-file"><a href="#4-3simplexml-load-file" class="headerlink" title="4.3simplexml_load_file"></a><strong>4.3simplexml_load_file</strong></h3><p>这是一个方法，<code>simplexml_load_file(&#39;xml.xml&#39;)</code>相当于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$str=file_get_contents(&apos;xml.xml&apos;);</div><div class="line">new SimpleXMLElement($str)</div></pre></td></tr></table></figure></p>
+<h3 id="4-4Xpath"><a href="#4-4Xpath" class="headerlink" title="4.4Xpath"></a><strong>4.4Xpath</strong></h3><p>XPath是一门在 XML 文档中查找信息的语言，XPath可用来在 XML 文档中对元素和属性进行遍历。<br>而且Xpath并不仅仅应用于XML数据查询，其在很多语言中（PHP、Java、.NET以及Javascript），都可以广泛使用。<br>使用Xpath定义路径表达式 可以按需查找节点 并返回集合形式。<br>1.使用/设置绝对路径的表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$path=&quot;/info/person/name&quot;;</div><div class="line">$rs=$obj-&gt;xpath($path);</div></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">array (size=3)</div><div class="line">  0 =&gt; </div><div class="line">    object(SimpleXMLElement)[2]</div><div class="line">      public 0 =&gt; string &apos;李白&apos; (length=6)</div><div class="line">  1 =&gt; </div><div class="line">    object(SimpleXMLElement)[3]</div><div class="line">      public 0 =&gt; string &apos;杜甫&apos; (length=6)</div><div class="line">  2 =&gt; </div><div class="line">    object(SimpleXMLElement)[4]</div><div class="line">      public 0 =&gt; string &apos;李清照&apos; (length=9)</div></pre></td></tr></table></figure></p>
+<p>要写根节点</p>
+<p>2.使用//全局查找 不考虑位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path=&quot;//name&quot;;</div><div class="line">$rs=$obj-&gt;xpath($path);</div><div class="line">var_dump($rs)</div></pre></td></tr></table></figure></p>
+<p>结果同上</p>
+<p>3.使用..选取父节点<code>$path=&quot;//name/..&quot;;</code>选取name节点的父节点，也就是person</p>
+<p>4.使用[]过滤节点，从1开始</p>
+<p>5.使用@过滤属性<code>$path=&quot;//person[@id=&#39;1&#39;]&quot;;</code></p>
+<h3 id="4-5增删改"><a href="#4-5增删改" class="headerlink" title="4.5增删改"></a><strong>4.5增删改</strong></h3><p>保存修改：saveXML(路径)<br>1.addChild()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$obj-&gt;addChild(&quot;person&quot;,&apos;content&apos;);</div><div class="line">$obj-&gt;saveXml(&apos;xml.xml&apos;);</div></pre></td></tr></table></figure></p>
+<p>向已有节点中添加元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$person=$obj-&gt;xpath(&quot;//person&quot;);</div><div class="line">$person[0]-&gt;addChild(&quot;content&quot;,&apos;111&apos;);</div><div class="line">$obj-&gt;saveXml(&apos;xml.xml&apos;);</div></pre></td></tr></table></figure></p>
+<p>2.unset()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unset($obj-&gt;person[3]);</div><div class="line">$obj-&gt;saveXml(&apos;xml.xml&apos;);</div></pre></td></tr></table></figure></p>
+<p>3.直接查找后=修改即可</p>
+<p>附加：xml对象可以通过foreach遍历</p>
+<h2 id="5-应用"><a href="#5-应用" class="headerlink" title="5.应用"></a><strong>5.应用</strong></h2><p>1.视频播放。<br>通常在网页播放视频时，因为视频的文件往往比较大需要较大的服务器空间，同时维护起来也很麻烦 ，就上传到外部服务器中，通过调用第三方平台的接口来获取地址信息，在自己的网站中显示该视频。<br>2.RSS订阅。<br>提炼出网页的主体内容（xml结构文件）推送给客户 这个称为“RSS订阅”，RSS文件是网页内容的提炼，也可以用在不同网站之间实现信息共享，需要有标准化的标签语义。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+            <a href="/tags/XML/" rel="tag"># XML</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/29/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-XML的使用"><span class="nav-text">2.XML的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1XML标签的语法组成"><span class="nav-text">2.1XML标签的语法组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2XML的创建及语法"><span class="nav-text">2.2XML的创建及语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-XML的用途"><span class="nav-text">3.XML的用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-PHP解析XML"><span class="nav-text">4.PHP解析XML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1SimpleXMLElement"><span class="nav-text">4.1SimpleXMLElement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2simplexml-load-string"><span class="nav-text">4.2simplexml_load_string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3simplexml-load-file"><span class="nav-text">4.3simplexml_load_file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4Xpath"><span class="nav-text">4.4Xpath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5增删改"><span class="nav-text">4.5增删改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-应用"><span class="nav-text">5.应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
