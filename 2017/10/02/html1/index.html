@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,html," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.简介Html（hypertext mark-up language）超文本标记（标签）语言。超文本：在文本的基础上添加了更加丰富的信息（图片 动画 视频 音乐）标记 ： 标志，一个符号标记的写法 皆有 &amp;lt; 标记  &amp;gt;标签有两层含义：表型 表意 语言 : 直接被浏览器解析  2.标签介绍和常用一些标签2.1语法HTML标签的语法，大致分两类：双标签：开始标签和结束标签构成 ，内容的开">
+<meta name="keywords" content="前端,html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html1">
+<meta property="og:url" content="http://yoursite.com/2017/10/02/html1/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.简介Html（hypertext mark-up language）超文本标记（标签）语言。超文本：在文本的基础上添加了更加丰富的信息（图片 动画 视频 音乐）标记 ： 标志，一个符号标记的写法 皆有 &amp;lt; 标记  &amp;gt;标签有两层含义：表型 表意 语言 : 直接被浏览器解析  2.标签介绍和常用一些标签2.1语法HTML标签的语法，大致分两类：双标签：开始标签和结束标签构成 ，内容的开">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-02T10:07:59.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html1">
+<meta name="twitter:description" content="1.简介Html（hypertext mark-up language）超文本标记（标签）语言。超文本：在文本的基础上添加了更加丰富的信息（图片 动画 视频 音乐）标记 ： 标志，一个符号标记的写法 皆有 &amp;lt; 标记  &amp;gt;标签有两层含义：表型 表意 语言 : 直接被浏览器解析  2.标签介绍和常用一些标签2.1语法HTML标签的语法，大致分两类：双标签：开始标签和结束标签构成 ，内容的开">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/02/html1/"/>
+
+
+
+
+
+  <title>html1 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/html1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">html1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-02T12:44:16+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>Html（hypertext mark-up language）超文本标记（标签）语言。<br>超文本：在文本的基础上添加了更加丰富的信息（图片 动画 视频 音乐）<br>标记 ： 标志，一个符号<br>标记的写法 皆有 &lt; 标记  &gt;<br>标签有两层含义：表型 表意 <b></b><br>语言 : 直接被浏览器解析 </p>
+<h2 id="2-标签介绍和常用一些标签"><a href="#2-标签介绍和常用一些标签" class="headerlink" title="2.标签介绍和常用一些标签"></a>2.标签介绍和常用一些标签</h2><h3 id="2-1语法"><a href="#2-1语法" class="headerlink" title="2.1语法"></a>2.1语法</h3><p>HTML标签的语法，大致分两类：<br>双标签：开始标签和结束标签构成 ，内容的开始和结束标签之间<br>单标签：只有开始标签，结束用在开始标签的末尾加  / 符号</p>
+<h3 id="2-2主体标签"><a href="#2-2主体标签" class="headerlink" title="2.2主体标签"></a>2.2主体标签</h3><p>html head title body<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>html告诉浏览器如何解析网页的内容<br>head告诉浏览器网页的汉字设置什么样的字符集，如果使用字符集不正确，出现乱码，gb_2312简体中文，utf-8多国语言，在汉字操作 ，默认的字符集是gb_2312<br>title  优化<br>body 99% 写在该body中</p>
+<h3 id="2-3字体标签"><a href="#2-3字体标签" class="headerlink" title="2.3字体标签"></a>2.3字体标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">1.	&lt;font&gt;</div><div class="line">	color 文本的颜色</div><div class="line">	size =”大小”</div><div class="line">	face=”字体”</div><div class="line">	建议使用css</div><div class="line">	&lt;font color=&quot;red&quot; size=&quot;20px&quot; face=&quot;宋体&quot;&gt;字体font&lt;/font&gt;</div><div class="line">2.	&lt;b&gt;加粗&lt;/b&gt;</div><div class="line">	&lt;strong&gt;建议使用&lt;/strong&gt;</div><div class="line">3.	&lt;i&gt;斜体&lt;/i&gt;</div><div class="line">	&lt;em&gt;建议使用&lt;/em&gt;</div><div class="line">4.	&lt;u&gt;下划线&lt;/u&gt;				</div><div class="line">5.	&lt;sup&gt;上标&lt;/sup&gt;		</div><div class="line">6.	&lt;sub&gt;下标&lt;/sub&gt;			</div><div class="line">7.	&lt;big&gt;大一号&lt;/big&gt;			</div><div class="line">8.	&lt;small&gt;小一号&lt;/small&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-4排版标签"><a href="#2-4排版标签" class="headerlink" title="2.4排版标签"></a>2.4排版标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1.	&lt;p&gt;段落 </div><div class="line">	属性：align=”left  // center  //right”  </div><div class="line">2.	&lt;br /&gt; 换行 单标签  </div><div class="line">3.	&lt;hr /&gt; 水平线 </div><div class="line">	属性：</div><div class="line">	color =”颜色值 ” 『只适用于IE』</div><div class="line">	size 粗细</div><div class="line">	width 宽度  width=”70%”  width=”600”固定 </div><div class="line">	align=“left//center//right”</div><div class="line">	noshade 去掉阴影</div><div class="line">4.	&lt;pre&gt; html使用的不多，PHP里面使用的多，把内容在浏览器中原样输出 空	格和换行</div><div class="line">5.	&lt;h1&gt;...&lt;h6&gt; 六级标题</div><div class="line">6.	&lt;div&gt; 上网站上使用的最多的标签之一，本身没有意义，自己独占一行，结合css样式构成功能div+css</div><div class="line">7.	&lt;span&gt; 网上用的最多的标签之一，本身没有意义，不是自己独占一行，结合css样式构成功能</div></pre></td></tr></table></figure>
+<h3 id="2-5XHTML标签的书写规则"><a href="#2-5XHTML标签的书写规则" class="headerlink" title="2.5XHTML标签的书写规则"></a>2.5XHTML标签的书写规则</h3><ul>
+<li>Html标记不区分大小写,w3c规定使用小写 </li>
+<li>标记可以拥有若干个属性(包括0个)，是由w3c标准制定的</li>
+<li>属性值用双引号引起 “ ” </li>
+<li>单标记 一定要闭合，单标签一般没有内容 <br></li>
+<li>双标记的内容放到开始标记和结束标记之间 </li>
+<li>html的标记可以相互嵌套，但是一定要注意是顺序嵌套，不能交叉嵌套</li>
+</ul>
+<h3 id="2-6超链接"><a href="#2-6超链接" class="headerlink" title="2.6超链接"></a>2.6超链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a &gt;链接的内容&lt;/a&gt;</div><div class="line">属性：</div><div class="line">href =”链接的地址”</div><div class="line">target=”_blank”  新的窗口打开目标文件</div><div class="line">target=”_self” 默认的打开方式，在原来的窗口打开（原有的窗口覆盖）</div><div class="line">name 链接的名称</div><div class="line">title 说明（鼠标放上时显示）</div></pre></td></tr></table></figure>
+<ol>
+<li>绝对地址：完整地址</li>
+<li>相对地址：从自身地址出发，./ 表示当前目录，../ 表示上级目录，</li>
+<li>特殊链接<br>1.下载链接：浏览器打不开的就会下载<br>2.邮件链接    <code>&lt;a href=”mailto:邮箱的地址”&gt;邮箱&lt;/a&gt;</code><br>3.空链接：#<br>4.js链接：javascript:void(0)</li>
+<li>锚点链接    <code>&lt;a name=”top”&gt;&lt;/a&gt;      &lt;a href=”#top” &gt;跳转&lt;/a&gt;</code></li>
+</ol>
+<h3 id="2-7图像标签"><a href="#2-7图像标签" class="headerlink" title="2.7图像标签"></a>2.7图像标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;img&gt;</div><div class="line">属性：</div><div class="line">src =“图片的路径”</div><div class="line">width=”宽度”</div><div class="line">height=”高度值”</div><div class="line">alt=“说明”  图片不存在时显示，也用于搜索引擎</div></pre></td></tr></table></figure>
+<h3 id="2-8列表标签"><a href="#2-8列表标签" class="headerlink" title="2.8列表标签"></a>2.8列表标签</h3><ol>
+<li><p>无序列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">属性：</div><div class="line">type</div></pre></td></tr></table></figure>
+</li>
+<li><p>有序列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">   &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div><div class="line">属性：</div><div class="line">type</div><div class="line">start</div></pre></td></tr></table></figure>
+</li>
+<li><p>自定义列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;dl&gt;</div><div class="line">  &lt;dt&gt;标题1&lt;/dt&gt;</div><div class="line">  &lt;dd&gt;内容&lt;/dd&gt;</div><div class="line">  &lt;dt&gt;标题2&lt;/dt&gt;</div><div class="line">  &lt;dd&gt;内容&lt;/dd&gt;</div><div class="line">&lt;/dl&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2-9表格"><a href="#2-9表格" class="headerlink" title="2.9表格"></a>2.9表格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">     &lt;th&gt;内容&lt;/th&gt;</div><div class="line">     &lt;th&gt;内容&lt;/th&gt;</div><div class="line">     &lt;th&gt;内容&lt;/th&gt;</div><div class="line">&lt;/tr&gt;</div><div class="line">  &lt;tr&gt;</div><div class="line">     &lt;td&gt;内容&lt;/td&gt;</div><div class="line">     &lt;td&gt;内容&lt;/td&gt;</div><div class="line">     &lt;td&gt;内容&lt;/td&gt;</div><div class="line">&lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+<p>talbe属性：<br>表格的边框border=”数值”  默认是0<br>表格的边框颜色 bordercolor=”颜色值”<br>表格的宽度 width=”数值”<br>表格水平对齐方式 align=”left/center/right”<br>表格背景色bgcolor=”颜色”<br>表格的背景图片  background=”图片的地址”<br>单元格边框和内容之间的距离  cellpadding=”数值” 默认是2<br>单元格和单元格之间的距离 cellspacing=”数值” 默认是2<br>合并单元格边框线rules=”all” 细线  css来设置</p>
+<p>tr属性：<br>行的高度  height=”数值”<br>行的背景色 bgcolor=”颜色值”<br>行的背景图片 background=”图片的地址”<br>行水平居中 align=”left//center//right”  左中 右<br>行的垂直居中 valign=”top//center//bottom” 上  中  下 </p>
+<p>td属性<br>单元格的宽度width=”数值”<br>单元格的高度 height=”高度值”<br>单元格的背景色 bgcolor=”颜色值”<br>单元格的背景图片 background=”图片的地址”<br>单元格左右合并 colspan=”合并的单元格数”<br>单元格上下合并 rowspan=”合并的单元格数”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/01/ajax2/" rel="next" title="ajax2">
+                <i class="fa fa-chevron-left"></i> ajax2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/02/html2/" rel="prev" title="html2">
+                html2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-标签介绍和常用一些标签"><span class="nav-text">2.标签介绍和常用一些标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1语法"><span class="nav-text">2.1语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2主体标签"><span class="nav-text">2.2主体标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3字体标签"><span class="nav-text">2.3字体标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4排版标签"><span class="nav-text">2.4排版标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5XHTML标签的书写规则"><span class="nav-text">2.5XHTML标签的书写规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6超链接"><span class="nav-text">2.6超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7图像标签"><span class="nav-text">2.7图像标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8列表标签"><span class="nav-text">2.8列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9表格"><span class="nav-text">2.9表格</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
