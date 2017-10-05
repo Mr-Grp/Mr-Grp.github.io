@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog,javascript,前端,jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.引入&amp;lt;script src=&amp;quot;jquery-3.2.1.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;最先引入 解决冲突的办法1234var $s=jQuery.noConflict();$s(function()&amp;#123;	alert(1)&amp;#125;) 这样可以使用$s代替$ 2.选择器2.1 基本选择器$(“#ID”) =&amp;gt;">
+<meta name="keywords" content="blog,javascript,前端,jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery基础">
+<meta property="og:url" content="http://yoursite.com/2017/10/05/jQuery/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.引入&amp;lt;script src=&amp;quot;jquery-3.2.1.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;最先引入 解决冲突的办法1234var $s=jQuery.noConflict();$s(function()&amp;#123;	alert(1)&amp;#125;) 这样可以使用$s代替$ 2.选择器2.1 基本选择器$(“#ID”) =&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-05T08:07:56.892Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery基础">
+<meta name="twitter:description" content="1.引入&amp;lt;script src=&amp;quot;jquery-3.2.1.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;最先引入 解决冲突的办法1234var $s=jQuery.noConflict();$s(function()&amp;#123;	alert(1)&amp;#125;) 这样可以使用$s代替$ 2.选择器2.1 基本选择器$(“#ID”) =&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/05/jQuery/"/>
+
+
+
+
+
+  <title>jQuery基础 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/jQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T14:39:55+08:00">
+                2017-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入"></a>1.引入</h2><p><code>&lt;script src=&quot;jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;</code><br>最先引入</p>
+<h3 id="解决冲突的办法"><a href="#解决冲突的办法" class="headerlink" title="解决冲突的办法"></a>解决冲突的办法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var $s=jQuery.noConflict();</div><div class="line">$s(function()&#123;</div><div class="line">	alert(1)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这样可以使用$s代替$</p>
+<h2 id="2-选择器"><a href="#2-选择器" class="headerlink" title="2.选择器"></a>2.选择器</h2><h3 id="2-1-基本选择器"><a href="#2-1-基本选择器" class="headerlink" title="2.1 基本选择器"></a>2.1 基本选择器</h3><p>$(“#ID”) =&gt;             document.getElementById()<br>$(“TagName”) =&gt;      document.getElementsByTagName();<br>$(“Name”) =&gt;            document.getElementsByName();<br>$(“.ClassName”)    =&gt;    document.getElementsByClassName();     </p>
+<h3 id="2-2-层次选择器"><a href="#2-2-层次选择器" class="headerlink" title="2.2 层次选择器"></a>2.2 层次选择器</h3><p>$(“div span”)        后代选择器        选择div的后代span<br>$(“div &gt; span”)        子元素选择器    选择作为div子节点的span<br>$(“div + div”)        相邻兄弟选择器    选择div的相邻兄弟div<br>$(“p , span”)        并列选择器        选择p和span元素</p>
+<h3 id="2-3过滤选择器"><a href="#2-3过滤选择器" class="headerlink" title="2.3过滤选择器"></a>2.3过滤选择器</h3><p>:first            $(“ul li:first”)                选中ul中第一个li<br>:last            $(“ul li:last”)                选中ul中最后一个li<br>:eq            $(“ul li:eq(1)”)                定位ul中第二个li<br>:even        $(“ul li:even”)                定位下标为偶数的li<br>:odd            $(“ul li:odd”)                定位下标是奇数行<br>:not            $(“ul li:not(‘.no’)”)            过滤出类名不为no的li<br>:contains        $(“ul li:contains(‘txt’)”)        过滤出内容中包含txt的li<br>:empty        $(“ul li:empty”)            找出空的li</p>
+<p>使用jquery选择器 获取到的dom一般都是集合 可以通过数字下标取某一个 可以通过length查个数。</p>
+<h3 id="2-4-属性选择器"><a href="#2-4-属性选择器" class="headerlink" title="2.4 属性选择器"></a>2.4 属性选择器</h3><p>[name]<br>获取所有含有name属性的节点<br>[name=value]<br>所有name属性等于value的节点<br>[name^=value]<br>所有name属性值以value开头的节点<br>[name$=value]<br>所有name属性值以value结尾的节点<br>[name*=value]<br>所有name属性包含value值的节点</p>
+<h3 id="2-5-jQ-dom和-js-dom互换"><a href="#2-5-jQ-dom和-js-dom互换" class="headerlink" title="2.5 jQ dom和 js dom互换"></a>2.5 jQ dom和 js dom互换</h3><p>JQ获取的是经过包装（jquery处理）后的对象，不能使用js DOM的方法去操作，同样js DOM 也不能调用jquery中的方法。</p>
+<p>1.使用[]或者get方法，将jq dom转化成 js dom</p>
+<p>2.使用$()方法，将js dom转化成jq dom</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; name=&quot;&quot; value=&quot;a&quot; id=&quot;a&quot;&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	console.log( $(document.getElementById(&apos;a&apos;)).val() )</div><div class="line">	console.log($(&quot;#a&quot;)[0].value )</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-6链式操作"><a href="#2-6链式操作" class="headerlink" title="2.6链式操作"></a>2.6链式操作</h3><p>$(“ul li”).first()                获取ul 后代li中的第一个<br>$(“ul li”).last()                获取ul 后代li中的最后一个<br>$(“ul li”).eq(1)                定位ul 后代li中第二个<br>$(“ul li”).not($(“#first”))        获取所有id不为first的li<br>$(“div”).contents();            获取div的所有子节点（包括文本节点）<br>$(“div”).find(“span”);        查找div后代中的span标签<br>$(“ul”).has($(“.menu”))        选中有某个后代元素的元素<br>$(“ul li”).hasClass(“menu”)    判断选中元素中是否有某个类名，布尔</p>
+<h3 id="2-7-表单"><a href="#2-7-表单" class="headerlink" title="2.7 表单"></a>2.7 表单</h3><p>1.复选框、单选按钮、下拉列表<br>$(:checked)    复选框、单选按钮 选中选择器<br>$(:selected) 下拉列表 选中选择器<br>$(input:radio)    所有的单选框<br>$(input:checkbox)    所有的多选框</p>
+<p>$().attr(‘checked’,true);<br>$().attr(‘checked’,false);        </p>
+<h2 id="3-JQ属性访问"><a href="#3-JQ属性访问" class="headerlink" title="3. JQ属性访问"></a>3. JQ属性访问</h2><h3 id="2-1-attr"><a href="#2-1-attr" class="headerlink" title="2.1 attr"></a>2.1 attr</h3><p>$dom.attr(“属性名”)<br>读取属性值  如果$dom的集合中 包含有多个dom节点 那么返回第一个节点的属性值</p>
+<p>$dom.attr(“属性名”, “属性值”)<br>设置属性值，如果$dom集合中包含多个元素 那么会统一给他们都设置该属性</p>
+<p>$dom.attr({“属性1”: “值1”， “属性2”:”值2”});<br>同时设置多个属性，给所有选中的节点 同时设置多个属性</p>
+<p>$dom.attr(“属性名”, function (索引, 原值) {}) </p>
+<p>prop(属性)：返回值只有true和fasle,其他基本一样</p>
+<h3 id="2-2-val"><a href="#2-2-val" class="headerlink" title="2.2 val"></a>2.2 val</h3><p>val方法 就是对attr的再封装 就是 $dom.attr(“value”)</p>
+<p>$dom.val()<br>读取该属性</p>
+<p>$dom.val(“属性值”)<br>设置属性值</p>
+<p>$dom.val(function (idx, val) {})<br>使用匿名函数设置vlaue属性值</p>
+<p>$dom.val([“值1”, “值2”]);<br>同时设置多个选中项 它支持checkbox多选框和select下拉框<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;multiple&quot; multiple=&quot;multiple&quot;&gt;</div><div class="line">  &lt;option&gt;Multiple&lt;/option&gt;</div><div class="line">  &lt;option&gt;Multiple2&lt;/option&gt;</div><div class="line">  &lt;option&gt;Multiple3&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p><code>$(&quot;#multiple&quot;).val([&quot;Multiple2&quot;, &quot;Multiple3&quot;]);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; value=&quot;check1&quot;/&gt; check1</div><div class="line">&lt;input type=&quot;checkbox&quot; value=&quot;check2&quot;/&gt; check2</div><div class="line">&lt;input type=&quot;radio&quot; value=&quot;radio1&quot;/&gt; radio1</div><div class="line">&lt;input type=&quot;radio&quot; value=&quot;radio2&quot;/&gt; radio2</div></pre></td></tr></table></figure>
+<p><code>$(&quot;input&quot;).val([&quot;check2&quot;, &quot;radio1&quot;]);</code></p>
+<h3 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h3><p>$dom.html()<br>获取元素节点的内容（包含html内容）<br>$dom.text()<br>获取元素节点的文本信息（去除了html标签）<br>$dom.html(“值”)<br>重置节点的内容<br>$dom.html(function (idx, html) {})</p>
+<h3 id="2-4-css"><a href="#2-4-css" class="headerlink" title="2.4 css"></a>2.4 css</h3><p>$dom.css(“样式”)<br>读取一个的样式<br>$dom.css(“样式”, “值”)<br>设置一个样式 样式的写法 既可以是驼峰 也可以是css写法<br>$dom.css({样式1:”值1”, 样式2:”值2”})<br>同时设置多个样式<br>$dom.css(“样式”， function () {})<br>函数参数设置值</p>
+<h3 id="2-5-绑定类"><a href="#2-5-绑定类" class="headerlink" title="2.5 绑定类"></a>2.5 绑定类</h3><p>$dom.addClass()<br>给元素绑定样式</p>
+<p>$dom.removeClass()<br>给元素移除样式</p>
+<h2 id="3-遍历方法"><a href="#3-遍历方法" class="headerlink" title="3.遍历方法"></a>3.遍历方法</h2><p>$.each(arr/obj, function (key, val) {})</p>
+<p>$(选择器).each(function (key, ele) {})</p>
+<h2 id="4-DOM节点操作"><a href="#4-DOM节点操作" class="headerlink" title="4.DOM节点操作"></a>4.DOM节点操作</h2><h3 id="4-1-添加节点"><a href="#4-1-添加节点" class="headerlink" title="4.1 添加节点"></a>4.1 添加节点</h3><p>$parentNode.append($node)<br>在父节点的最后位置  追加一个子节点 相当于JS中 </p>
+<p>parentNode.appendChild(node)<br>$node.appendTo($parentNode)<br>将node节点追加到parentNode中</p>
+<p>$parentNode.prepend($node)<br>$node.prependTo($parentNode)<br>在父节点的最前面追加子节点</p>
+<p>$node.after()<br><code>$(&quot;ul li&quot;).last().after(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code></p>
+<p>$node.before()<br><code>$(&quot;ul li&quot;).first().before(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code></p>
+<p>$mode.remove()<br>删除选中的节点</p>
+<h3 id="4-2-节点替换"><a href="#4-2-节点替换" class="headerlink" title="4.2 节点替换"></a>4.2 节点替换</h3><p>$new.replaceAll($old)    新节点替换旧的节点<br>$node1.replaceWith($node2)</p>
+<h3 id="4-3-删除节点"><a href="#4-3-删除节点" class="headerlink" title="4.3 删除节点"></a>4.3 删除节点</h3><p>$parentNode.empty();    节点清空子节点<br>parentNode.removeChild(node);<br>$node.remove()        </p>
+<h3 id="4-4-克隆节点"><a href="#4-4-克隆节点" class="headerlink" title="4.4 克隆节点"></a>4.4 克隆节点</h3><p>$node.clone(true)  节点和其身上的事件都给复制（jq事件）<br>$node.clone(false)  只给复制节点，本身(包括节点内部信息) </p>
+<h2 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="5.事件绑定"></a>5.事件绑定</h2><p>.事件（去掉on）<br>.on(事件，函数)<br>JQ 支持同时绑定多个事件处理程序<br>JQ的事件不需要循环，可给所有的元素绑定<br>JQ 事件 执行早于传统的事件绑定</p>
+<h2 id="6-Ajax"><a href="#6-Ajax" class="headerlink" title="6. Ajax"></a>6. Ajax</h2><p>$.ajax({<br>type :         请求类型<br>url :            请求地址<br>async:        是否异步<br>data:        请求参数    url组装好的格式或者{}json形式<br>success:        fn    成功时的处理<br>error:        fn    失败时的处理<br>dataType:        返回值的类型 用于解析数据的<br>})</p>
+<p>$.get(url,success, dataType);<br>$.post(url, data, success, dataType);</p>
+<p>使用jquery的ajax方法执行jsonp请求<br>$.ajax({<br>type : “get”,<br>async : true,<br>url : “index.php”,<br>dataType: “jsonp”,<br>jsonp: “callback”         在index.php中使用$_GET[‘callback’]来获取回调函数名<br>success: function (result) {<br>},<br>});</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/04/js特效1/" rel="next" title="js特效（焦点图）">
+                <i class="fa fa-chevron-left"></i> js特效（焦点图）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-引入"><span class="nav-text">1.引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突的办法"><span class="nav-text">解决冲突的办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-选择器"><span class="nav-text">2.选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-基本选择器"><span class="nav-text">2.1 基本选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-层次选择器"><span class="nav-text">2.2 层次选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3过滤选择器"><span class="nav-text">2.3过滤选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-属性选择器"><span class="nav-text">2.4 属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-jQ-dom和-js-dom互换"><span class="nav-text">2.5 jQ dom和 js dom互换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6链式操作"><span class="nav-text">2.6链式操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-表单"><span class="nav-text">2.7 表单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-JQ属性访问"><span class="nav-text">3. JQ属性访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-attr"><span class="nav-text">2.1 attr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-val"><span class="nav-text">2.2 val</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3"><span class="nav-text">2.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-css"><span class="nav-text">2.4 css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-绑定类"><span class="nav-text">2.5 绑定类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-遍历方法"><span class="nav-text">3.遍历方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-DOM节点操作"><span class="nav-text">4.DOM节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-添加节点"><span class="nav-text">4.1 添加节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-节点替换"><span class="nav-text">4.2 节点替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-删除节点"><span class="nav-text">4.3 删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-克隆节点"><span class="nav-text">4.4 克隆节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-事件绑定"><span class="nav-text">5.事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Ajax"><span class="nav-text">6. Ajax</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
