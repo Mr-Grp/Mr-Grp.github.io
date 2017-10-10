@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="Mr-Grp">
 <meta property="og:description" content="1.HTML常用标签1.1框架标签 框架集 : frameset框架集的属性HTML 文档可包含 FRAMESET 元素或 BODY 元素之一，而不能同时包含两者。cols  左右划分cols=”200,” 左边的是200px,剩下的给右边cols=”,200” 右边是200px, 剩下的给左边cols=”200,200,*” 最左边的是200px,中间200px.剩下的给右边rows  上下划分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-03T06:54:49.784Z">
+<meta property="og:updated_time" content="2017-10-09T06:03:43.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html2">
 <meta name="twitter:description" content="1.HTML常用标签1.1框架标签 框架集 : frameset框架集的属性HTML 文档可包含 FRAMESET 元素或 BODY 元素之一，而不能同时包含两者。cols  左右划分cols=”200,” 左边的是200px,剩下的给右边cols=”,200” 右边是200px, 剩下的给左边cols=”200,200,*” 最左边的是200px,中间200px.剩下的给右边rows  上下划分">
@@ -361,17 +361,20 @@
 <p>5.文件域 file<br>只读的,鼠标去选择某个文件<br>常用属性:<br>name   文件域名</p>
 <p>6.隐藏域  hidden<br><code>&lt;input type=”hidden” name=”名称”&gt;</code><br>常用属性<br>name<br>注意: 给程序员用的  </p>
 <p>7.多行文本框<br><code>&lt;textarea&gt; &lt;/textarea&gt;</code><br>常用的属性<br>cols   一行显示多少个字符<br>rows   行数 显示多少行<br>name 名称</p>
-<p>8.下拉列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;select  name=””&gt;</div><div class="line">&lt;option&gt;红色&lt;/option&gt;</div><div class="line">&lt;option&gt;绿色&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
-<p>常用的属性name<br>selected</p>
+<p>8.下拉列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select  name=””&gt;</div><div class="line">&lt;optgroup label=&apos;颜色&apos;/&gt;</div><div class="line">&lt;option&gt;红色&lt;/option&gt;</div><div class="line">&lt;option&gt;绿色&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>常用的属性name<br>selected<br>mutiple</p>
 <p>9.提交按钮<br><code>&lt;input type=”submit” value=”提交” /&gt;</code></p>
 <p>10.重置按钮<br><code>&lt;input type=”reset” value=”重写” /&gt;</code></p>
 <p>11.普通按钮<br><code>&lt;input type=”button” value=”修改” /&gt;</code></p>
+<p>12.图片按钮，可以提交表单<br><code>&lt;input type=&quot;image&quot; src=&quot;1.jpg&quot;&gt;</code></p>
+<p>13.表单分组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;fieldset&gt;</div><div class="line">	&lt;legend&gt;111&lt;/legend&gt;</div><div class="line">	content</div><div class="line">&lt;/fieldset&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="1-4标签的通用属性"><a href="#1-4标签的通用属性" class="headerlink" title="1.4标签的通用属性"></a>1.4标签的通用属性</h3><p>body的属性<br>background=”背景图片”<br>bgcolor=”背景颜色”<br>text=”文本的颜色 ”</p>
 <h2 id="2-字符编码"><a href="#2-字符编码" class="headerlink" title="2.字符编码"></a>2.字符编码</h2><p>1.gb_2312   gbk  国内的网站<br>2.utf-8  多国语言<br>3.ASCII编码：用1个字节(8位二进制)来表示所有字符，共可以表示 2^8 = 256 。</p>
 <p>ANSI编码：其它国家，都对ASCII编码进行扩展，用于显示本国的语言。<br>ANSI在中文操作系统下，代表gb2312<br>ANSI在繁体操作系统下，代表big5<br>ANSI在日文操作系统下，代表JIS<br>……  </p>
 <p>用2个字节(16位二进制)(来表示，共可以表示 2^16 = 65536个字符。</p>
 <p>1.GB2312中共收录了6763个汉字。<br>2.GBK编码：对GB2312进行扩充，收录了一些冷门字、罕见字、古汉语等。共收录2.1万个汉字。<br>3.Unicode编码：计划将世界上所有字符统一编码，用4个字节(32位二进制)来表示一个字符。<br>它的缺点：编码表文件太大了，不方便使用。用32位二进制表示一个字符，造成空间极大浪费。<br>4.UTF-8： (多国语言编码)<br>不同的字符，它会选择合适编码来进行翻译。</p>
-<h2 id="3-Html5新特性与常用标签"><a href="#3-Html5新特性与常用标签" class="headerlink" title="3.Html5新特性与常用标签"></a>3.Html5新特性与常用标签</h2><h3 id="3-1文档类型设定"><a href="#3-1文档类型设定" class="headerlink" title="3.1文档类型设定"></a>3.1文档类型设定</h3><p>1.xhtml （html4.0）文档类型的设置 </p>
+<h2 id="3-header中的一些标签"><a href="#3-header中的一些标签" class="headerlink" title="3.header中的一些标签"></a>3.header中的一些标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;</div><div class="line">&lt;meta name=&apos;description&apos; content=&quot;&quot;&gt;</div><div class="line">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;number;url&quot;&gt;</div><div class="line">&lt;link rel=&apos;icon&apos; href=&quot;&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot;&gt;</div></pre></td></tr></table></figure>
+<h2 id="4-Html5新特性与常用标签"><a href="#4-Html5新特性与常用标签" class="headerlink" title="4.Html5新特性与常用标签"></a>4.Html5新特性与常用标签</h2><h3 id="4-1文档类型设定"><a href="#4-1文档类型设定" class="headerlink" title="4.1文档类型设定"></a>4.1文档类型设定</h3><p>1.xhtml （html4.0）文档类型的设置 </p>
 <ul>
 <li><p>过渡型 –宽松型(最常用)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">允许使用表现的标签 &lt;font &gt;  &lt;b&gt;  &lt;em&gt;  &lt;i&gt; 允许使用 表现型属性能使用 &lt;table border=”” bgcolor=””</div><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
@@ -385,13 +388,13 @@
 </ul>
 <p>2.html5文档类型的设置<br><code>&lt;!DOCTYPE html&gt;</code></p>
 <p>3.html5和xhtml之间的区别<br>html5 只有一个<br>xhtml三个  过渡型  框架型 严格型</p>
-<h3 id="3-2字符设定"><a href="#3-2字符设定" class="headerlink" title="3.2字符设定"></a>3.2字符设定</h3><p>1.html5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta charset=”UTF-8” &gt;&lt;/meta&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="4-2字符设定"><a href="#4-2字符设定" class="headerlink" title="4.2字符设定"></a>4.2字符设定</h3><p>1.html5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta charset=”UTF-8” &gt;&lt;/meta&gt;</div></pre></td></tr></table></figure></p>
 <p>html5可以省略主体标签，浏览器会自动补全<br>2.xhtml</p>
 <p><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;</code></p>
-<h3 id="3-3常用新标签"><a href="#3-3常用新标签" class="headerlink" title="3.3常用新标签"></a>3.3常用新标签</h3><p>header   网站的头部<br>nav  网站的导航<br>section  主体内容<br>article  文章<br>aside  侧边栏<br>footer  版权</p>
-<h3 id="3-4表单的新增的三个"><a href="#3-4表单的新增的三个" class="headerlink" title="3.4表单的新增的三个"></a>3.4表单的新增的三个</h3><p>required 必填项<br>autofocus<br>placeholder</p>
-<h3 id="3-5新增的type属性"><a href="#3-5新增的type属性" class="headerlink" title="3.5新增的type属性"></a>3.5新增的type属性</h3><p>html5的写法<br>email  限制用户输入的是邮箱类型<br>url    限制用户输入的是url类型<br>date  限制用户输入的是日期类型<br>Week  限制用户输入的是周类型<br>time  限制用户输入的是时间类型<br>month 限制用户输入的是月类型<br>Number 限制用户输入的是数字类型<br>Search 搜索<br>tel   限制用户输入的是电话类型<br>color 颜色<br>range 一个滑块程序</p>
-<h3 id="3-6多媒体标签"><a href="#3-6多媒体标签" class="headerlink" title="3.6多媒体标签"></a>3.6多媒体标签</h3><p>1.video<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;video autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; src=&quot;&quot;&gt;&lt;/video&gt;</div><div class="line">&lt;video autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; &gt;</div><div class="line">	&lt;source src=&quot;&quot;/&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="4-3常用新标签"><a href="#4-3常用新标签" class="headerlink" title="4.3常用新标签"></a>4.3常用新标签</h3><p>header   网站的头部<br>nav  网站的导航<br>section  主体内容<br>article  文章<br>aside  侧边栏<br>footer  版权</p>
+<h3 id="4-4表单的新增的三个"><a href="#4-4表单的新增的三个" class="headerlink" title="4.4表单的新增的三个"></a>4.4表单的新增的三个</h3><p>required 必填项<br>autofocus<br>placeholder</p>
+<h3 id="4-5新增的type属性"><a href="#4-5新增的type属性" class="headerlink" title="4.5新增的type属性"></a>4.5新增的type属性</h3><p>html5的写法<br>email  限制用户输入的是邮箱类型<br>url    限制用户输入的是url类型<br>date  限制用户输入的是日期类型<br>Week  限制用户输入的是周类型<br>time  限制用户输入的是时间类型<br>month 限制用户输入的是月类型<br>Number 限制用户输入的是数字类型<br>Search 搜索<br>tel   限制用户输入的是电话类型<br>color 颜色<br>range 一个滑块程序</p>
+<h3 id="4-6多媒体标签"><a href="#4-6多媒体标签" class="headerlink" title="4.6多媒体标签"></a>4.6多媒体标签</h3><p>1.video<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;video autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; src=&quot;&quot;&gt;&lt;/video&gt;</div><div class="line">&lt;video autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; &gt;</div><div class="line">	&lt;source src=&quot;&quot;/&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure></p>
 <p>2.audio<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;audio autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; src=&quot;&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio autoplay=&quot;autoplay&quot; controls=&quot;controls&quot; &gt;</div><div class="line">	&lt;source src=&quot;&quot;/&gt;</div><div class="line">&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
 <p>3.embed<br><code>&lt;embed src=&quot;&quot; width=&quot;&quot; /&gt;</code></p>
 
@@ -436,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/02/css1/" rel="prev" title="css1">
-                css1 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/02/css1/" rel="prev" title="css基础1">
+                css基础1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,7 +521,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -529,7 +532,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -540,7 +543,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -577,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HTML常用标签"><span class="nav-text">1.HTML常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1框架标签"><span class="nav-text">1.1框架标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2表单标签"><span class="nav-text">1.2表单标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3表单项"><span class="nav-text">1.3表单项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4标签的通用属性"><span class="nav-text">1.4标签的通用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字符编码"><span class="nav-text">2.字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Html5新特性与常用标签"><span class="nav-text">3.Html5新特性与常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1文档类型设定"><span class="nav-text">3.1文档类型设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2字符设定"><span class="nav-text">3.2字符设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3常用新标签"><span class="nav-text">3.3常用新标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4表单的新增的三个"><span class="nav-text">3.4表单的新增的三个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5新增的type属性"><span class="nav-text">3.5新增的type属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6多媒体标签"><span class="nav-text">3.6多媒体标签</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HTML常用标签"><span class="nav-text">1.HTML常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1框架标签"><span class="nav-text">1.1框架标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2表单标签"><span class="nav-text">1.2表单标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3表单项"><span class="nav-text">1.3表单项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4标签的通用属性"><span class="nav-text">1.4标签的通用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字符编码"><span class="nav-text">2.字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-header中的一些标签"><span class="nav-text">3.header中的一些标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Html5新特性与常用标签"><span class="nav-text">4.Html5新特性与常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1文档类型设定"><span class="nav-text">4.1文档类型设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2字符设定"><span class="nav-text">4.2字符设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3常用新标签"><span class="nav-text">4.3常用新标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4表单的新增的三个"><span class="nav-text">4.4表单的新增的三个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5新增的type属性"><span class="nav-text">4.5新增的type属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6多媒体标签"><span class="nav-text">4.6多媒体标签</span></a></li></ol></li></ol></div>
             
 
           </div>
