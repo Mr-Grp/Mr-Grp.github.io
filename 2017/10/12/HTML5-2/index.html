@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.拖拽draggable=”true” 1.1拖拽元素ondragstart: 拖拽开始ondragend:拖拽结束ondragleave: 当鼠标拖拽离开 被拖拽元素时ondrag:　当拖拽时，持续触发 1.2 目标元素ondragenter:当被拖拽元素进入目标元素时ondragleave:当鼠标进入目标元素时ondragover: 当被拖拽元素在目标元素上时，持续触发需要e.prevent">
+<meta name="keywords" content="前端,HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML(2)">
+<meta property="og:url" content="http://yoursite.com/2017/10/12/HTML5-2/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.拖拽draggable=”true” 1.1拖拽元素ondragstart: 拖拽开始ondragend:拖拽结束ondragleave: 当鼠标拖拽离开 被拖拽元素时ondrag:　当拖拽时，持续触发 1.2 目标元素ondragenter:当被拖拽元素进入目标元素时ondragleave:当鼠标进入目标元素时ondragover: 当被拖拽元素在目标元素上时，持续触发需要e.prevent">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-12T09:02:24.204Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML(2)">
+<meta name="twitter:description" content="1.拖拽draggable=”true” 1.1拖拽元素ondragstart: 拖拽开始ondragend:拖拽结束ondragleave: 当鼠标拖拽离开 被拖拽元素时ondrag:　当拖拽时，持续触发 1.2 目标元素ondragenter:当被拖拽元素进入目标元素时ondragleave:当鼠标进入目标元素时ondragover: 当被拖拽元素在目标元素上时，持续触发需要e.prevent">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/12/HTML5-2/"/>
+
+
+
+
+
+  <title>HTML(2) | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/12/HTML5-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML(2)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-12T10:20:57+08:00">
+                2017-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-拖拽"><a href="#1-拖拽" class="headerlink" title="1.拖拽"></a>1.拖拽</h2><p>draggable=”true”</p>
+<h3 id="1-1拖拽元素"><a href="#1-1拖拽元素" class="headerlink" title="1.1拖拽元素"></a>1.1拖拽元素</h3><p>ondragstart: 拖拽开始<br>ondragend:拖拽结束<br>ondragleave: 当鼠标拖拽离开 被拖拽元素时<br>ondrag:　当拖拽时，持续触发</p>
+<h3 id="1-2-目标元素"><a href="#1-2-目标元素" class="headerlink" title="1.2 目标元素"></a>1.2 目标元素</h3><p>ondragenter:当被拖拽元素进入目标元素时<br>ondragleave:当鼠标进入目标元素时<br>ondragover: 当被拖拽元素在目标元素上时，持续触发<br>需要e.preventDefault(); 阻止拖拽的默认行为；<br>ondrop:当在目标元素上松开鼠标时触发；</p>
+<h2 id="2-地理位置"><a href="#2-地理位置" class="headerlink" title="2.地理位置"></a>2.地理位置</h2><p>在HTML规范中，增加了获取用户地理信息的API，这样使得我们可以基于用户位置开发互联网应用，即基于位置服务 (Location Base Service)</p>
+<p>navigator.getCurrentPosition(successCallback, errorCallback, options) 获取当前地理信息</p>
+<p>1、当成功获取地理信息后，会调用succssCallback，并返回一个包含位置信息的对象position.Coords(坐标)<br>position.coords.latitude纬度<br>position.coords.longitude经度</p>
+<p>2、当获取地理信息失败后，会调用errorCallback，并返回错误信息error</p>
+<p>3、可选参数 options 对象可以调整位置信息数据收集方式</p>
+<p>扩充：百度地图API，百度一下.<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">if(navigator.geolocation)&#123;</div><div class="line">            navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line">        &#125;else&#123;</div><div class="line">            console.log(&apos;sorry,你的浏览器不支持地理定位&apos;);</div><div class="line">        &#125;</div><div class="line">function successCallback(position)&#123;</div><div class="line">            var wd=position.coords.latitude;</div><div class="line">            var jd=position.coords.longitude;</div><div class="line">            console.log(&quot;获取用户位置成功！&quot;);</div><div class="line">            console.log(wd+&apos;-&apos;+jd);</div><div class="line">        &#125;</div><div class="line">        function errorCallback(error)&#123;</div><div class="line">            console.log(error);</div><div class="line">            console.log(&apos;获取用户位置失败！&apos;)</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-web存储"><a href="#3-web存储" class="headerlink" title="3.web存储"></a>3.web存储</h2><p>随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5规范则提出解决方案。</p>
+<h3 id="3-1-会话存储"><a href="#3-1-会话存储" class="headerlink" title="3.1 会话存储"></a>3.1 会话存储</h3><p>5MB<br>生命周期为关闭浏览器窗口<br>在同一个窗口下数据可以共享<br>window.sessionStorage</p>
+<h3 id="3-2-本地存储"><a href="#3-2-本地存储" class="headerlink" title="3.2 本地存储"></a>3.2 本地存储</h3><p>永久生效，除非手动删除<br>可以多窗口共享<br>20MB<br>window.localStorage</p>
+<h3 id="3-3-方法"><a href="#3-3-方法" class="headerlink" title="3.3 方法"></a>3.3 方法</h3><p>setItem(key, value) 设置存储内容<br>getItem(key) 读取存储内容<br>removeItem(key) 删除键值为key的存储内容<br>clear() 清空所有存储内容<br>key(n) 以索引值来获取存储内容</p>
+<h2 id="4-全屏"><a href="#4-全屏" class="headerlink" title="4.全屏"></a>4.全屏</h2><p>1.HTML5规范允许用户自定义网页上任一元素全屏显示。<br>requestFullscreen() 开启全屏显示<br>cancleFullscreen() 关闭全屏显示</p>
+<p>2.不同浏览器需要添加前缀如：<br>webkitRequestFullScreen<br>mozRequestFullScreen<br>webkitCancleFullScreen<br>mozCancleFullScreen</p>
+<p>3.通过document.fullScreen检测当前是否处于全屏<br>不同浏览器需要添加前缀<br>document.webkitIsFullScreen、document.mozFullScreen</p>
+<p>4.全屏伪类<br>:full-screen .box {}、:-webkit-full-screen {}、:-moz-full-screen {}<br>兼容写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var box=document.querySelector(&apos;.box&apos;);</div><div class="line">box.onclick=function()&#123;</div><div class="line">    if(box.requestFullscreen)&#123;</div><div class="line">       	box.requestFullscreen();</div><div class="line">    &#125;else if(box.webkitRequestFullScreen)&#123;</div><div class="line">        box.webkitRequestFullScreen();</div><div class="line">    &#125;else if(box.mozRequestFullScreen)&#123;</div><div class="line">        box.mozRequestFullScreen();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-网络状态"><a href="#5-网络状态" class="headerlink" title="5.网络状态"></a>5.网络状态</h2><p>window.online用户网络连接时被调用<br>window.offline用户网络断开时被调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;online&quot;,function()&#123;</div><div class="line">         alert(&quot;已经建立了网络连接&quot;)</div><div class="line">    &#125;)</div><div class="line">window.addEventListener(&quot;offline&quot;,function()&#123;</div><div class="line">         alert(&quot;已经失去了网络连接&quot;)</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="6-应用缓存"><a href="#6-应用缓存" class="headerlink" title="6.应用缓存"></a>6.应用缓存</h2><p>HTML5中我们可以轻松的构建一个离线（无网络状态）应用，只需要创建一个cache manifest文件。</p>
+<h3 id="6-1-好处"><a href="#6-1-好处" class="headerlink" title="6.1 好处"></a>6.1 好处</h3><ul>
+<li>可配置需要缓存的资源</li>
+<li>网络无连接应用仍可用</li>
+<li>本地读取缓存资源，提升访问速度，增强用户体验</li>
+<li>减少请求，缓解服务器负担</li>
+</ul>
+<h3 id="6-2-创建"><a href="#6-2-创建" class="headerlink" title="6.2 创建"></a>6.2 创建</h3><p>一个普通文本文件，其中列出了浏览器应缓存以供离线访问的资源，推荐使用.appcache为后缀名，添加MIME类型.</p>
+<p>例如我们创建了一个名为demo.appcache的文件，然后在需要应用缓存在页面的根元素(html)添加属性manifest=”demo.appcache”，路径要保证正确。</p>
+<h3 id="6-3-格式"><a href="#6-3-格式" class="headerlink" title="6.3 格式"></a>6.3 格式</h3><p>manifest文件格式<br>顶行写CACHE MANIFEST<br>CACHE: 换行 指定我们需要缓存的静态资源，如.css、image、js等<br>NETWORK: 换行 指定需要在线访问的资源，可使用通配符<br>FALLBACK: 当前页面无法访问时退回的页面(回退;  后退)<br>注释: #</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line"></div><div class="line">CACHE:</div><div class="line">    images/img1.jpg</div><div class="line">    images/img2.jpg</div><div class="line">    </div><div class="line">NETWORK:</div><div class="line">     images/img3.jpg</div><div class="line">     images/img4.jpg</div><div class="line"></div><div class="line">FALLBACK:</div><div class="line">    404.html</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/11/HTML5-1/" rel="next" title="HTML5(1)">
+                <i class="fa fa-chevron-left"></i> HTML5(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/12/CSS3-1/" rel="prev" title="CSS3(1)">
+                CSS3(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-拖拽"><span class="nav-text">1.拖拽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1拖拽元素"><span class="nav-text">1.1拖拽元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-目标元素"><span class="nav-text">1.2 目标元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-地理位置"><span class="nav-text">2.地理位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-web存储"><span class="nav-text">3.web存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-会话存储"><span class="nav-text">3.1 会话存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-本地存储"><span class="nav-text">3.2 本地存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-方法"><span class="nav-text">3.3 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-全屏"><span class="nav-text">4.全屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-网络状态"><span class="nav-text">5.网络状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-应用缓存"><span class="nav-text">6.应用缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-好处"><span class="nav-text">6.1 好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-创建"><span class="nav-text">6.2 创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-格式"><span class="nav-text">6.3 格式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
