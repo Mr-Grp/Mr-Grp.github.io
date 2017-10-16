@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="Mr-Grp">
 <meta property="og:description" content="1.border1.1 圆角border-radius 1.四个位置：水平 竖直 1234border-top-left-radius: 60px 120px;border-top-right-radius: 60px 120px;border-bottom-left-radius: 60px 120px;border-bottom-right-radius: 60px 120px; 2.复合写法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-16T12:41:05.045Z">
+<meta property="og:updated_time" content="2017-10-16T12:53:25.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3(2)">
 <meta name="twitter:description" content="1.border1.1 圆角border-radius 1.四个位置：水平 竖直 1234border-top-left-radius: 60px 120px;border-top-right-radius: 60px 120px;border-bottom-left-radius: 60px 120px;border-bottom-right-radius: 60px 120px; 2.复合写法">
@@ -355,7 +355,7 @@
 <h3 id="2-2-背景原点"><a href="#2-2-背景原点" class="headerlink" title="2.2 背景原点"></a>2.2 背景原点</h3><p><code>background-origin: padding-box;</code><br><code>background-origin: border-box;</code><br><code>background-origin: content-box;</code></p>
 <h3 id="2-3-背景裁剪"><a href="#2-3-背景裁剪" class="headerlink" title="2.3 背景裁剪"></a>2.3 背景裁剪</h3><p>border-box :从 border-box开始裁剪<br>padding-box :从 padding-box开始裁剪<br>content-box :从 content-box开始裁剪<br><code>background-clip:content-box;</code></p>
 <h3 id="2-4-多背景"><a href="#2-4-多背景" class="headerlink" title="2.4 多背景"></a>2.4 多背景</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background: url(images/bg1.png) no-repeat left top</div><div class="line">            ,url(images/bg2.png) no-repeat right top</div><div class="line">            ,url(images/bg3.png) no-repeat right bottom</div><div class="line">            ,url(images/bg4.png) no-repeat left bottom</div><div class="line">            ,url(images/bg5.png) no-repeat center;</div></pre></td></tr></table></figure>
-<p>加逗号隔开即可。</p>
+<p>加逗号隔开即可，相应位置也可以多个。</p>
 <h2 id="3-渐变"><a href="#3-渐变" class="headerlink" title="3.渐变"></a>3.渐变</h2><h3 id="3-1-线性渐变"><a href="#3-1-线性渐变" class="headerlink" title="3.1 线性渐变"></a>3.1 线性渐变</h3><p>linear-gradient(方向，起始颜色，终止颜色);<br>方向：to left   to right  to top   to bottom 　角度(30deg)<br>竖直向上为0°，顺时针<br><code>background-image: linear-gradient(yellow ,green);</code><br><code>background-image: linear-gradient(to right,yellow ,green);</code><br><code>background-image: linear-gradient(135deg,yellow,green);</code></p>
 <p>多颜色：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-image: linear-gradient(to right,</div><div class="line">                yellow 0% ,</div><div class="line">                red 40% ,</div><div class="line">                green 70% ,</div><div class="line">                blue 100%);</div></pre></td></tr></table></figure></p>
 <p>突变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">background-image: linear-gradient(45deg,</div><div class="line">    yellow 0%,</div><div class="line">    yellow 25%,</div><div class="line">    blue 25%,</div><div class="line">    blue 50%,</div><div class="line">    red 50%,</div><div class="line">    red 75%,</div><div class="line">    green 75%,</div><div class="line">    green 100%</div><div class="line">);</div></pre></td></tr></table></figure></p>
@@ -363,11 +363,11 @@
 <h2 id="4-过渡"><a href="#4-过渡" class="headerlink" title="4.过渡"></a>4.过渡</h2><p>transition:</p>
 <p>transition-property<br>如果希望所有的属性都发生过渡 使用过all<br>transition-property: all;<br>transition-duration<br>transition-delay<br>transition-timing-function<br>ease ease-in ease-out ease-in-out liner</p>
 <p>常用<br><code>transition: all 1；</code><br>效果：小米商城特效</p>
-<h2 id="5-2D变换"><a href="#5-2D变换" class="headerlink" title="5.2D变换"></a>5.2D变换</h2><p>transform</p>
+<h2 id="5-2D变换"><a href="#5-2D变换" class="headerlink" title="5.2D变换"></a>5.2D变换</h2><p>transform<br>transform-orign: 变换中心，默认中心点，可设置，水平 垂直</p>
 <h3 id="5-1-缩放"><a href="#5-1-缩放" class="headerlink" title="5.1 缩放"></a>5.1 缩放</h3><p>scale(水平放缩比例，垂直放缩比例)；<br>大于1：放大<br>小于1：缩小<br>如果只写一个值等比例缩放<br><code>transform: scale(2,0.5);</code></p>
 <h3 id="5-2-位移"><a href="#5-2-位移" class="headerlink" title="5.2 位移"></a>5.2 位移</h3><p>translate:(水平位移，垂直位移)；<br>正值：向右向下<br>负值：向左向上<br>如果只写一个值 水平移动<br>百分比 ：相对于自身移动</p>
 <p>定位盒子居中：<br>在50%处，左移自己宽度一般<br><code>transform:translate(-50%);</code></p>
-<h3 id="5-3-旋转"><a href="#5-3-旋转" class="headerlink" title="5.3 旋转"></a>5.3 旋转</h3><p>rotate（角度） 旋转<br>正值 顺时针<br>赋值：逆时针</p>
+<h3 id="5-3-旋转"><a href="#5-3-旋转" class="headerlink" title="5.3 旋转"></a>5.3 旋转</h3><p>rotate（角度 deg） 旋转<br>正值 顺时针<br>赋值：逆时针</p>
 <p>效果：可以用变换打乱，再transform:none，配合transition</p>
 
       
