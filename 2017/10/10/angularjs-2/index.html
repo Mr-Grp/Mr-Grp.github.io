@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.介绍AngularJS是一款由Google公司开发维护的前端MVC框架，其克服了HTML在构建应用上的诸多不足，从而降低了开发成本提升了开发效率。 1.1特点AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。框架对开">
+<meta name="keywords" content="前端,javascript,angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs(1)">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/angularjs-2/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.介绍AngularJS是一款由Google公司开发维护的前端MVC框架，其克服了HTML在构建应用上的诸多不足，从而降低了开发成本提升了开发效率。 1.1特点AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。框架对开">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/angular/angularjs.png">
+<meta property="og:updated_time" content="2017-10-10T10:25:53.980Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angularjs(1)">
+<meta name="twitter:description" content="1.介绍AngularJS是一款由Google公司开发维护的前端MVC框架，其克服了HTML在构建应用上的诸多不足，从而降低了开发成本提升了开发效率。 1.1特点AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。框架对开">
+<meta name="twitter:image" content="http://yoursite.com/images/angular/angularjs.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/angularjs-2/"/>
+
+
+
+
+
+  <title>angularjs(1) | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/angularjs-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">angularjs(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:33:50+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angularjs/" itemprop="url" rel="index">
+                    <span itemprop="name">angularjs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>AngularJS是一款由Google公司开发维护的前端MVC框架，其克服了HTML在构建应用上的诸多不足，从而降低了开发成本提升了开发效率。</p>
+<h3 id="1-1特点"><a href="#1-1特点" class="headerlink" title="1.1特点"></a>1.1特点</h3><p>AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。<br>框架对开发的流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。<br>AngularJS有着诸多特性，最为核心的是：模块化、双向数据绑定、语义化标签、依赖注入等。</p>
+<h3 id="1-2-MVC"><a href="#1-2-MVC" class="headerlink" title="1.2 MVC"></a>1.2 MVC</h3><p>Model View Controller<br>MVC更多应用在后端开发程序里，后被引入到前端开发中，由于受到前端技术的限制便有了一些细节的调整，进而出现了很多MVC的衍生版（子集）如MVVM、MVW、MVP、MV*等。</p>
+<h2 id="2-模块化"><a href="#2-模块化" class="headerlink" title="2.模块化"></a>2.模块化</h2><p>使用AngularJS构建应用（App）时是以模块化（Module）的方式组织的，即将整个应用划分成若干模块，每个模块都有各自的职责，最终组合成一个整体。<br>采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。</p>
+<h3 id="2-1-定义应用"><a href="#2-1-定义应用" class="headerlink" title="2.1 定义应用"></a>2.1 定义应用</h3><p>通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用（App）的一部分。<br><code>&lt;body ng-app&gt;</code><br>一般定义在html标签或者body标签<br>可以不赋值，但关联相应的模块时需要赋值。</p>
+<h3 id="2-2-定义模块"><a href="#2-2-定义模块" class="headerlink" title="2.2 定义模块"></a>2.2 定义模块</h3><p>AngularJS提供了一个全局对象angular，在此全局对象下存在若干的方法，其中angular.module()方法用来定义一个模块。<br><code>var app=angular.module(&#39;App&#39;,[]);</code></p>
+<h3 id="2-3-定义控制器"><a href="#2-3-定义控制器" class="headerlink" title="2.3 定义控制器"></a>2.3 定义控制器</h3><p>控制器（Controller）作为连接模型（Model）和视图（View）的桥梁存在，所以当我们定义好了控制器以后也就定义好了模型和视图。，</p>
+<p>模型（Model）数据是要展示到视图（View）上的，所以需要将控制器（Controller）关联到视图（View）上，通过为HTML标签添加ng-controller属性并赋值相应的控制器（Controller）的名称，就确立了关联关系。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;body ng-app=&apos;App&apos;&gt;</div><div class="line">&lt;div ng-controller=&apos;DemoContoller&apos;&gt;</div><div class="line">	&#123;&#123;name&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	var app=angular.module(&apos;App&apos;,[]);</div><div class="line">	app.controller(&apos;DemoContoller&apos;,[&apos;$scope&apos;,function($scope)&#123;</div><div class="line">		//模型</div><div class="line">		$scope.name=&apos;hello world&apos;;</div><div class="line">	&#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">	</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></p>
+<p>一般一个页面只有一个module，不要嵌套。</p>
+<h3 id="2-4-结构"><a href="#2-4-结构" class="headerlink" title="2.4 结构"></a>2.4 结构</h3><p><img src="/images/angular/angularjs.png" alt=""></p>
+<h2 id="3-指令"><a href="#3-指令" class="headerlink" title="3.指令"></a>3.指令</h2><p>HTML在构建应用（App）时存在诸多不足之处，AngularJS通过扩展一系列的HTML属性或标签来弥补这些缺陷，所谓指令就是AngularJS自定义的HTML属性或标签，这些指令都是以ng-做为前缀的，例如ng-app、ng-controller、ng-repeat等。</p>
+<h3 id="3-1-内置指令"><a href="#3-1-内置指令" class="headerlink" title="3.1 内置指令"></a>3.1 内置指令</h3><p>常用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ng-app 指定应用根元素，至少有一个元素指定了此属性。</div><div class="line">ng-controller 指定控制器</div><div class="line">ng-show 控制元素是否显示，true显示、false不显示</div><div class="line">ng-hide 控制元素是否隐藏，true隐藏、false不隐藏</div><div class="line">ng-if控制元素是否“存在”，true存在、false不存在（元素会消失，查看表单元素看不到）</div><div class="line">ng-src增强图片路径 &#123;&#123;&#125;&#125;</div><div class="line">ng-href增强地址 &#123;&#123;&#125;&#125;</div><div class="line">ng-class控制类名&#123;类名：1/0，类名：1/0&#125;</div><div class="line">ng-include引入模板 &#123;&#123;&#125;&#125;</div><div class="line">ng-disabled表单禁用 true/false</div><div class="line">ng-readonly表单只读 true/false</div><div class="line">ng-checked单/复选框表单选中 true/false</div><div class="line">ng-selected下拉框表单选中 true/false</div><div class="line">ng-repeat 遍历数组&quot;name in names&quot;</div><div class="line">$index 可以获取到数组的索引</div><div class="line">ng-bind=&apos;变量名&apos; 标签内容为变量值</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-自定义指令"><a href="#3-2-自定义指令" class="headerlink" title="3.2 自定义指令"></a>3.2 自定义指令</h3><p>AngularJS允许根据实际业务需要自定义指令，通过angular全局对象下的directive方法实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">App.directive(&apos;tag&apos;, function () &#123;</div><div class="line">			// 返回一个对象，这个对象就是自定义指令相关的内容</div><div class="line">			return &#123;</div><div class="line">				// E element</div><div class="line">				// A attribute</div><div class="line">				// C class</div><div class="line">				// M mark replace 必须为true</div><div class="line">				restrict: &apos;ECMA&apos;,</div><div class="line">				template: &apos;&lt;ul&gt;&lt;li&gt;首页&lt;/li&gt;&lt;li&gt;列表&lt;/li&gt;&lt;/ul&gt;&apos;,</div><div class="line">				//templateUrl: &apos;./list.html&apos;,</div><div class="line">				replace: true</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 属性 --&gt;</div><div class="line">&lt;div tag&gt;&lt;/div&gt;</div><div class="line">&lt;!-- 元素 --&gt;</div><div class="line">&lt;tag&gt;&lt;/tag&gt;</div><div class="line">&lt;!-- 类 --&gt;</div><div class="line">&lt;div class=&quot;tag&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;!-- mrak --&gt;</div><div class="line">&lt;!-- directive:tag --&gt;</div></pre></td></tr></table></figure>
+<p>replace必须为true，内容会代替标签盒子，mark必须使用</p>
+<h2 id="4-数据绑定"><a href="#4-数据绑定" class="headerlink" title="4.数据绑定"></a>4.数据绑定</h2><p>AngularJS是以数据做为驱动的MVC框架，所有模型（Model）里的数据经由控制器（Controller）展示到视图（View）中。<br>所谓数据绑定指的就是将模型（Model）中的数据与相应的视图（View）进行关联，分为单向绑定和双向绑定两种方式。</p>
+<h3 id="4-1-单向绑定"><a href="#4-1-单向绑定" class="headerlink" title="4.1 单向绑定"></a>4.1 单向绑定</h3><p>单向数据绑定是指将模型（Model）数据，按着写好的视图（View）模板生成HTML标签，然后追加到DOM中显示。</p>
+<h3 id="4-2双向绑定"><a href="#4-2双向绑定" class="headerlink" title="4.2双向绑定"></a>4.2双向绑定</h3><p>双向绑定则可以实现模型（Model）数据和视图（View）模板的双向传递。</p>
+<h3 id="4-3相关指令"><a href="#4-3相关指令" class="headerlink" title="4.3相关指令"></a>4.3相关指令</h3><p>1.在AngularJS中通过双花括号和ng-bind指令来实现模型（Model）数据向视图模板（View）的绑定，模型数据通过一个内置服务$scope来提供，这个$scope是一个空对象，通过为这个对象添加属性或者方法便可以在相应的视图（View）模板里被访问。</p>
+<p>2.双花括号绑定数据时会有“闪烁”现象，添加ng-cloak也可以解决“闪烁”现象，通过css，在加载时display none，加载完成后清除属性。</p>
+<p>3.通过ng-bind-template可以绑定多个数据。<br><code>ng-bind-template=&quot;&quot;</code>要加双花括号</p>
+<p>4.通过ng-init可以初始化模型（Model）也就是$scope。<br><code>ng-init=&quot;name=&#39;itcast&#39;;age=10&quot;</code></p>
+<p>5.AngularJS对事件也进行了扩展，无需显式的获取DOM元素便可以添加事件，易用性变的更强。通过在原有事件名称基础上添加ng-做为前缀，然后以属性的形式添加到相应的HTML标签上即可。如ng-click、ng-dblclick、ng-blur等。<br><code>ng-click=&quot;fn()&quot;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.fn = function () &#123;</div><div class="line">				alert(&apos;hello world&apos;);</div><div class="line">			&#125;</div></pre></td></tr></table></figure></p>
+<p>参数：<br>$event可以获取事件<br>$index可以获取数组索引值</p>
+<p>6.通过ng-repeat可以将数组或对象数据迭代到视图模板中，ng-switch、on、ng-switch-when可以对数据进行筛选。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat=&quot;item in items&quot; ng-switch on=&quot;item&quot;&gt;</div><div class="line">	&lt;span ng-switch-when=&quot;css&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure></p>
+<p>只会显示数组里的css，也可以ng-switch=”item”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/php1/" rel="next" title="php基础(1)">
+                <i class="fa fa-chevron-left"></i> php基础(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/10/angularjs1/" rel="prev" title="angularjs(2)">
+                angularjs(2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-介绍"><span class="nav-text">1.介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1特点"><span class="nav-text">1.1特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-MVC"><span class="nav-text">1.2 MVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-模块化"><span class="nav-text">2.模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定义应用"><span class="nav-text">2.1 定义应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定义模块"><span class="nav-text">2.2 定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-定义控制器"><span class="nav-text">2.3 定义控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-结构"><span class="nav-text">2.4 结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-指令"><span class="nav-text">3.指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-内置指令"><span class="nav-text">3.1 内置指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-自定义指令"><span class="nav-text">3.2 自定义指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数据绑定"><span class="nav-text">4.数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-单向绑定"><span class="nav-text">4.1 单向绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2双向绑定"><span class="nav-text">4.2双向绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3相关指令"><span class="nav-text">4.3相关指令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
