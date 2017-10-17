@@ -69,18 +69,18 @@
 
 
 
-<meta name="description" content="1.简介1.1什么是csscss（cascading style sheet）层叠样式表，css就是给html加各种各样的样式，css样式和html结构分离。 1.2css注释html的注释&amp;lt;!—注释的内容--&amp;gt;css注释/*注释的内容*/  1.3css语法选择器 {属性:属性值; 属性:属性值; } Css语法规则  一个css样式，是由选择器和格式声明语句所构成 选择器 ，就是选">
+<meta name="description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
 <meta name="keywords" content="CSS3,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS基础(1)">
-<meta property="og:url" content="http://yoursite.com/2017/10/02/CSS基础-1/index.html">
+<meta property="og:title" content="CSS3(3)">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/CSS3-3/index.html">
 <meta property="og:site_name" content="Mr-Grp">
-<meta property="og:description" content="1.简介1.1什么是csscss（cascading style sheet）层叠样式表，css就是给html加各种各样的样式，css样式和html结构分离。 1.2css注释html的注释&amp;lt;!—注释的内容--&amp;gt;css注释/*注释的内容*/  1.3css语法选择器 {属性:属性值; 属性:属性值; } Css语法规则  一个css样式，是由选择器和格式声明语句所构成 选择器 ，就是选">
+<meta property="og:description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T03:11:23.083Z">
+<meta property="og:updated_time" content="2017-10-17T08:23:40.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS基础(1)">
-<meta name="twitter:description" content="1.简介1.1什么是csscss（cascading style sheet）层叠样式表，css就是给html加各种各样的样式，css样式和html结构分离。 1.2css注释html的注释&amp;lt;!—注释的内容--&amp;gt;css注释/*注释的内容*/  1.3css语法选择器 {属性:属性值; 属性:属性值; } Css语法规则  一个css样式，是由选择器和格式声明语句所构成 选择器 ，就是选">
+<meta name="twitter:title" content="CSS3(3)">
+<meta name="twitter:description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
 
 
 
@@ -110,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/02/CSS基础-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/CSS3-3/"/>
 
 
 
 
 
-  <title>CSS基础(1) | Mr-Grp</title>
+  <title>CSS3(3) | Mr-Grp</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/CSS基础-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/CSS3-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr-Grp">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS基础(1)</h1>
+          <h1 class="post-title" itemprop="name headline">CSS3(3)</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-02T12:44:55+08:00">
-                2017-10-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T14:40:16+08:00">
+                2017-10-17
               </time>
             
 
@@ -342,37 +342,28 @@
       
 
       
-        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><h3 id="1-1什么是css"><a href="#1-1什么是css" class="headerlink" title="1.1什么是css"></a>1.1什么是css</h3><p>css（cascading style sheet）层叠样式表，css就是给html加各种各样的样式，css样式和html结构分离。</p>
-<h3 id="1-2css注释"><a href="#1-2css注释" class="headerlink" title="1.2css注释"></a>1.2css注释</h3><p>html的注释<code>&lt;!—注释的内容--&gt;</code><br>css注释<code>/*注释的内容*/</code> </p>
-<h3 id="1-3css语法"><a href="#1-3css语法" class="headerlink" title="1.3css语法"></a>1.3css语法</h3><p>选择器 {属性:属性值; 属性:属性值; }</p>
-<p>Css语法规则</p>
+        <h2 id="1-3D变换"><a href="#1-3D变换" class="headerlink" title="1. 3D变换"></a>1. 3D变换</h2><p>transform</p>
+<h3 id="1-1-透视"><a href="#1-1-透视" class="headerlink" title="1.1 透视"></a>1.1 透视</h3><p>透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离<br><code>perspective: 100px;</code></p>
+<p>所有的3d旋转，对着正方向去看，都是顺时针旋转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">transform:rotateX(360deg);</div><div class="line">transform:rotateY(360deg);</div><div class="line">transform:rotateZ(360deg);</div><div class="line"></div><div class="line">transform:translateX(360px);</div><div class="line">transform:translateY(360px);</div><div class="line">transform:translateZ(360px);</div></pre></td></tr></table></figure></p>
+<p>透视设置的用户眼睛和屏幕的距离仅仅只是视觉呈现出3d效果，并不是正真的3d，只是平面的近大远小。</p>
+<h3 id="1-2-3D"><a href="#1-2-3D" class="headerlink" title="1.2 3D"></a>1.2 3D</h3><p>可以让里面的子盒子保持3d 效果，加给父盒子preseve-3d，让子盒子位于3d空间里面。<br><code>transform-style:preserve-3d;</code></p>
+<h2 id="2-动画"><a href="#2-动画" class="headerlink" title="2. 动画"></a>2. 动画</h2><p>CSS3中的动画：</p>
+<h3 id="2-1-定义动画"><a href="#2-1-定义动画" class="headerlink" title="2.1 定义动画"></a>2.1 定义动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@keyframes 动画名&#123;</div><div class="line">    from&#123; 初始状态&#125;</div><div class="line">    to&#123;结束状态&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义多组动画<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@keyframes gun &#123;</div><div class="line">        0%&#123;</div><div class="line">            1</div><div class="line">        &#125;</div><div class="line">       50%&#123;</div><div class="line">            2</div><div class="line">       &#125;</div><div class="line">       100%&#123;</div><div class="line">       		3</div><div class="line">       &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-2-调用"><a href="#2-2-调用" class="headerlink" title="2.2 调用"></a>2.2 调用</h3><p>调用：基本语法格式<br><code>animation: 动画名称 持续时间；</code><br>前两属性是必须，且顺序固定</p>
 <ul>
-<li>一个css样式，是由选择器和格式声明语句所构成</li>
-<li>选择器 ，就是选择html标签，就是选择给那个html标签加样式</li>
-<li>格式声明语句，要用 {  } 括起来，里面放各种各样的格式声明语句</li>
-<li>一条格式声明语句 是由(属性:属性值)构成</li>
-<li>属性，就是css各种各样的属性，属性在css中已经定义好了</li>
-<li>在属性值的后面用 ； 结束</li>
-<li>Css样式必须写单位(例如：px 像素，0不写单位 0）</li>
+<li>动画名称<code>animation-name: move;</code></li>
+<li>动画时间<code>animation-duration: 3s;</code></li>
+<li>动画执行次数<code>animation-iteration-count: 1;</code>无数次：<code>infinite</code></li>
+<li>动画的方向：<code>animation-direction: alternate;</code> normal 正常 ， alternate： 往返</li>
+<li>动画延迟执行<code>animation-delay: 1s;</code></li>
+<li>设置动画结束盒子盒子的状态<code>animation-fill-mode:forwards;</code><br>forwards：保持动画结束后的状态<br>backwards：保持动画开始前的状态</li>
+<li>运动曲线<code>animation-timing-function:ease-in;</code>  linear   ease-in-out<br>steps()，动画分几步完成（钟表等应用）</li>
 </ul>
-<h2 id="2-引入"><a href="#2-引入" class="headerlink" title="2.引入"></a>2.引入</h2><p>1.行内引入方式<br><code>&lt;标签 style=”css样式”&gt;</code></p>
-<p>2.内部引入方式（内嵌）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style type=”text/css”&gt;</div><div class="line">   css样式</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-<p>type=”text/css” html5版本可以省略，其他的html版本不可以省略<br>注意：应用当前的网页文件</p>
-<p>3.外部引入方式<br><code>&lt;link type=&quot;stylesheet&quot; href=&quot;.css&quot;/&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;	</div><div class="line">	@import url();</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="3-基本选择器"><a href="#3-基本选择器" class="headerlink" title="3.基本选择器"></a>3.基本选择器</h2><h3 id="3-1-标签选择器"><a href="#3-1-标签选择器" class="headerlink" title="3.1    标签选择器"></a>3.1    标签选择器</h3><p>标签名{属性:属性值;属性:属性值;  }<br>例如：<code>a{}</code></p>
-<h3 id="3-2-类选择器"><a href="#3-2-类选择器" class="headerlink" title="3.2 类选择器"></a>3.2 类选择器</h3><p>类名{属性:属性值;}<br>类用 .   表示<br>例如：<code>.a{}</code>  标签中<code>&lt;div class=&#39;a&#39;&gt;&lt;/div&gt;</code></p>
-<h3 id="3-3-ID选择器"><a href="#3-3-ID选择器" class="headerlink" title="3.3 ID选择器"></a>3.3 ID选择器</h3><p>id选择器 {属性:属性值;  }<br>注意：id选择器只能引用一次，给javascript用，如果想引入多次，用class<br>id=“id选择器名”，只能出现在html的标签里面一次<br>例如：<code>#a{}</code>  标签中<code>&lt;div id=&#39;a&#39;&gt;&lt;/div&gt;</code></p>
-<h3 id="3-4-通用选择器"><a href="#3-4-通用选择器" class="headerlink" title="3.4 通用选择器"></a>3.4 通用选择器</h3><p>*{属性:属性值;}<br>所有标签</p>
-<h3 id="3-5-伪类选择器"><a href="#3-5-伪类选择器" class="headerlink" title="3.5 伪类选择器"></a>3.5 伪类选择器</h3><p>a:link 未访问的链接<br>a:visited 访问过的链接<br>a:hover 鼠标移到链接上<br>a:active 单击鼠标左键的那一刻<br>注意： 顺序不能颠倒<br>a:focus  获取焦点</p>
-<h2 id="4-复合选择器"><a href="#4-复合选择器" class="headerlink" title="4.复合选择器"></a>4.复合选择器</h2><h3 id="4-1-分组选择器"><a href="#4-1-分组选择器" class="headerlink" title="4.1    分组选择器"></a>4.1    分组选择器</h3><p>选择器,选择器,选择器{相同的属性:属性值;  }</p>
-<h3 id="4-2-后代选择器（包含选择器）"><a href="#4-2-后代选择器（包含选择器）" class="headerlink" title="4.2    后代选择器（包含选择器）"></a>4.2    后代选择器（包含选择器）</h3><p>选择器1 选择器2{属性:属性值;}<br>后代全部增加样式</p>
-<h3 id="4-3-子元素选择器"><a href="#4-3-子元素选择器" class="headerlink" title="4.3 子元素选择器"></a>4.3 子元素选择器</h3><p>选择器&gt;选择器 {  }<br>只跨越一层，给某个html元素的子元素加样式</p>
-<h3 id="4-4-相邻元素选择器"><a href="#4-4-相邻元素选择器" class="headerlink" title="4.4 相邻元素选择器"></a>4.4 相邻元素选择器</h3><p>选择器+选择器{  }<br>可选择紧接在另一元素后的元素，必须有一个父元素 ，一定是紧挨着。</p>
-<h3 id="4-5-后面所有的兄弟"><a href="#4-5-后面所有的兄弟" class="headerlink" title="4.5 后面所有的兄弟"></a>4.5 后面所有的兄弟</h3><p>选择器~选择器{  }</p>
-<h3 id="4-6-伪对象选择器"><a href="#4-6-伪对象选择器" class="headerlink" title="4.6 伪对象选择器"></a>4.6 伪对象选择器</h3><p>:before<br>:after<br>用于盒子里面，相当于<code>&lt;span&gt;</code>,必须结合content使用，内容为空也要写content=’’</p>
-<h2 id="5-特性"><a href="#5-特性" class="headerlink" title="5. 特性"></a>5. 特性</h2><h3 id="5-1-层叠性"><a href="#5-1-层叠性" class="headerlink" title="5.1 层叠性"></a>5.1 层叠性</h3><p>当多个样式作用于同一个（同一类）标签时，样式发生了冲突，总是执行后边的代码(后边代码层叠前边的代码)。和标签调用选择器的顺序没有关系。</p>
-<h3 id="5-2-继承性"><a href="#5-2-继承性" class="headerlink" title="5.2 继承性"></a>5.2 继承性</h3><p>文字的所有属性都可以继承。<br>特殊:<br>h系列不能继承文字大小。<br>a标签不能继承文字颜色。</p>
-<h2 id="5-3-优先级"><a href="#5-3-优先级" class="headerlink" title="5.3 优先级"></a>5.3 优先级</h2><p>优先级<br>!important&gt;行内&gt;id&gt;class&gt;标签<br>权重：高 1000 100 10 1</p>
+<h3 id="2-3-播放暂停"><a href="#2-3-播放暂停" class="headerlink" title="2.3 播放暂停"></a>2.3 播放暂停</h3><p><code>animation-play-state: paused;</code><br>控制动画状态 paused 暂停  running　播放*/</p>
+<h2 id="3-多列布局"><a href="#3-多列布局" class="headerlink" title="3.多列布局"></a>3.多列布局</h2><p>列数<code>column-count: 3;</code><br>设置分栏间距<code>column-gap: 50px;</code><br>设置分割线的颜色<code>column-rule: 1px dashed red;</code><br>设置分栏的宽度<code>column-width:200px</code>太宽会减少列数，宽度会平分</p>
+<p>内容：<br>跨列 <code>column-span</code></p>
+<p>注意兼容性问题</p>
 
       
     </div>
@@ -405,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/02/HTML基础-2/" rel="next" title="HTML基础(2)">
-                <i class="fa fa-chevron-left"></i> HTML基础(2)
+              <a href="/2017/10/16/CSS3-2/" rel="next" title="CSS3(2)">
+                <i class="fa fa-chevron-left"></i> CSS3(2)
               </a>
             
           </div>
@@ -414,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/02/CSS基础-2/" rel="prev" title="CSS基础(2)">
-                CSS基础(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1.简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1什么是css"><span class="nav-text">1.1什么是css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2css注释"><span class="nav-text">1.2css注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3css语法"><span class="nav-text">1.3css语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-引入"><span class="nav-text">2.引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-基本选择器"><span class="nav-text">3.基本选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-标签选择器"><span class="nav-text">3.1    标签选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-类选择器"><span class="nav-text">3.2 类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-ID选择器"><span class="nav-text">3.3 ID选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-通用选择器"><span class="nav-text">3.4 通用选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-伪类选择器"><span class="nav-text">3.5 伪类选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-复合选择器"><span class="nav-text">4.复合选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-分组选择器"><span class="nav-text">4.1    分组选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-后代选择器（包含选择器）"><span class="nav-text">4.2    后代选择器（包含选择器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-子元素选择器"><span class="nav-text">4.3 子元素选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-相邻元素选择器"><span class="nav-text">4.4 相邻元素选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-后面所有的兄弟"><span class="nav-text">4.5 后面所有的兄弟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-伪对象选择器"><span class="nav-text">4.6 伪对象选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-特性"><span class="nav-text">5. 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-层叠性"><span class="nav-text">5.1 层叠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-继承性"><span class="nav-text">5.2 继承性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-优先级"><span class="nav-text">5.3 优先级</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3D变换"><span class="nav-text">1. 3D变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-透视"><span class="nav-text">1.1 透视</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3D"><span class="nav-text">1.2 3D</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动画"><span class="nav-text">2. 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定义动画"><span class="nav-text">2.1 定义动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-调用"><span class="nav-text">2.2 调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-播放暂停"><span class="nav-text">2.3 播放暂停</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多列布局"><span class="nav-text">3.多列布局</span></a></li></ol></div>
             
 
           </div>
