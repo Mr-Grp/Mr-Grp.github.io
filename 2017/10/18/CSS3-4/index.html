@@ -69,18 +69,18 @@
 
 
 
-<meta name="description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
+<meta name="description" content="1.伸缩布局CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。 主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的s 指定一个盒子为伸缩盒子 display: flex 1.1 主轴方向flex-direction row 水平方向reverse-r">
 <meta name="keywords" content="CSS3,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3(3)">
-<meta property="og:url" content="http://yoursite.com/2017/10/17/CSS3-3/index.html">
+<meta property="og:title" content="CSS3(4)">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/CSS3-4/index.html">
 <meta property="og:site_name" content="Mr-Grp">
-<meta property="og:description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
+<meta property="og:description" content="1.伸缩布局CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。 主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的s 指定一个盒子为伸缩盒子 display: flex 1.1 主轴方向flex-direction row 水平方向reverse-r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-17T08:23:40.169Z">
+<meta property="og:updated_time" content="2017-10-18T12:35:26.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3(3)">
-<meta name="twitter:description" content="1. 3D变换transform 1.1 透视透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离perspective: 100px; 所有的3d旋转，对着正方向去看，都是顺时针旋转1234567transform:rotateX(360deg);transform:rotateY(360deg);transform:rotateZ(360deg);transform:translateX">
+<meta name="twitter:title" content="CSS3(4)">
+<meta name="twitter:description" content="1.伸缩布局CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。 主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的s 指定一个盒子为伸缩盒子 display: flex 1.1 主轴方向flex-direction row 水平方向reverse-r">
 
 
 
@@ -110,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/17/CSS3-3/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/18/CSS3-4/"/>
 
 
 
 
 
-  <title>CSS3(3) | Mr-Grp</title>
+  <title>CSS3(4) | Mr-Grp</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/CSS3-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/CSS3-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr-Grp">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS3(3)</h1>
+          <h1 class="post-title" itemprop="name headline">CSS3(4)</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T14:40:16+08:00">
-                2017-10-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T11:47:02+08:00">
+                2017-10-18
               </time>
             
 
@@ -342,28 +342,34 @@
       
 
       
-        <h2 id="1-3D变换"><a href="#1-3D变换" class="headerlink" title="1. 3D变换"></a>1. 3D变换</h2><p>transform</p>
-<h3 id="1-1-透视"><a href="#1-1-透视" class="headerlink" title="1.1 透视"></a>1.1 透视</h3><p>透视 :加给变换的父盒子，置的是用户的眼睛距离 平面的距离<br><code>perspective: 100px;</code></p>
-<p>所有的3d旋转，对着正方向去看，都是顺时针旋转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">transform:rotateX(360deg);</div><div class="line">transform:rotateY(360deg);</div><div class="line">transform:rotateZ(360deg);</div><div class="line"></div><div class="line">transform:translateX(360px);</div><div class="line">transform:translateY(360px);</div><div class="line">transform:translateZ(360px);</div></pre></td></tr></table></figure></p>
-<p>透视设置的用户眼睛和屏幕的距离仅仅只是视觉呈现出3d效果，并不是正真的3d，只是平面的近大远小。</p>
-<h3 id="1-2-3D"><a href="#1-2-3D" class="headerlink" title="1.2 3D"></a>1.2 3D</h3><p>可以让里面的子盒子保持3d 效果，加给父盒子preseve-3d，让子盒子位于3d空间里面。<br><code>transform-style:preserve-3d;</code></p>
-<h2 id="2-动画"><a href="#2-动画" class="headerlink" title="2. 动画"></a>2. 动画</h2><p>CSS3中的动画：</p>
-<h3 id="2-1-定义动画"><a href="#2-1-定义动画" class="headerlink" title="2.1 定义动画"></a>2.1 定义动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@keyframes 动画名&#123;</div><div class="line">    from&#123; 初始状态&#125;</div><div class="line">    to&#123;结束状态&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>定义多组动画<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@keyframes gun &#123;</div><div class="line">        0%&#123;</div><div class="line">            1</div><div class="line">        &#125;</div><div class="line">       50%&#123;</div><div class="line">            2</div><div class="line">       &#125;</div><div class="line">       100%&#123;</div><div class="line">       		3</div><div class="line">       &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-调用"><a href="#2-2-调用" class="headerlink" title="2.2 调用"></a>2.2 调用</h3><p>调用：基本语法格式<br><code>animation: 动画名称 持续时间；</code><br>前两属性是必须，且顺序固定</p>
-<ul>
-<li>动画名称<code>animation-name: move;</code></li>
-<li>动画时间<code>animation-duration: 3s;</code></li>
-<li>动画执行次数<code>animation-iteration-count: 1;</code>无数次：<code>infinite</code></li>
-<li>动画的方向：<code>animation-direction: alternate;</code> normal 正常 ， alternate： 往返</li>
-<li>动画延迟执行<code>animation-delay: 1s;</code></li>
-<li>设置动画结束盒子盒子的状态<code>animation-fill-mode:forwards;</code><br>forwards：保持动画结束后的状态<br>backwards：保持动画开始前的状态</li>
-<li>运动曲线<code>animation-timing-function:ease-in;</code>  linear   ease-in-out<br>steps()，动画分几步完成（钟表等应用）</li>
+        <h2 id="1-伸缩布局"><a href="#1-伸缩布局" class="headerlink" title="1.伸缩布局"></a>1.伸缩布局</h2><p>CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。</p>
+<p>主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向<br>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的s</p>
+<p>指定一个盒子为伸缩盒子 display: flex</p>
+<h3 id="1-1-主轴方向"><a href="#1-1-主轴方向" class="headerlink" title="1.1 主轴方向"></a>1.1 主轴方向</h3><p>flex-direction</p>
+<p>row 水平方向<br>reverse-row 反转<br>column 垂直方向<br>reverse-column 反转列</p>
+<h3 id="1-2-主轴对齐方式"><a href="#1-2-主轴对齐方式" class="headerlink" title="1.2 主轴对齐方式"></a>1.2 主轴对齐方式</h3><p>justify-content</p>
+<p>flex-start、 起点对齐<br>flex-end、  终点对齐<br>center    中间对齐<br>space-around、 环绕<br>space-between  两端对齐</p>
+<h3 id="1-3-侧轴对齐方式"><a href="#1-3-侧轴对齐方式" class="headerlink" title="1.3 侧轴对齐方式"></a>1.3 侧轴对齐方式</h3><p>align-items</p>
+<p>flex-start、 起点对齐<br>flex-end、  终点对齐<br>center    中间对齐<br>stretch  拉伸<br>baseline 基线 默认同flex-start</p>
+<h3 id="1-4-拉伸"><a href="#1-4-拉伸" class="headerlink" title="1.4 拉伸"></a>1.4 拉伸</h3><p>flex：份数</p>
+<p>指定所占份数（用比例的方式分配）</p>
+<p>不指定flex 属性，则不参与分配</p>
+<h2 id="2-字体图标"><a href="#2-字体图标" class="headerlink" title="2.字体图标"></a>2.字体图标</h2><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。<br>支持程度比较好，甚至IE低版本浏览器也能支持。</p>
+<h3 id="2-1-字体格式"><a href="#2-1-字体格式" class="headerlink" title="2.1 字体格式"></a>2.1 字体格式</h3><ul>
+<li><p>1.TureTpe(.ttf)格式<br>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+；</p>
+</li>
+<li><p>2.OpenType(.otf)格式<br>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile、Safari4.2+；</p>
+</li>
+<li><p>3.Web Open Font Format(.woff)格式<br>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</p>
+</li>
+<li><p>4.Embedded Open Type(.eot)格式<br>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</p>
+</li>
+<li><p>5.SVG(.svg)格式<br>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+；</p>
+</li>
 </ul>
-<h3 id="2-3-播放暂停"><a href="#2-3-播放暂停" class="headerlink" title="2.3 播放暂停"></a>2.3 播放暂停</h3><p><code>animation-play-state: paused;</code><br>控制动画状态 paused 暂停  running　播放*/</p>
-<h2 id="3-多列布局"><a href="#3-多列布局" class="headerlink" title="3.多列布局"></a>3.多列布局</h2><p>列数<code>column-count: 3;</code><br>设置分栏间距<code>column-gap: 50px;</code><br>设置分割线的颜色<code>column-rule: 1px dashed red;</code><br>设置分栏的宽度<code>column-width:200px</code>太宽会减少列数，宽度会平分</p>
-<p>内容：<br>跨列 <code>column-span</code></p>
-<p>注意兼容性问题</p>
+<h3 id="2-2-字体图标"><a href="#2-2-字体图标" class="headerlink" title="2.2 字体图标"></a>2.2 字体图标</h3><p>常见的是把网页常用的一些小的图标，借助工具帮我们生成一个字体包，然后就可以像使用文字一样使用图标了。<br>优点：<br>1、将所有图标打包成字体库，减少请求；<br>2、具有矢量性，可保证清晰度；<br>3、使用灵活，便于维护；</p>
+<p>如京东小米等小图标。</p>
+<h2 id="3-兼容性问题"><a href="#3-兼容性问题" class="headerlink" title="3.兼容性问题"></a>3.兼容性问题</h2><p><a href="http://caniuse.com" target="_blank" rel="external"></a><br>可查询CSS3各特性的支持程度，一般兼容性处理的常见方法是为属性添加私有前缀，如不能解决，应避免使用，无需刻意去处理CSS3的兼容性问题。</p>
 
       
     </div>
@@ -396,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/16/CSS3-2/" rel="next" title="CSS3(2)">
-                <i class="fa fa-chevron-left"></i> CSS3(2)
+              <a href="/2017/10/17/CSS3-3/" rel="next" title="CSS3(3)">
+                <i class="fa fa-chevron-left"></i> CSS3(3)
               </a>
             
           </div>
@@ -405,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/18/CSS3-4/" rel="prev" title="CSS3(4)">
-                CSS3(4) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -547,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3D变换"><span class="nav-text">1. 3D变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-透视"><span class="nav-text">1.1 透视</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3D"><span class="nav-text">1.2 3D</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动画"><span class="nav-text">2. 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定义动画"><span class="nav-text">2.1 定义动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-调用"><span class="nav-text">2.2 调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-播放暂停"><span class="nav-text">2.3 播放暂停</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多列布局"><span class="nav-text">3.多列布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-伸缩布局"><span class="nav-text">1.伸缩布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-主轴方向"><span class="nav-text">1.1 主轴方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-主轴对齐方式"><span class="nav-text">1.2 主轴对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-侧轴对齐方式"><span class="nav-text">1.3 侧轴对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-拉伸"><span class="nav-text">1.4 拉伸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字体图标"><span class="nav-text">2.字体图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-字体格式"><span class="nav-text">2.1 字体格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-字体图标"><span class="nav-text">2.2 字体图标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-兼容性问题"><span class="nav-text">3.兼容性问题</span></a></li></ol></div>
             
 
           </div>
