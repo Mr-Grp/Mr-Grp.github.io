@@ -54,9 +54,20 @@
 		searchLogo.style.color='black';
 	}
 
+
+	$('.shop-nav-ul').find('li').mouseover(function(){
+		$('.shop-nav-list').eq($(this).index()).addClass('shop-nav-list-active');
+		
+	});
+	$('.shop-nav-ul').find('li').mouseout(function(){
+		$('.shop-nav-list').eq($(this).index()).removeClass('shop-nav-list-active');	
+	});
 	// shop-nav部分开始
 
+
+
 	// picture-nav部分开始
+	var time=0;
 	var bannerIndex=0;
 	var bannerNextIndex;
 	   $(".picture-nav-bottom").find('li').eq(bannerIndex).addClass('picture-current')
@@ -68,28 +79,37 @@
 
 	$(".picture-nav-bottom").find('li').click(function(){
 		clearInterval(bannerAnimate);
-		$(this).addClass('picture-current').siblings().removeClass('picture-current');
- 		pictureChange($(this).index())
+		if(!($(this).index()==$(".picture-nav-bottom-current").index())) {
+			$(this).addClass('picture-current').siblings().removeClass('picture-current');
+ 			pictureChange($(this).index());
+		}
+	});
+	$(".picture-nav-bottom").find('span').eq(1).click(function(){
+		if(time==0){
+			time=10;
+			clearInterval(bannerAnimate);
+			bannerIndex=$(".picture-nav-bottom-current").index();
+			bannerNextIndex=(bannerIndex+1)>5?0:(bannerIndex+1);
+			pictureChange(bannerNextIndex);
+			setTimeout(function(){time=0;},600);
+		}
 	});
 
-	$(".picture-nav-bottom").find('span').eq(1).click(function(){
-		clearInterval(bannerAnimate);
-		bannerIndex=$(".picture-nav-bottom-current").index();
-		bannerNextIndex=(bannerIndex+1)>5?0:(bannerIndex+1);
-		pictureChange(bannerNextIndex);
-	})
-
 	$(".picture-nav-bottom").find('span').eq(0).click(function(){
-		clearInterval(bannerAnimate);
-		bannerIndex=$(".picture-nav-bottom-current").index();
-		bannerNextIndex=(bannerIndex-1)<0?5:(bannerIndex-1);
-		pictureChange(bannerNextIndex);
-	})
+		if(time==0){
+			time=10;
+			clearInterval(bannerAnimate);
+			bannerIndex=$(".picture-nav-bottom-current").index();
+			bannerNextIndex=(bannerIndex-1)<0?5:(bannerIndex-1);
+			pictureChange(bannerNextIndex);
+			setTimeout(function(){time=0;},600);
+		}
+	});
 
 	function pictureChange(index){
 		$(".picture-nav-bottom-current").fadeOut(500).removeClass('picture-nav-bottom-current');
 		setTimeout(function(){
-			$(".picture-nav-bottom").find('a').eq(index).addClass('picture-nav-bottom-current').fadeIn(500);
+			$(".picture-nav-bottom").find('a').eq(index).addClass('picture-nav-bottom-current').fadeIn(400);
 			$(".picture-nav-bottom").find('li').eq(index).addClass('picture-current').siblings().removeClass('picture-current');
 		},200);
 	}
@@ -102,5 +122,47 @@
 	});
 	// picture-nav部分开始
 
-	// shop-nav部分开始
-	// shop-nav部分开始
+
+
+	// section-star-change a部分开始
+	$(".section-star-header").find('a').eq(0).addClass('section-star-header-active');
+	var sectionStarAnimate=setInterval(sectionStarChange,8000)	
+
+	function sectionStarChange(){
+		if($(".section-star-content").find('ul').hasClass('section-star-content-active')){
+			$(".section-star-content").find('ul').removeClass('section-star-content-active');
+			$(".section-star-header").find('a').eq(0).addClass('section-star-header-active').siblings().removeClass('section-star-header-active');
+		}else{
+			$(".section-star-content").find('ul').addClass('section-star-content-active')
+			$(".section-star-header").find('a').eq(1).addClass('section-star-header-active').siblings().removeClass('section-star-header-active');
+		}
+	}
+
+	$(".section-star-header").find('a').eq(1).click(function(){
+		if($(".section-star-content").find('ul').hasClass('section-star-content-active')){
+			$(".section-star-content").find('ul').removeClass('section-star-content-active');
+			$(".section-star-header").find('a').eq(0).addClass('section-star-header-active').siblings().removeClass('section-star-header-active');
+		}
+	});
+	$(".section-star-header").find('a').eq(0).click(function(){
+		if(!$(".section-star-content").find('ul').hasClass('section-star-content-active')){
+			$(".section-star-content").find('ul').addClass('section-star-content-active')
+			$(".section-star-header").find('a').eq(1).addClass('section-star-header-active').siblings().removeClass('section-star-header-active');
+		}
+	});
+
+
+	$(".section-star-header").find('a').mouseover(function(){
+		clearInterval(sectionStarAnimate);
+	});
+
+	$(".section-star-header").find('a').mouseout(function(){
+		sectionStarAnimate=setInterval(sectionStarChange,3000);
+	});
+	// section-star-change a部分开始
+
+		// section-star-change a部分开始
+	// section-star-change a部分开始
+
+		// section-star-change a部分开始
+	// section-star-change a部分开始
