@@ -179,6 +179,35 @@
 	});
 	// section-star-change a部分开始
 
+
+
+
+
+
+
+
+	//page-main-vedio部分开始 color: #FF6700;
+	$(".page-main-video").find('.more').mouseover(function(){
+		$(".page-main-video").find('.more').find('a').css({"color":"#FF6700"});
+		$(".page-main-video").find('.more').find('i').css({"background-color":"#FF6700"});
+	});
+
+	$(".page-main-video").find('.more').mouseout(function(){
+		$(".page-main-video").find('.more').find('a').css({"color":"#B0B0B0"});
+		$(".page-main-video").find('.more').find('i').css({"background-color":"#B0B0B0"});
+	});
+
+	$(".page-main-video").find('.section-content').find('a').mouseover(function(){
+		$(this).find('i').css({"background-color":"#FF6B00"})
+	})
+	$(".page-main-video").find('.section-content').find('a').mouseout(function(){
+		$(this).find('i').css({"background-color":"rgba(0,0,0,0)"})
+	})
+	//page-main-vedio部分结束
+
+
+
+
 		// section-star-change a部分开始
 	// section-star-change a部分开始
 

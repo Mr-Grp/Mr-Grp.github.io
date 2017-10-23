@@ -734,7 +734,6 @@
 	.page-main {
 		margin-top: 40px;
 		background-color: #F5F5F5;
-		height: 3000px;
 	}
 	.page-main-content {
 		padding-top: 60px;
@@ -850,3 +849,99 @@
 		right: 35px;
 	}
 	/*page-main部分结束*/
+
+
+
+	/*page-main-vedio部分开始*/
+	.page-main-video {
+		width: 1226px;
+		height: 343px;
+		margin-bottom: 60px;
+	}
+	.page-main-video .section-header .more {
+		display: inline-block;
+		float: right;
+		width: 92px;
+		height: 58px;
+		line-height: 58px;
+	}
+
+	.page-main-video .section-header .more a {
+		color: black;
+		font: 14px/17px "Microsoft Yahei";
+		transition: all 0.5s;
+
+	}
+	.page-main-video .section-header .more a i {
+		display: inline-block;
+		margin-left: 8px;
+		padding: 4px;
+		font: 12px/12px "Microsoft Yahei";
+		border-radius: 50%;
+		background-color: #B0B0B0;
+		color: #FEFAF2;
+		transition: all 0.5s;
+	}
+	.page-main-video .section-content li {
+		width: 296px;
+		height: 285px;
+		float: left;
+		margin-left: 14px;
+		margin-bottom: 14px;
+		transition: all 0.5s;
+		text-align: center;
+		position: relative;
+		background-color: #fff;
+	}
+	.page-main-video .section-content li:nth-of-type(1) {
+		margin-left: 0px;
+	}
+	.page-main-video .section-content li:hover {
+		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+	}
+	.page-main-video .section-content li img{
+		width: 296px;
+		height: 180px;
+		margin-bottom: 28px;
+	}
+	.page-main-video .section-content li p {
+		height: 21px;
+		text-align: center;
+		margin-bottom: 6px;
+	}
+	.page-main-video .section-content li p a {
+		color: black;
+		font-size: 14px;
+	}
+	.page-main-video .section-content span {
+		text-align: center;
+		color: #B0B0B0;
+	}
+	.page-main-video .section-content i {
+		position: absolute;
+		top: 145px;
+		left: 20px;
+		color: white;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		line-height: 20px;
+		font-size: 20px;
+		background-color: rgba(0,0,0,0);
+		transition: all 0.3s;
+
+	}
+	/*page-main-vedio部分结束*/
+
+		/*page-main-vedio部分开始*/
+
+	/*page-main-vedio部分结束*/
+		/*page-main-vedio部分开始*/
+
+	/*page-main-vedio部分结束*/
+		/*page-main-vedio部分开始*/
+
+	/*page-main-vedio部分结束*/	
+	/*page-main-vedio部分开始*/
+
+	/*page-main-vedio部分结束*/
