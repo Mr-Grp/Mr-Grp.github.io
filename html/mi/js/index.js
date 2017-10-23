@@ -53,14 +53,24 @@
 		searchLogo.style.backgroundColor='#FFF';
 		searchLogo.style.color='black';
 	}
+	$('.shop-nav').find(".search").find('input').focus(function(){
+		$('.shop-nav').find(".search-list").css({"display":"block"});
+	})
+	$('.shop-nav').find(".search").find('input').blur(function(){
+		$('.shop-nav').find(".search-list").css({"display":"none"});
+	})
 
-
-	$('.shop-nav-ul').find('li').mouseover(function(){
-		$('.shop-nav-list').eq($(this).index()).addClass('shop-nav-list-active');
-		
+	$('.shop-nav-ul').find('.shop-nav-ul-li').find('a').mouseover(function(){
+		$('.shop-nav-list').addClass('shop-nav-list-active');
+		$('.shop-nav-ul').find('.mouse').css({"display":"block"});
+		if($(this).attr('num')){
+			$(".shop-nav-li[num="+$(this).attr('num')+"]").css({"display":"block"}).siblings().css({"display":"none"});
+		}else{
+			$('.shop-nav-list').removeClass('shop-nav-list-active');
+		}
 	});
-	$('.shop-nav-ul').find('li').mouseout(function(){
-		$('.shop-nav-list').eq($(this).index()).removeClass('shop-nav-list-active');	
+	$('.shop-nav-ul').mouseleave(function(){
+		$('.shop-nav-list').removeClass('shop-nav-list-active');	
 	});
 	// shop-nav部分开始
 
@@ -120,8 +130,16 @@
 	$(".picture-nav-aside").find('li').mouseout(function() {
 		$(this).find('.content').css({"display":"none"});
 	});
-	// picture-nav部分开始
+	// picture-nav部分结束
 
+    // picture-nav-foot部分开始
+    $(".picture-nav-foot-option").find('li').mouseover(function() {
+    	$(this).find("i").css({"color":"white"})
+    })
+    $(".picture-nav-foot-option").find('li').mouseout(function() {
+    	$(this).find("i").css({"color":"#CFCDCB"})
+    })
+    // picture-nav-foot部分结束
 
 
 	// section-star-change a部分开始

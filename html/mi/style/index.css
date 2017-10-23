@@ -157,25 +157,98 @@
 		display: block;
 		text-indent: -9999px;
 	}
-	.shop-nav .shop-nav-ul {
+	.shop-nav .shop-nav-ul-li {
 		float: left;
-		height: 50px;
+		height: 100px;
 		margin-left: 169px;
-		margin-top: 25px;
 		font:16px/50px "Microsoft Yahei";
 	}
-	.shop-nav .shop-nav-ul li {
+	.shop-nav .shop-nav-ul-li>li {
 		float: left;
-		height: 50px;
+		height: 75px;
 		line-height: 50px;
+		padding-top: 25px;
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	.shop-nav .shop-nav-ul li a {
+	.shop-nav .shop-nav-ul-li>li a {
 		color: #000;
 	}
-	.shop-nav .shop-nav-ul li a:hover {
+	.shop-nav .shop-nav-ul-li>li a:hover {
 		color: #FF6700;
+	}
+	.shop-nav .shop-nav-ul .mouse {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -663px;
+		display: none;
+		width: 600px;
+		height: 40px;
+	}
+	.shop-nav-list {
+		height: 0px;
+		width: 100%;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 100px;
+		z-index: 7;
+		border-top: 1px solid #fff;
+		background-color: #fff;
+		transition: all 0.3s ; 
+	}
+	.shop-nav-list-active {
+		height: 230px;
+		border-top: 1px solid #eee;
+		box-shadow: rgba(0,0,0,0.2) 0 3px 4px 0;
+	}
+	.shop-nav .shop-nav-list .shop-nav-li {
+		height: 229px;
+		margin-top: 0;
+		display: none;
+	}
+	.shop-nav .shop-nav-li li {
+		float: left;
+		width: 180px;
+		height: 166px;
+		padding: 35px 12px 0;
+		position: relative;
+	}
+	.shop-nav .shop-nav-li li::after {
+		content: "";
+		width: 1px;
+		height: 100px;
+		position: absolute;
+		top: 35px;
+		right: 203px;
+		background-color: #ccc;
+	}
+	.shop-nav .shop-nav-li li:nth-of-type(1)::after {
+		content: "";
+		width: 0;
+	}
+	.shop-nav .shop-nav-li li img {
+		width: 160px;
+		height: 110px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 16px;
+		display: block;
+
+	}
+	.shop-nav .shop-nav-li li a:nth-of-type(2) {
+		display: block;
+		height: 20px;
+		font: 14px/20px "Microsoft Yahei";
+		text-align: center;
+		color: black;
+	}
+	.shop-nav .shop-nav-li li p {
+		height: 20px;
+		font: 14px/20px "Microsoft Yahei";
+		color: #FF6700;
+		text-align: center;
 	}
 	.shop-nav .search {
 		margin-top: 25px;
@@ -186,6 +259,43 @@
 		transition: all 0.2s;
 		position: relative;
 
+	}
+	.shop-nav .search-list {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 225px;
+		position: absolute;
+		top: 48px;;
+		right: 48px;
+		border: 1px solid #FF6700;
+		height: 330px;
+		z-index: 6;
+		background-color: #fff;
+		display: none;
+	}
+	.shop-nav .search-list li {
+		width: 225px;
+		height: 30px;
+		position: relative;
+	}
+	.shop-nav .search-list li a {
+		display: block;
+		width: 224px;
+		height: 30px;
+		color: black;
+		font: 12px/30px "Microsoft Yahei";	
+	}
+	.shop-nav .search-list li a  span {   
+		position: absolute;
+		display: block;
+		border-left: 0;
+		width: 100px;
+		height: 30px;
+		font: 12px/30px "Microsoft Yahei";	
+		text-align: right;
+		color: #ccc;
+		right: 0;
+		top: 0;
 	}
 	.shop-nav .search-a a {
 		position: absolute;      
@@ -234,69 +344,6 @@
 	}
 	.input input {
 		width: 100%;
-	}
-	.shop-nav-list {
-		height: 0px;
-		width: 100%;
-		overflow: hidden;
-		position: absolute;
-		left: 0;
-		top: 100px;
-		z-index: 6;
-		border-top: 1px solid #fff;
-		background-color: #fff;
-		transition: all 0.3s;
-	}
-	.shop-nav-list-active {
-		height: 230px;
-		border-top: 1px solid #eee;
-		box-shadow: rgba(0,0,0,0.2) 0 3px 4px 0;
-	}
-	.shop-nav .shop-nav-list .shop-nav-li {
-		height: 299px;
-		margin-top: 0;
-	}
-	.shop-nav .shop-nav-li li {
-		float: left;
-		width: 180px;
-		height: 166px;
-		padding: 35px 12px 0;
-		position: relative;
-	}
-	.shop-nav .shop-nav-li li::after {
-		content: "";
-		width: 1px;
-		height: 100px;
-		position: absolute;
-		top: 35px;
-		right: 203px;
-		background-color: #ccc;
-	}
-	.shop-nav .shop-nav-li li:nth-of-type(1)::after {
-		content: "";
-		width: 0;
-	}
-	.shop-nav .shop-nav-li li img {
-		width: 160px;
-		height: 110px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 16px;
-		display: block;
-
-	}
-	.shop-nav .shop-nav-li li a:nth-of-type(2) {
-		display: block;
-		height: 20px;
-		font: 14px/20px "Microsoft Yahei";
-		text-align: center;
-		color: black;
-	}
-	.shop-nav .shop-nav-li li p {
-		height: 20px;
-		font: 14px/20px "Microsoft Yahei";
-		color: #FF6700;
-		text-align: center;
 	}
 	/*shop-nav部分结束*/
 
@@ -688,8 +735,12 @@
 		margin-top: 40px;
 		background-color: #F5F5F5;
 		height: 3000px;
-		padding-top: 60px;
 	}
+	.page-main-content {
+		padding-top: 60px;
+		background-color: #F5F5F5;
+	}
+	
 	.page-main-section {
 		height: 686px;
 		margin-bottom: 8px;
@@ -734,9 +785,15 @@
 		height: 300px;
 		margin-right: 14px;
 		margin-bottom: 14px;
+		transition: all 0.5s;
 	}
 	.page-main-section:nth-of-type(1) .section-bottom-l a{
 		height: 615px;
+	}
+	.section-bottom-l a:hover {
+		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+		margin-top: -3px;
+		margin-bottom: 17px;
 	}
 	.section-bottom-r {
 		float: left;
