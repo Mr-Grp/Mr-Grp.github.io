@@ -182,6 +182,52 @@
 
 
 
+	//page-main-recommend部分开始
+	
+	
+
+	var pmrUl=$(".page-main-recommend").find('ul');
+	var pmrA0=$(".page-main-recommend").find('.change').find('a').eq(0);
+	var pmrA1=$(".page-main-recommend").find('.change').find('a').eq(1);
+	var pmrPages=$(".page-main-recommend").find('.pages');
+	var pmrCurrent;
+	pmrUl.eq(0).addClass('current');
+	pmrA1.addClass('active');
+
+	pmrA1.click(function(event) {
+		if($(this).hasClass('active')){
+			pmrCurrent=$(".page-main-recommend").find('.current');
+			pmrCurrent.next().addClass('current').siblings().removeClass('current');
+			pmrPages.css({"transform":"translate("+(-1240)*(pmrCurrent.index()+1)+"px)"})
+
+			if(!(pmrA0.hasClass('active'))){
+				pmrA0.addClass('active');
+			}
+			if(pmrCurrent.index()==2){
+				$(this).removeClass('active')
+			}
+		}	
+	});
+
+	pmrA0.click(function(event) {
+		if($(this).hasClass('active')){
+			pmrCurrent=$(".page-main-recommend").find('.current');
+			pmrCurrent.prev().addClass('current').siblings().removeClass('current');
+			pmrPages.css({"transform":"translate("+(-1240)*(pmrCurrent.index()-1)+"px)"})
+
+			if(!(pmrA1.hasClass('active'))){
+				pmrA1.addClass('active');
+			}
+			if(pmrCurrent.index()==1){
+				$(this).removeClass('active')
+			}
+		}
+	});
+	//page-main-recommend部分结束
+
+
+
+
 
 
 

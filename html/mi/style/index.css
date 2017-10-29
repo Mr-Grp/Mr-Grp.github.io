@@ -616,6 +616,8 @@
 	}
 	/*picture-nav-foot部分结束*/
 
+
+
 	/*section-star部分开始*/
 	.section-star {
 		height: 438px;
@@ -638,7 +640,7 @@
 		display: block;
 		width: 24px;
 		height: 16px;
-		border: 1px solid #B4B0B0;
+		border: 1px solid #E0E0E0;
 		margin-left: -1px;
 		font: 16px/16px "Microsoft Yahei";
 		color: #E0E0E2;
@@ -744,23 +746,25 @@
 		height: 686px;
 		margin-bottom: 8px;
 	}
-	.section-header p {
+		/*page-main公共样式 p*/
+	.page-main .section-header p {
 		height: 58px;
 		color: black;
-		font: 20px/58px "Microsoft Yahei";
+		font: 22px/58px "Microsoft Yahei";
+		font-weight: 200;
 		display: inline-block;
 	}
-	.section-header ul {
+	.page-main-section .section-header ul {
 		float: right;
 		height: 24px;
 		padding-top: 16px;
 	}
-	.section-header ul li {
+	.page-main-section .section-header ul li {
 		float: left;
 		margin-left: 30px;
 		height: 24px;
 	}
-	.section-header ul li a {
+	.page-main-section .section-header ul li a {
 		display: block;
 		color: black;
 		font: 16px/24px "Microsoft Yahei";
@@ -770,15 +774,15 @@
 		color: #FF6700;
 		border-bottom: 1px solid #FF6700;
 	}
-	.section-bottom {
+	.page-main-section .section-content {
 		height: 615px;
 	}
-	.section-bottom-l {
+	.page-main-section .section-content-l {
 		float: left;
 		width: 248px;
 		height: 615px;
 	}
-	.section-bottom-l a{
+	.page-main-section .section-content-l img{
 		display: block;
 		width: 234px;
 		height: 300px;
@@ -786,69 +790,214 @@
 		margin-bottom: 14px;
 		transition: all 0.5s;
 	}
-	.page-main-section:nth-of-type(1) .section-bottom-l a{
+	.page-main-section:nth-of-type(1) .section-content-l img{
 		height: 615px;
 	}
-	.section-bottom-l a:hover {
+	.page-main-section .section-content-l img:hover {
 		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
 		margin-top: -3px;
 		margin-bottom: 17px;
 	}
-	.section-bottom-r {
+	.page-main-section .section-content-r {
 		float: left;
 		width: 978px;
 		height: 615px;
 	}
-	.section-bottom-r-li{
+	.page-main-section .section-content-goods{
 		width: 978px;
 		height: 630px;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 	}
-	.section-bottom-r .goods {
+	.page-main-section .section-content-r .goods {
 		width: 234px;
 		height: 300px;
 		margin-right: 14px;
 		margin-bottom: 14px;
 		transition: all 0.5s;
 		background-color: #fff;
+		position: relative;
 	}
-	.section-bottom-r .goods:hover {
+	.page-main-section .section-content-r .goods:hover {
 		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
 		margin-top: -3px;
 		margin-bottom: 17px;
 	}
-	.section-bottom-r .goods:nth-last-of-type(-n+2) {
+	.page-main-section .section-content-r .goods:nth-last-of-type(-n+2) {
 		height: 143px;
 	}
-	.section-bottom-r .goods:nth-last-of-type(1) {
-		position: relative;
-	}
-	.section-bottom-r .goods:nth-last-of-type(1) p {
+	
+	.page-main-section .section-content-r .goods .more {
 		position: absolute;
-		height: 18px;
-		font-size: 18px;
+		top: 50px;
 		left: 30px;
-		top: 55px;
-		margin-bottom: 8px;
+		width: 94px;
+		height: 44px;
+		color: black;
+		font-size: 18px;	
 	}
-	.section-bottom-r .goods:nth-last-of-type(1) p:nth-last-of-type(1) {
-		height: 11px;
-		font-size: 11px;
-		top: 81px;
+	.page-main-section .section-content-r .goods .more p {
+		font-size: 12px;
 		color: #757575;
 	}
-	.section-bottom-r .goods:nth-last-of-type(1) span {
+	.page-main-section .section-content-r .goods .icon {
 		position: absolute;
-		height: 48px;
-		width: 48px;
-		font-size: 48px;
-		color: #FF6700;
 		top: 45px;
 		right: 35px;
+		width: 48px;
+		height: 48px;
 	}
+	.page-main-section .section-content-r .goods .icon span {
+		font-size: 48px;
+		line-height: 48px;
+		color: #FF6700;
+	}
+
+			
 	/*page-main部分结束*/
+
+
+	/*page-main-recommend部分开始*/
+	.page-main-recommend {
+		height: 358px;
+		margin-bottom: 22px;
+	}
+	.page-main-recommend .section-header .change {
+		float: right;
+		margin-top: 15px;
+	}
+	.page-main-recommend .section-header .change a{
+		display: inline-block;
+		width: 26px;
+		height: 14px;
+		padding: 3px 5px;
+		color: #E0E0E2;
+		border: 1px solid #E0E0E0;
+		text-align: center;
+		font-size: 16px;
+		line-height: 16px;
+	}
+	.page-main-recommend .section-header .change a.active {
+		color: #B4B0B0;
+	}
+	.page-main-recommend .section-header .change a.active:hover {
+		color:#FF6700;
+	}
+	.page-main-recommend .section-header .change a:nth-of-type(1) {
+		margin-right: -1px;
+	}
+	.page-main-recommend .section-content {
+		overflow: hidden;
+		height: 320px;
+	}
+	.page-main-recommend .section-content .pages {
+		width: 4960px;
+		height: 300px;
+		transition: all 0.5s;
+	}
+	.page-main-recommend .section-content ul {
+		float: left;
+		width: 1240px;
+		height: 300px;
+	}
+	.page-main-recommend .section-content li {
+		width: 194px;
+		height: 300px;
+		float: left;
+		margin-right: 14px;
+		margin-bottom: 14px;
+		padding-left: 20px;
+		padding-right: 20px;
+		background-color: #fff;
+		transition: all 0.5s;
+	}
+	.page-main-recommend .section-content li:hover {
+		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+		margin-top: -3px;
+	}
+	.page-main-recommend .section-content li img {
+		display: block;
+		width: 140px;
+		height: 140px;
+		margin: 40px auto 20px;
+	}
+	.page-main-recommend .section-content li .name {
+		display: block;
+		height: 18px;
+		font: 14px/18px "Microsoft Yahei";
+		text-align: center;
+		color: black;
+		margin-bottom: 10px;
+	}
+	.page-main-recommend .section-content li .price {
+		margin-bottom: 10px;
+		font-size: 14px/1.5 "Microsoft Yahei";
+		color: #FF6700;
+		text-align: center;
+	}
+	.page-main-recommend .section-content li .tips {
+		font-size: 14px/1.5 "Microsoft Yahei";
+		text-align: center;
+		color: #757575;
+	}
+	/*page-main-recommend部分开始*/
+
+
+
+	/*page-main-review部分开始*/
+	.page-main-review {
+		height: 473px;
+		margin-bottom: 22px;
+	}                
+	.page-main-review .section-content li {
+		float: left;
+		width: 296px;
+		height: 415px;
+		margin-left: 14px;
+		margin-bottom: 14px;
+		background-color: #fff;
+		transition: all 0.5s;
+	}
+	.page-main-review .section-content li:hover {
+		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+		margin-top: -3px;
+	}
+	.page-main-review .section-content li:nth-of-type(1) {
+		margin-left: 0px;
+	}
+	.page-main-review .section-content li img {
+		width: 296px;
+		height: 220px;
+		margin-bottom: 28px;
+	}
+	.page-main-review .section-content li .review-content {
+		display: block;
+		width: 240px;
+		height: 72px;
+		font: 14px/24px "Microsoft Yahei";
+		color: black;
+		margin: 0 auto 22px;
+	}
+	.page-main-review .section-content li p {
+		width: 240px;
+		font: 12px/18px "Microsoft Yahei";
+		color: #B0B0B0;
+		margin: 0 auto 8px;
+	}
+	.page-main-review .section-content li .info {
+		width: 236px;
+		height: 21px;
+		margin: auto;
+		font: 14px/21px "Microsoft Yahei";
+		color: #FF6700;
+	}
+	.page-main-review .section-content li .info a {
+		font: 14px/21px "Microsoft Yahei";
+		color: black;
+	}
+	
+	/*page-main-review部分开始*/
 
 
 
@@ -861,25 +1010,22 @@
 	.page-main-video .section-header .more {
 		display: inline-block;
 		float: right;
-		width: 92px;
 		height: 58px;
 		line-height: 58px;
 	}
 
 	.page-main-video .section-header .more a {
 		color: black;
-		font: 14px/17px "Microsoft Yahei";
+		font-size: 16px;
 		transition: all 0.5s;
-
 	}
 	.page-main-video .section-header .more a i {
-		display: inline-block;
 		margin-left: 8px;
 		padding: 4px;
-		font: 12px/12px "Microsoft Yahei";
+		font-size: 12px;
+		color: #FEFAF2;
 		border-radius: 50%;
 		background-color: #B0B0B0;
-		color: #FEFAF2;
 		transition: all 0.5s;
 	}
 	.page-main-video .section-content li {
@@ -898,23 +1044,26 @@
 	}
 	.page-main-video .section-content li:hover {
 		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+		margin-top: -3px;
 	}
 	.page-main-video .section-content li img{
 		width: 296px;
 		height: 180px;
-		margin-bottom: 28px;
+		margin: 0 auto 28px;
 	}
-	.page-main-video .section-content li p {
+	.page-main-video .section-content li h3 {
 		height: 21px;
 		text-align: center;
 		margin-bottom: 6px;
+		line-height: 14px;
 	}
-	.page-main-video .section-content li p a {
+	.page-main-video .section-content li h3 a{
 		color: black;
 		font-size: 14px;
 	}
-	.page-main-video .section-content span {
+	.page-main-video .section-content p {
 		text-align: center;
+		font-size: 12px;
 		color: #B0B0B0;
 	}
 	.page-main-video .section-content i {
@@ -929,7 +1078,6 @@
 		font-size: 20px;
 		background-color: rgba(0,0,0,0);
 		transition: all 0.3s;
-
 	}
 	/*page-main-vedio部分结束*/
 
