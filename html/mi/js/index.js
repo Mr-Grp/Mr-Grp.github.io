@@ -177,7 +177,26 @@
 	$(".section-star-header").find('a').mouseout(function(){
 		sectionStarAnimate=setInterval(sectionStarChange,3000);
 	});
-	// section-star-change a部分开始
+	// section-star-change 部分结束
+
+
+
+	//page-main-section部分开始
+	$(".page-main-section").find('.section-content-goods').eq(0).css({"display":"flex"});
+	$(".page-main-section").find('.section-header').find('a').eq(0).addClass('current');
+	$(".page-main-section").find(".section-header").find('li').mouseover(function(){
+		$(".page-main-section").find('.section-content-goods').css({"display":"none"}).eq($(this).index()).css({"display":"flex"})
+		$(this).find('a').addClass('current');
+		$(this).siblings().find('a').removeClass('current');
+	})
+
+	$(".page-main-section").find('.goods').mouseover(function(event) {
+		$(this).find('.review-content').css({"margin-top":0});
+	});
+	$(".page-main-section").find('.goods').mouseout(function(event) {
+		$(this).find('.review-content').css({"margin-top":"75px"});
+	});
+	//page-main-section部分结束
 
 
 
@@ -232,7 +251,7 @@
 
 
 
-	//page-main-vedio部分开始 color: #FF6700;
+	//page-main-vedio部分开始 
 	$(".page-main-video").find('.more').mouseover(function(){
 		$(".page-main-video").find('.more').find('a').css({"color":"#FF6700"});
 		$(".page-main-video").find('.more').find('i').css({"background-color":"#FF6700"});
@@ -254,8 +273,9 @@
 
 
 
-		// section-star-change a部分开始
-	// section-star-change a部分开始
+	// footer部分开始
+
+	// footer部分开始
 
 		// section-star-change a部分开始
 	// section-star-change a部分开始
