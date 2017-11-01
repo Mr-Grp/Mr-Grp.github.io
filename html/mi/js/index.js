@@ -245,7 +245,43 @@
 	//page-main-recommend部分结束
 
 
+	// page-main-content部分开始
+	var pmcActive;
+	var pmcCurrent;
+	$('.page-main-content').find('.item').mouseenter(function(event) {
+		$(this).find(".lr").find('span').css({"background-color": "rgba(66,66,66,0.2)"})
+	});
+	$('.page-main-content').find('.item').mouseleave(function(event) {
+		$(this).find(".lr").find('span').css({"background":"white"})
+	});
+	$('.page-main-content').find(".lr").find('span').mouseover(function(event) {
+		$(this).css({"background-color": "rgba(66,66,66,0.6)"})
+	});
+	$('.page-main-content').find(".lr").find('span').mouseout(function(event) {
+		$(this).css({"background-color": "rgba(66,66,66,0.2)"})
+	});
 
+	$('.page-main-content').find('.r').click(function(){
+		pmcActive=$(this).parents('.item').find('.active');
+		pmcCurrent=$(this).parents('.item').find('.item-contents');
+		if(pmcActive.next()[0]){
+			pmcActive.next().addClass('active').siblings().removeClass('active');
+			pmcCurrent.css({'transform':'translate('+(pmcActive.index()+1)*(-296)+'px)'});
+		}
+	})
+	$('.page-main-content').find('.l').click(function(){
+		pmcActive=$(this).parents('.item').find('.active');
+		pmcCurrent=$(this).parents('.item').find('.item-contents');
+		if(pmcActive.prev()[0]){
+			pmcActive.prev().addClass('active').siblings().removeClass('active');
+			pmcCurrent.css({'transform':'translate('+(pmcActive.index()-1)*(-296)+'px)'});
+		}
+	})
+	$('.page-main-content').find('.change').find('li').click(function(event) {
+		$(this).addClass('active').siblings().removeClass('active');
+		$(this).parents('.item').find('.item-contents').css({'transform':'translate('+($(this).index())*(-296)+'px)'});
+	});
+	// page-main-content部分结束
 
 
 

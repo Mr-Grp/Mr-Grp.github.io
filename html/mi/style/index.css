@@ -629,6 +629,7 @@
 	.section-star-header p {
 		height: 58px;
 		font: 20px/58px "Microsoft Yahei";
+		font-weight: 200;
 		float: left;
 	}
 	.section-star-change {
@@ -737,7 +738,7 @@
 		margin-top: 40px;
 		background-color: #F5F5F5;
 	}
-	.page-main-content {
+	.page-main-contents {
 		padding-top: 60px;
 		background-color: #F5F5F5;
 	}
@@ -1082,7 +1083,218 @@
 		color: black;
 	}
 	
-	/*page-main-review部分开始*/
+	/*page-main-review部分结束*/
+
+
+
+	/*page-main-content部分开始*/
+	.page-main-content {
+		height: 478px;
+		margin-bottom: 22px;
+	}
+	.page-main-content .section-content .item {
+		float: left;
+		width: 296px;
+		height: 374px;
+		padding-top: 45px;
+		margin-left: 14px;
+		text-align: center;
+		transition: all 0.5s;
+		position: relative;
+		background-color: #fff;
+	}
+	.page-main-content .section-content .item:hover {
+		box-shadow: rgba(0,0,0,0.1) 0 15px 30px;
+		margin-top: -3px;
+	}
+	.page-main-content .section-content .item:nth-of-type(1) {
+		margin-left: 0;
+		border-top: 1px solid #FFBD42;
+	}
+	.page-main-content .section-content .item:nth-of-type(2) {
+		border-top: 1px solid #9CD071;
+	}
+	.page-main-content .section-content .item:nth-of-type(3) {
+		border-top: 1px solid #EA605D;
+	}
+	.page-main-content .section-content .item:nth-of-type(4) {
+		border-top: 1px solid #4DABF5;
+	}
+	.page-main-content .section-content .item h2 {
+		width: 276px;
+		height: 24px;
+		margin: 0 auto 18px;
+		color: #FFBD42;
+		text-align: center;
+		font-weight: 400;
+		font-style: 16px;
+		line-height: 24px;
+	}
+	.page-main-content .section-content .item .item-area {
+		width: 296px;
+		height: 340px;
+		overflow: hidden;
+	}
+	.page-main-content .section-content .item .item-contents {
+		width: 1184px;
+		height: 340px;
+		transition: all 0.5s;
+	}
+	.page-main-content .section-content .item .item-content {
+		float: left;
+		width: 296px;
+		height: 340px;
+	}
+	.page-main-content .section-content .item .name {
+		text-align: center;
+		width: 265px;
+		height: 25px;
+		margin: 0 auto 5px;
+	}
+	.page-main-content .section-content .item .name a {
+		color: black;
+		display: inline-block;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 1.25;
+	}
+	.page-main-content .section-content .item .desc {
+		width: 200px;
+		height: 40px;
+		margin: 0 auto 10px;
+		text-align: center;
+	}
+	.page-main-content .section-content .item .desc a {
+		display: inline-block;
+		text-align: center;
+		font-size: 12px;
+		line-height: 20px;
+		color: #b0b0b0;
+	}
+	.page-main-content .section-content .item .price {
+		width: 276px;
+		height: 21px;
+		margin: 0 auto 15px;
+		text-align: center;
+	}
+	.page-main-content .section-content .item .price a {
+		color: black;
+		font-size: 14px;
+	}
+	.page-main-content .section-content .item img {
+		width: 216px;
+		height: 154px;
+	}
+	.page-main-content .section-content .item .item-content:nth-last-of-type(1) p {
+		width: 200px;	
+		margin: 0 48px 10px;
+		font-size: 12px;
+		line-height: 20px;
+		color: #b0b0b0;
+		text-align: center;		
+	}
+	.page-main-content .section-content .item .item-content:nth-last-of-type(1) a {
+		display: block;	
+		width: 118px;	
+		height: 28px;	
+		font-size: 12px;
+		line-height: 28px;
+		text-align: center;
+		border: 1px solid #FFBD42;
+		color: #FFBD42;
+		margin: auto;
+		transition: all 0.5s;
+		
+	}
+	.page-main-content .section-content .item:nth-of-type(2) .item-content:nth-last-of-type(1) a {
+		border: 1px solid #9CD071;
+		color: #9CD071;
+	}
+	.page-main-content .section-content .item:nth-of-type(3) .item-content:nth-last-of-type(1) a {
+		border: 1px solid #EA605D;
+		color: #EA605D;
+	}
+	.page-main-content .section-content .item:nth-of-type(4) .item-content:nth-last-of-type(1) a {
+		border: 1px solid #4DABF5;
+		color: #4DABF5;
+	}	
+	.page-main-content .section-content .item .item-content:nth-last-of-type(1) a:hover {
+		background-color: #FFBD42;
+		color: white;
+	}
+	.page-main-content .section-content .item:nth-of-type(2) .item-content:nth-last-of-type(1) a:hover {
+		background-color: #9CD071;
+		color: white;
+	}
+	.page-main-content .section-content .item:nth-of-type(3) .item-content:nth-last-of-type(1) a:hover {
+		background-color: #EA605D;
+		color: white;
+	}
+	.page-main-content .section-content .item:nth-of-type(4) .item-content:nth-last-of-type(1) a:hover {
+		background-color: #4DABF5;
+		color: white;
+	}
+	.page-main-content .section-content .item .item-content:nth-last-of-type(1) img {
+		width: 216px;
+		height: 154px;
+		margin: 30px 40px 0;
+	}	
+	.page-main-content .section-content .item .lr span {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		padding: 12px 0;
+		width: 20px;
+		height: 24px;
+		font-size: 18px;
+		line-height: 24px;
+		color: white;
+		margin-top: -20px;
+		transition: all 0.6s;
+		background-color: white;
+		cursor: pointer;
+	}
+	.page-main-content .section-content .item span.r {
+		left: auto;
+		right: 0;
+	}
+	.page-main-content .section-content .item .lr span:hover {
+		background-color: rgba(66,66,66,0.6);
+	}
+	.page-main-content .section-content .item .change{
+		position: absolute;
+		width: 296px;
+		height: 30px;
+		bottom: 15px;
+		text-align: center;
+	}
+	.page-main-content .section-content .item .change li {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		padding: 10px;
+		margin: 0 2px;
+		line-height: 10px;	
+	}
+	.page-main-content .section-content .item .change span {
+		display: inline-block;
+		width: 2px;
+		height: 2px;
+		padding: 2px;
+		border-radius: 50%;
+		border: 2px solid #fff;
+		background-color: #b0b0b0;
+		cursor: pointer;
+	}
+	.page-main-content .section-content .item .change span:hover {
+		background-color: #ff6700;
+	}
+	.page-main-content .section-content .item .change .active span {
+		background-color: #fff;
+		border: 2px solid #ff6700;
+	}
+	/*page-main-content部分结束*/
+
 
 
 
