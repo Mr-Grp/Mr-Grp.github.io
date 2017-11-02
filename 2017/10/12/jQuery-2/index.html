@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="Mr-Grp">
 <meta property="og:description" content="1.DOM节点操作1.1 创建节点$()函数的另外一个作用：动态创建元素123var $spanNode = $(“&amp;lt;span&amp;gt;我是一个span元素&amp;lt;/span&amp;gt;”);var node = $(“#box”).html（“&amp;lt;li&amp;gt;我是li&amp;lt;/li&amp;gt;”）； 1.2 添加节点$parentNode.append($node)在父节点的最后位置  追加一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T15:11:56.868Z">
+<meta property="og:updated_time" content="2017-11-02T13:08:07.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery基础(2)">
 <meta name="twitter:description" content="1.DOM节点操作1.1 创建节点$()函数的另外一个作用：动态创建元素123var $spanNode = $(“&amp;lt;span&amp;gt;我是一个span元素&amp;lt;/span&amp;gt;”);var node = $(“#box”).html（“&amp;lt;li&amp;gt;我是li&amp;lt;/li&amp;gt;”）； 1.2 添加节点$parentNode.append($node)在父节点的最后位置  追加一个">
@@ -344,8 +344,9 @@
       
         <h2 id="1-DOM节点操作"><a href="#1-DOM节点操作" class="headerlink" title="1.DOM节点操作"></a>1.DOM节点操作</h2><h3 id="1-1-创建节点"><a href="#1-1-创建节点" class="headerlink" title="1.1 创建节点"></a>1.1 创建节点</h3><p>$()函数的另外一个作用：动态创建元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var $spanNode = $(“&lt;span&gt;我是一个span元素&lt;/span&gt;”);</div><div class="line"></div><div class="line">var node = $(“#box”).html（“&lt;li&gt;我是li&lt;/li&gt;”）；</div></pre></td></tr></table></figure></p>
 <h3 id="1-2-添加节点"><a href="#1-2-添加节点" class="headerlink" title="1.2 添加节点"></a>1.2 添加节点</h3><p>$parentNode.append($node)<br>在父节点的最后位置  追加一个子节点 相当于JS中 </p>
-<p>parentNode.appendChild(node)<br>$node.appendTo($parentNode)<br>将node节点追加到parentNode中</p>
-<p>$parentNode.prepend($node)<br>$node.prependTo($parentNode)<br>在父节点的最前面追加子节点</p>
+<p>$node.appendTo($parentNode)<br>将node节点追加到parentNode中</p>
+<p>$parentNode.prepend($node)</p>
+<p>$node.prependTo($parentNode)<br>在父节点的最前面追加子节点</p>
 <p>$node.after()<br><code>$(&quot;ul li&quot;).last().after(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code></p>
 <p>$node.before()<br><code>$(&quot;ul li&quot;).first().before(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code></p>
 <p>$mode.remove()<br>删除选中的节点</p>
@@ -361,19 +362,33 @@
 <h2 id="3-事件解绑"><a href="#3-事件解绑" class="headerlink" title="3.事件解绑"></a>3.事件解绑</h2><h3 id="3-1-off"><a href="#3-1-off" class="headerlink" title="3.1 off()"></a>3.1 off()</h3><p>$(selector).off();<br>// 解绑匹配元素的所有click事件<br>$(selector).off(“click”);<br>// 解绑所有代理的click事件，元素本身的事件不会被解绑<br>$(selector).off( “click”, “**” ); </p>
 <h3 id="3-2-unbind"><a href="#3-2-unbind" class="headerlink" title="3.2 unbind()"></a>3.2 unbind()</h3><p>作用：解绑 bind方式绑定的事件<br>$(selector).unbind(); //解绑所有的事件<br>$(selector).unbind(“click”); //解绑指定的事件</p>
 <h3 id="3-3-undelegate"><a href="#3-3-undelegate" class="headerlink" title="3.3 undelegate()"></a>3.3 undelegate()</h3><p>作用：解绑delegate方式绑定的事件<br>$( selector ).undelegate(); //解绑所有的delegate事件<br>$( selector).undelegate( “click” ); //解绑所有的click事件</p>
-<h2 id="3-Ajax"><a href="#3-Ajax" class="headerlink" title="3. Ajax"></a>3. Ajax</h2><p>$.ajax({<br>type :         请求类型<br>url :            请求地址<br>async:        是否异步<br>data:        请求参数    url组装好的格式或者{}json形式<br>success:        fn    成功时的处理<br>error:        fn    失败时的处理<br>dataType:        返回值的类型 用于解析数据的<br>})</p>
+<h2 id="4-Ajax"><a href="#4-Ajax" class="headerlink" title="4. Ajax"></a>4. Ajax</h2><p>$.ajax({<br>type :         请求类型<br>url :            请求地址<br>async:        是否异步<br>data:        请求参数    url组装好的格式或者{}json形式<br>success:        fn    成功时的处理<br>error:        fn    失败时的处理<br>dataType:        返回值的类型 用于解析数据的<br>})</p>
 <p>$.get(url,success, dataType);<br>$.post(url, data, success, dataType);</p>
 <p>使用jquery的ajax方法执行jsonp请求<br>$.ajax({<br>type : “get”,<br>async : true,<br>url : “index.php”,<br>dataType: “jsonp”,<br>jsonp: “callback”         在index.php中使用$_GET[‘callback’]来获取回调函数名<br>success: function (result) {<br>},<br>});</p>
-<h2 id="4-动画"><a href="#4-动画" class="headerlink" title="4.动画"></a>4.动画</h2><p>jQuery预设的三组动画效果的语法几乎一致：参数可以有两个，第一个是动画的执行时长，第二个是动画执行完成后的回调函数。<br>第一个参数是：可以是指定字符或者毫秒数</p>
+<h2 id="5-动画"><a href="#5-动画" class="headerlink" title="5.动画"></a>5.动画</h2><p>jQuery预设的三组动画效果的语法几乎一致：参数可以有两个，第一个是动画的执行时长，第二个是动画执行完成后的回调函数。<br>第一个参数是：可以是指定字符或者毫秒数</p>
 <p>1.无参：和 display:block 没啥区别</p>
 <p>2.数值，毫秒，动画显示时间<br>已预定好的值：<br>slow：600ms、normal：400ms、fast：200ms</p>
 <p>3.数值和回掉函数<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(selector).hide(1000); // 1000表示什么？</div><div class="line">$(selector).hide(“slow”);</div><div class="line">$(selector).hide(1000, function()&#123;&#125;);</div><div class="line">$(selector).hide();</div></pre></td></tr></table></figure></p>
-<h3 id="4-1-显示隐藏"><a href="#4-1-显示隐藏" class="headerlink" title="4.1 显示隐藏"></a>4.1 显示隐藏</h3><p>.show() 显示动画<br>.hide() 显示动画<br>.toggle() 切换动画</p>
-<h3 id="4-2-滑动"><a href="#4-2-滑动" class="headerlink" title="4.2 滑动"></a>4.2 滑动</h3><p>.sildeDown()<br>.sildeUp()<br>.slideToggle()</p>
-<h3 id="4-3-淡入淡出"><a href="#4-3-淡入淡出" class="headerlink" title="4.3 淡入淡出"></a>4.3 淡入淡出</h3><p>.fadeIn()<br>.fadeOut()<br>.fadeToggle()<br>淡入淡出可以指定透明度<br>.fadeTo(time, 透明度(0~1),回掉函数)</p>
-<h3 id="4-4-自定义动画"><a href="#4-4-自定义动画" class="headerlink" title="4.4 自定义动画"></a>4.4 自定义动画</h3><p>.animate({params},speed,callback);<br><code>.animate({&quot;display&quot;:&quot;block&quot;,&quot;opacity&quot;:0.5,&quot;width&quot;:200,&quot;height&quot;:200},2000);</code></p>
-<h3 id="4-5-停止动画"><a href="#4-5-停止动画" class="headerlink" title="4.5 停止动画"></a>4.5 停止动画</h3><p>.stop()<br>用于多个动画添加到同一元素</p>
-<p>第一个参数表示后续动画是否要执行<br>true:后续动画不执行  ;false:后续动画会执行<br>第二个参数表示当前动画是否执行完<br>true:立即执行完成当前动画  ;false:立即停止当前动画</p>
+<h3 id="5-1-显示隐藏"><a href="#5-1-显示隐藏" class="headerlink" title="5.1 显示隐藏"></a>5.1 显示隐藏</h3><p>.show() 显示动画<br>.hide() 显示动画<br>.toggle() 切换动画</p>
+<h3 id="5-2-滑动"><a href="#5-2-滑动" class="headerlink" title="5.2 滑动"></a>5.2 滑动</h3><p>.sildeDown()<br>.sildeUp()<br>.slideToggle()</p>
+<h3 id="5-3-淡入淡出"><a href="#5-3-淡入淡出" class="headerlink" title="5.3 淡入淡出"></a>5.3 淡入淡出</h3><p>.fadeIn()<br>.fadeOut()<br>.fadeToggle()<br>淡入淡出可以指定透明度<br>.fadeTo(time, 透明度(0~1),回掉函数)</p>
+<h3 id="5-4-自定义动画"><a href="#5-4-自定义动画" class="headerlink" title="5.4 自定义动画"></a>5.4 自定义动画</h3><p>.animate({params},speed,callback);<br><code>.animate({&quot;display&quot;:&quot;block&quot;,&quot;opacity&quot;:0.5,&quot;width&quot;:200,&quot;height&quot;:200},2000);</code></p>
+<h3 id="5-5-停止动画"><a href="#5-5-停止动画" class="headerlink" title="5.5 停止动画"></a>5.5 停止动画</h3><p>.stop(clearQueue,jumpToEnd)<br>用于多个动画添加到同一元素</p>
+<p>第一个参数表示后续动画是否要执行<br>true:后续动画不执行  ;false:后续动画会执行<br>第二个参数表示当前动画是否执行完<br>true:立即执行完成当前动画,回调函数也会立即执行;false:立即停止当前动画</p>
+<p>都不给，默认false；</p>
+<h2 id="6-尺寸位置"><a href="#6-尺寸位置" class="headerlink" title="6. 尺寸位置"></a>6. 尺寸位置</h2><h3 id="6-1-宽高"><a href="#6-1-宽高" class="headerlink" title="6.1 宽高"></a>6.1 宽高</h3><p>height()<br>width()<br>有参数表示设置，与css相比，没有单位px</p>
+<h3 id="6-2-坐标"><a href="#6-2-坐标" class="headerlink" title="6.2 坐标"></a>6.2 坐标</h3><p>1.offset() </p>
+<p>1.无参数表示获取，返回值为：{left:num, top:num}，值是相对于document的位置</p>
+<p>2.$(selector).offset();<br>有参数表示设置，参数推荐使用数值类型<br>$(selector).offset({left:100, top: 150});</p>
+<p>设置offset后，如果元素没有定位(默认值：static)，则被修改为relative</p>
+<p>2.position()<br>作用：获取相对于其最近的具有定位的父元素的位置。<br>获取，返回值为对象：{left:num, top:num}<br>$(selector).position();<br>注意：只能获取，不能设置。</p>
+<p>3.scrollTop()<br>作用：获取或者设置元素垂直方向滚动的位置<br>// 无参数表示获取偏移<br>// 有参数表示设置偏移，参数为数值类型<br>$(selector).scrollTop(100);</p>
+<p>scrollLeft()<br>作用：获取或者设置元素水平方向滚动的位置<br>$(selector).scrollLeft(100);</p>
+<p>对scrollTop的理解：<br>垂直滚动条位置是可滚动区域，在可视区域上方的被隐藏区域的高度。<br>如果滚动条在最上方没有滚动或者当前元素没有出现滚动条，那么这个距离为0</p>
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7.其他"></a>7.其他</h2><h3 id="7-1-链式操作"><a href="#7-1-链式操作" class="headerlink" title="7.1 链式操作"></a>7.1 链式操作</h3><p>链式编程原理：return this;<br>通常情况下，只有设置操作才能把链式编程延续下去。因为获取操作的时候，会返回获取到的相应的值，无法返回 this。</p>
+<p>end(); // 结束当前链最近的一次过滤操作，并且返回匹配元素之前的状态。</p>
+<h3 id="7-2-遍历方法"><a href="#7-2-遍历方法" class="headerlink" title="7.2 遍历方法"></a>7.2 遍历方法</h3><p>$.each(arr/obj, function (key, val) {})</p>
+<p>$(选择器).each(function (key, ele) {})</p>
 
       
     </div>
@@ -500,7 +515,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -559,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-DOM节点操作"><span class="nav-text">1.DOM节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建节点"><span class="nav-text">1.1 创建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-添加节点"><span class="nav-text">1.2 添加节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-节点替换"><span class="nav-text">1.3 节点替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-删除节点"><span class="nav-text">1.4 删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-克隆节点"><span class="nav-text">1.5 克隆节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-事件绑定"><span class="nav-text">2.事件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-事件（去掉on）"><span class="nav-text">2.1 .事件（去掉on）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-on-事件，函数"><span class="nav-text">2.2 .on(事件，函数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3bind方式"><span class="nav-text">2.3bind方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-delegate方式"><span class="nav-text">2.4 delegate方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-事件解绑"><span class="nav-text">3.事件解绑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-off"><span class="nav-text">3.1 off()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-unbind"><span class="nav-text">3.2 unbind()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-undelegate"><span class="nav-text">3.3 undelegate()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Ajax"><span class="nav-text">3. Ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-动画"><span class="nav-text">4.动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-显示隐藏"><span class="nav-text">4.1 显示隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-滑动"><span class="nav-text">4.2 滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-淡入淡出"><span class="nav-text">4.3 淡入淡出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-自定义动画"><span class="nav-text">4.4 自定义动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-停止动画"><span class="nav-text">4.5 停止动画</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-DOM节点操作"><span class="nav-text">1.DOM节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建节点"><span class="nav-text">1.1 创建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-添加节点"><span class="nav-text">1.2 添加节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-节点替换"><span class="nav-text">1.3 节点替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-删除节点"><span class="nav-text">1.4 删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-克隆节点"><span class="nav-text">1.5 克隆节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-事件绑定"><span class="nav-text">2.事件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-事件（去掉on）"><span class="nav-text">2.1 .事件（去掉on）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-on-事件，函数"><span class="nav-text">2.2 .on(事件，函数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3bind方式"><span class="nav-text">2.3bind方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-delegate方式"><span class="nav-text">2.4 delegate方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-事件解绑"><span class="nav-text">3.事件解绑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-off"><span class="nav-text">3.1 off()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-unbind"><span class="nav-text">3.2 unbind()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-undelegate"><span class="nav-text">3.3 undelegate()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Ajax"><span class="nav-text">4. Ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-动画"><span class="nav-text">5.动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-显示隐藏"><span class="nav-text">5.1 显示隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-滑动"><span class="nav-text">5.2 滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-淡入淡出"><span class="nav-text">5.3 淡入淡出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-自定义动画"><span class="nav-text">5.4 自定义动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-停止动画"><span class="nav-text">5.5 停止动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-尺寸位置"><span class="nav-text">6. 尺寸位置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-宽高"><span class="nav-text">6.1 宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-坐标"><span class="nav-text">6.2 坐标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-其他"><span class="nav-text">7.其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-链式操作"><span class="nav-text">7.1 链式操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-遍历方法"><span class="nav-text">7.2 遍历方法</span></a></li></ol></li></ol></div>
             
 
           </div>
