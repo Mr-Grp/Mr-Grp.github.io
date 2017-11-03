@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,模块化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1.模块化的发展过程问题：命名冲突，依赖问题 1.全局函数时代命名冲突，可读性差1234567891011121314151617var add=function(v1,v2)&amp;#123;	return v1+v2;&amp;#125;var substract=function(v1,v2)&amp;#123;	return v1-v2;&amp;#125;var getDate=function()&amp;#123;">
+<meta name="keywords" content="前端,javascript,模块化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化（seajs）">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/nodejs1/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1.模块化的发展过程问题：命名冲突，依赖问题 1.全局函数时代命名冲突，可读性差1234567891011121314151617var add=function(v1,v2)&amp;#123;	return v1+v2;&amp;#125;var substract=function(v1,v2)&amp;#123;	return v1-v2;&amp;#125;var getDate=function()&amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-03T13:54:52.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化（seajs）">
+<meta name="twitter:description" content="1.模块化的发展过程问题：命名冲突，依赖问题 1.全局函数时代命名冲突，可读性差1234567891011121314151617var add=function(v1,v2)&amp;#123;	return v1+v2;&amp;#125;var substract=function(v1,v2)&amp;#123;	return v1-v2;&amp;#125;var getDate=function()&amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/03/nodejs1/"/>
+
+
+
+
+
+  <title>模块化（seajs） | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/nodejs1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">模块化（seajs）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T21:01:15+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/模块化/" itemprop="url" rel="index">
+                    <span itemprop="name">模块化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-模块化的发展过程"><a href="#1-模块化的发展过程" class="headerlink" title="1.模块化的发展过程"></a>1.模块化的发展过程</h2><p>问题：命名冲突，依赖问题</p>
+<p>1.全局函数时代<br>命名冲突，可读性差<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var add=function(v1,v2)&#123;</div><div class="line">	return v1+v2;</div><div class="line">&#125;</div><div class="line">var substract=function(v1,v2)&#123;</div><div class="line">	return v1-v2;</div><div class="line">&#125;</div><div class="line">var getDate=function()&#123;</div><div class="line"></div><div class="line">    return new Date();</div><div class="line">&#125;</div><div class="line">var mutiply=function(v1,v2)&#123;</div><div class="line">	return v1*v2;</div><div class="line">&#125;</div><div class="line">var divide=function(v1,v2)&#123;</div><div class="line">	return v1/v2;</div><div class="line">&#125;</div><div class="line">var add=123; //直接覆盖了add</div></pre></td></tr></table></figure></p>
+<p>2.命名空间<br>一类写在一个对象里<br>命名空间法是通过约定方式定义的<br>可以解决命名冲突问题，但是很牵强<br>下划线开头，匈牙利命名法，驼峰命名法<br>无法解决私有封装问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var calculator=&#123;</div><div class="line">    a:123;</div><div class="line"> &#125;</div><div class="line">calculator.add=function(v1,v2)&#123;</div><div class="line">	return v1+v2;</div><div class="line">&#125;</div><div class="line">calculator.substract=function(v1,v2)&#123;</div><div class="line">	return v1-v2;</div><div class="line">&#125;</div><div class="line">calculator.mutiply=function(v1,v2)&#123;</div><div class="line">	return v1*v2;</div><div class="line">&#125;</div><div class="line">calculator.divide=function(v1,v2)&#123;</div><div class="line">	return v1/v2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">calculator.a=123; //还是可以直接覆盖</div></pre></td></tr></table></figure></p>
+<p>3.划分私有空间<br>闭包，自调用匿名行数，return一个对象（函数名）<br>封装型，划分私有空间<br>还是需要约定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> var calculator=(function()&#123;</div><div class="line">       var a=123;</div><div class="line">       var add=function(v1,v2)&#123;</div><div class="line">       		return v1+v2;</div><div class="line">       &#125;</div><div class="line">       var substract=function(v1,v2)&#123;</div><div class="line">            return v1-v2;</div><div class="line">       &#125;</div><div class="line">       var mutiply=function(v1,v2)&#123;</div><div class="line">            return v1*v2;</div><div class="line">       &#125;</div><div class="line">       var divide=function(v1,v2)&#123;</div><div class="line">        	return v1/v2;</div><div class="line">       &#125;</div><div class="line">       return &#123;</div><div class="line">            add:add,</div><div class="line">            substract:substract,</div><div class="line">            mutiply:mutiply,</div><div class="line">            divide:divide</div><div class="line">       &#125;</div><div class="line">    &#125;)()</div><div class="line">var  cal=calculator;</div><div class="line">cal.add(1,1);</div></pre></td></tr></table></figure></p>
+<p>4.扩展和维护模块<br>开闭原则，对直接修改关闭，扩展开发。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var calculator=(function(cal)&#123;</div><div class="line">       cal.mod=function(v1,v2)&#123;</div><div class="line">         return v1%v2;</div><div class="line">       &#125;</div><div class="line">       return cal;</div><div class="line">    &#125;)(window.calculator||&#123;&#125;)</div></pre></td></tr></table></figure>
+<p>5.第三方依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var calculator=(function(cal,$)&#123;</div><div class="line">  cal.add2=function()&#123;</div><div class="line">      var v1=$(&apos;#v1&apos;).val();</div><div class="line">      var v2= $(&apos;#v2&apos;).val();</div><div class="line"> </div><div class="line">     return (v1-0)+(v2-0);</div><div class="line">  &#125;</div><div class="line">  return cal;</div><div class="line"></div><div class="line">&#125;)(window.calculator||&#123;&#125;,window.$)</div><div class="line">//我在这告诉你我要jquery</div><div class="line">//依赖注入</div><div class="line">//很牵强的解决文件依赖问题的方法</div></pre></td></tr></table></figure>
+<h2 id="2-seaJS"><a href="#2-seaJS" class="headerlink" title="2.seaJS"></a>2.seaJS</h2><p>辅助开发模块化代码的工具。<br>基于cmd规范。</p>
+<p>简单友好的模块定义规范。<br>自然直管的代码组织方式。</p>
+<p>给的例子</p>
+<p>hello.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">   base: &quot;../sea-modules/&quot;,</div><div class="line">//别名</div><div class="line">   alias: &#123;  </div><div class="line">     &quot;jquery&quot;: &quot;jquery/jquery/1.10.1/jquery.js&quot;</div><div class="line">   &#125;</div><div class="line"> &#125;);</div><div class="line"></div><div class="line">//开发模式</div><div class="line">if (location.href.indexOf(&quot;?dev&quot;) &gt; 0) &#123;</div><div class="line">   seajs.use(&quot;../static/hello/src/main&quot;);</div><div class="line"> &#125;</div><div class="line"> //生产模式</div><div class="line"> else &#123;</div><div class="line">   seajs.use(&quot;examples/hello/1.0.0/main&quot;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>路径问题：<br>绝对路径和平时不一样那，默认会有个默认根目录（seajs文件所在目录），如果配置了就用配置的根目录<code>base</code></p>
+<h3 id="seajs-use"><a href="#seajs-use" class="headerlink" title="seajs.use()"></a>seajs.use()</h3><p>引入入口模块，引入的第一个js就是入口模块</p>
+<p>seajs.use(src)</p>
+<p>获取返回值：<br>seajs.use(src,function(a){<br>}</p>
+<p>main.js<br>定义模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">define(function(require) &#123;</div><div class="line"></div><div class="line">  var Spinning = require(&apos;./spinning&apos;);</div><div class="line"></div><div class="line">  var s = new Spinning(&apos;#container&apos;);</div><div class="line">  s.render();</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h3><p>define()<br>request 用来加载文件</p>
+<p>spinning.js中<br>别名的好处 jq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  var $ = require(&apos;jquery&apos;);</div><div class="line"></div><div class="line">  function Spinning(container) &#123;</div><div class="line">    this.container = $(container);</div><div class="line">    this.icons = this.container.children();</div><div class="line">    this.spinnings = [];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  module.exports = Spinning;</div><div class="line"></div><div class="line">......</div></pre></td></tr></table></figure>
+<h3 id="module-exports和exports"><a href="#module-exports和exports" class="headerlink" title="module.exports和exports"></a>module.exports和exports</h3><p>module.exports和私有空间的return很像。<br>如果什么都不传是一个空对象，是用来打破封装性，返回想要暴露的属性和方法，如果有多个，认最后一个，最好给其属性赋值，不要直接赋值。<br><code>require(&#39;./spinning&#39;);</code>得到是<code>module.exports</code>的结果。</p>
+<p><code>exports</code>是<code>module.exports</code>的别名，.属性的时候嫌<code>module.exports.属性</code>太长就用<code>exports.属性</code>，直接等于的时候用<code>module.exports</code>就行，因为这种方式只能用一次。</p>
+<p>写在模块最后</p>
+<p>引入jquery的方法：<br>define( function() {<br>……<br>return $.noConflict();<br>});</p>
+<h2 id="3-RequireJS"><a href="#3-RequireJS" class="headerlink" title="3.RequireJS"></a>3.RequireJS</h2><p>AMD规范<br><a href="http://www.requirejs.org/" target="_blank" rel="external">http://www.requirejs.org/</a><br>requirejs是优先加载<br>seajs是懒加载</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/模块化/" rel="tag"># 模块化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/02/JSOOP1/" rel="next" title="js面向对象">
+                <i class="fa fa-chevron-left"></i> js面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-模块化的发展过程"><span class="nav-text">1.模块化的发展过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-seaJS"><span class="nav-text">2.seaJS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#seajs-use"><span class="nav-text">seajs.use()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义模块"><span class="nav-text">定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module-exports和exports"><span class="nav-text">module.exports和exports</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-RequireJS"><span class="nav-text">3.RequireJS</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
