@@ -78,7 +78,7 @@
 <meta property="og:description" content="1.简介1.1 什么是JavaScriptJavascript是网景（1994年成立）—livescript，1995的时候网景公司想借助java推广自己的产品，因此改名为javascript，其实和java没啥关系。 1.2 JavaScript语言的特点跨平台：Js是一门跨平台性的脚本语言基于对象：面向对象客户端脚本语言：在客户端运行，任何浏览器都可以运行脚本语言和编程语言的区别：脚本语言不能">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/js/1.png">
-<meta property="og:updated_time" content="2017-10-12T14:35:24.249Z">
+<meta property="og:updated_time" content="2017-11-03T07:08:57.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js基础语法(1)">
 <meta name="twitter:description" content="1.简介1.1 什么是JavaScriptJavascript是网景（1994年成立）—livescript，1995的时候网景公司想借助java推广自己的产品，因此改名为javascript，其实和java没啥关系。 1.2 JavaScript语言的特点跨平台：Js是一门跨平台性的脚本语言基于对象：面向对象客户端脚本语言：在客户端运行，任何浏览器都可以运行脚本语言和编程语言的区别：脚本语言不能">
@@ -363,7 +363,24 @@
 <ul>
 <li>object</li>
 </ul>
-<h3 id="3-3-运算符"><a href="#3-3-运算符" class="headerlink" title="3.3 运算符"></a>3.3 运算符</h3><p>1.算数运算符 + - <em> / %  ++ –<br>2.赋值运算符: =  +=   -=   </em>=  /*<br>3.字符串运算  +  +=<br>4.比较运算  &gt;  &gt;=  &lt;   &lt;=  !=  ==  ===<br>5.逻辑运算  &amp;&amp;  ||  !</p>
+<h3 id="3-3-运算符"><a href="#3-3-运算符" class="headerlink" title="3.3 运算符"></a>3.3 运算符</h3><ul>
+<li><p>typeof<br>使用typeof 查看变量的数据类型 它是一个运算符 不是函数 当查看一个表达式时 会使用()使之看起来像个函数。</p>
+</li>
+<li><p>delete<br>删除一个对象的属性或者数组元素的 类似于PHP中unset。除此以外 它还可以用来删除一个未用var声明的变量。</p>
+</li>
+<li><p>instanceof<br>instanceof 用来检测一个对象是否是某个类的实例 注意不要取检测是否是Object的实例（都是true）</p>
+</li>
+<li><p>in<br>用来判断对象中是否有某个属性<br><code>attr in object</code></p>
+</li>
+<li><p>with 语句<br>变量有作用域 当作用域比较长的时候 可以使用with修改作用域链的头 简化代码输入量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">with(d.style)&#123;</div><div class="line">	name=&apos;&apos;;</div><div class="line">&#125;</div><div class="line">//相当于 d.style.name=&apos;&apos;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>for(var p in o)<br>for/in用来查看对象的属性（包括方法），定义一个变量p用来接收每次从对象o循环出来的属性，接下来就可以通过p检索每个属性的属性值可以使用o[p]来获取 而不是o.p</p>
+</li>
+<li><p>|| 运算<br>或运算执行时 当表达式两边都为false时 返回false，有一个为true就返回true。在实际执行时 当左边为true时直接返回左边的值,不用往后执行,如果左边为FALSE右边代表最终的结果</p>
+</li>
+</ul>
+<p>1.算数运算符 + - <em> / %  ++ –<br>2.赋值运算符: =  +=   -=   </em>=  /*<br>3.字符串运算  +  +=<br>4.比较运算  &gt;  &gt;=  &lt;   &lt;=  !=  ==  ===<br>5.逻辑运算  &amp;&amp;  ||  !</p>
 <h3 id="3-4-运算符优先级"><a href="#3-4-运算符优先级" class="headerlink" title="3.4 运算符优先级"></a>3.4 运算符优先级</h3><p><img src="/images/js/1.png" alt=""></p>
 <h3 id="3-5-传值方式"><a href="#3-5-传值方式" class="headerlink" title="3.5 传值方式"></a>3.5 传值方式</h3><p>1.值传递 （基本的数据类型 number string boolean null 都是值传递）<br>特点：把值传递给另外一个变量之后，两个变量没有任何关系，一个变量改变，另外一个变量不变。</p>
 <p>2.引用传递 (数组 函数  自定义对象)<br>特点：把值传递给另外一个变量之后，两个变量有关系，一个变量改变，另外一个变量变</p>
@@ -412,10 +429,26 @@
 </li>
 </ul>
 <h2 id="5-函数"><a href="#5-函数" class="headerlink" title="5.函数"></a>5.函数</h2><p>将一段功能代码进行封装，起个名字</p>
-<h3 id="5-1-函数的定义及调用"><a href="#5-1-函数的定义及调用" class="headerlink" title="5.1 函数的定义及调用"></a>5.1 函数的定义及调用</h3><p>function 函数名（形参1，形参2…）{<br>   函数体;<br>}<br>函数名 （实参1，实参2…）<br>实参是直接值，通常是常量，实参和形参要一一对应</p>
-<h3 id="5-2函数的返回值"><a href="#5-2函数的返回值" class="headerlink" title="5.2函数的返回值"></a>5.2函数的返回值</h3><p>return xx；<br>将结果返回给函数的调用的位置，退出函数</p>
-<h3 id="5-3-作用域"><a href="#5-3-作用域" class="headerlink" title="5.3 作用域"></a>5.3 作用域</h3><p>函数的作用域 ,变量是在函数里面声明的还是在函数的外部声明的<br>1.局部变量：在函数内部声明的变量是局部变量,只能在函数内部使用<br>2.全局变量：在函数外部声明的变量，哪都能用</p>
-<h2 id="6-运行过程"><a href="#6-运行过程" class="headerlink" title="6.运行过程"></a>6.运行过程</h2><p>在javascript中，程序执行的过程是从上而下的顺序执行。遇到错误，不会再往下执行。</p>
+<h3 id="5-1-函数的定义及调用"><a href="#5-1-函数的定义及调用" class="headerlink" title="5.1 函数的定义及调用"></a>5.1 函数的定义及调用</h3><p>1.使用构造函数：<br>var f=new Function(‘x’,’y’,’return x+y’)<br>最后一个为函数体</p>
+<p>2.function直接声明：<br>function 函数名（形参1，形参2…）{<br>   函数体;<br>}<br>函数名 （实参1，实参2…）</p>
+<h3 id="5-2函数的参数返回值"><a href="#5-2函数的参数返回值" class="headerlink" title="5.2函数的参数返回值"></a>5.2函数的参数返回值</h3><h4 id="5-2-1-参数"><a href="#5-2-1-参数" class="headerlink" title="5.2.1 参数"></a>5.2.1 参数</h4><p>JS中的函数参数可以不严格的匹配，当调用时传入的实参个数多于定义的形参多出的值会被忽略，当实参个数少于形参在函数体内的形参值为undefined。</p>
+<h4 id="5-2-2-arguments"><a href="#5-2-2-arguments" class="headerlink" title="5.2.2 arguments"></a>5.2.2 arguments</h4><p>函数体内标识符arguments有着特殊的含义它是一个类似数组的对象，使用数字下标存储实参的值，此外还有一些其他的属性，例如length表示实参个数、callee表示替代当前正在调用的函数名。</p>
+<p>意义：arguments对象可以有效的帮助我们处理可变参数（参数长度不固定 没法定义形参接收实参）函数，这种情况下就不定义形参，直接使用arguments获取所有的实参值。</p>
+<h4 id="5-2-3-返回值"><a href="#5-2-3-返回值" class="headerlink" title="5.2.3 返回值"></a>5.2.3 返回值</h4><p>return xx；<br>将结果返回给函数的调用的位置，退出函数</p>
+<h3 id="5-3-this"><a href="#5-3-this" class="headerlink" title="5.3 this"></a>5.3 this</h3><p>作为函数，哪怕有嵌套函数，函数体内的this总是指向window对象<br>作为对象方法的函数，函数体内的this 指向当前调用方法的对象</p>
+<h3 id="5-4-函数对象"><a href="#5-4-函数对象" class="headerlink" title="5.4 函数对象"></a>5.4 函数对象</h3><ul>
+<li><p>length属性<br>函数是对象，它有属性和方法，函数的length属性是查看函数定义的形参的个数。</p>
+</li>
+<li><p>prototype属性<br>函数的prototype引用构造函数（类）的原型对象，原型对象中的内容 可以被它的实例对象继承。</p>
+</li>
+<li><p>call和apply方法<br>改变一个函数的调用对象，apply第二个参数为函数的参数数组，call参数直接写，逗号隔开，第一个参数（对象）可以写null</p>
+</li>
+</ul>
+<h2 id="6-作用域和闭包"><a href="#6-作用域和闭包" class="headerlink" title="6.作用域和闭包"></a>6.作用域和闭包</h2><h3 id="6-1-作用域"><a href="#6-1-作用域" class="headerlink" title="6.1 作用域"></a>6.1 作用域</h3><p>局部变量是一个叫做激活对象（也叫调用对象是函数调用时产生的对象）的属性。组成变量作用域的是一个对象列表或对象链 一般叫“作用域链”。</p>
+<p>在程序顶层中变量作用域链为全局对象，定义在函数f体内的变量作用域链为 f的激活对象 =&gt; 全局对象，函数体内嵌套的函数g的作用域为 g的激活对象 =&gt; 外围函数f的激活对象 =&gt; 全局对象。</p>
+<p>当查询变量时，JS会沿着它当前所在位置的作用域链的头部开始查找，如果找到则返回结果，如果没有则继续往下查找，直到根部（根没有则是undefined）。</p>
+<h3 id="6-2-闭包"><a href="#6-2-闭包" class="headerlink" title="6.2 闭包"></a>6.2 闭包</h3><p>嵌套函数被导出或者存在其他引用，这时外围函数的激活对象就会保留下来，结果是外围函数的一次特定调用的激活对象中的值被保留下来，这种代码和作用域的综合体称为闭包。</p>
+<h2 id="7-运行过程"><a href="#7-运行过程" class="headerlink" title="7.运行过程"></a>7.运行过程</h2><p>在javascript中，程序执行的过程是从上而下的顺序执行。遇到错误，不会再往下执行。</p>
 
       
     </div>
@@ -599,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1.简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-什么是JavaScript"><span class="nav-text">1.1 什么是JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-JavaScript语言的特点"><span class="nav-text">1.2 JavaScript语言的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-JavaScript基本语法规则"><span class="nav-text">1.3 JavaScript基本语法规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-引入方式"><span class="nav-text">2.引入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-内嵌引入方式"><span class="nav-text">2.1 内嵌引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-内部引入方式"><span class="nav-text">2.2 内部引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3外部文件引入方式"><span class="nav-text">2.3外部文件引入方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-基本语法"><span class="nav-text">3.基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1变量"><span class="nav-text">3.1变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-数据类型"><span class="nav-text">3.2 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-运算符"><span class="nav-text">3.3 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-运算符优先级"><span class="nav-text">3.4 运算符优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-传值方式"><span class="nav-text">3.5 传值方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-变量之间的数据类型转换"><span class="nav-text">3.6 变量之间的数据类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-流程控制"><span class="nav-text">4.流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-顺序结构"><span class="nav-text">4.1 顺序结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-分支结构"><span class="nav-text">4.2 分支结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-循环结构"><span class="nav-text">4.3 循环结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-函数"><span class="nav-text">5.函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-函数的定义及调用"><span class="nav-text">5.1 函数的定义及调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2函数的返回值"><span class="nav-text">5.2函数的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-作用域"><span class="nav-text">5.3 作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-运行过程"><span class="nav-text">6.运行过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-text">1.简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-什么是JavaScript"><span class="nav-text">1.1 什么是JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-JavaScript语言的特点"><span class="nav-text">1.2 JavaScript语言的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-JavaScript基本语法规则"><span class="nav-text">1.3 JavaScript基本语法规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-引入方式"><span class="nav-text">2.引入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-内嵌引入方式"><span class="nav-text">2.1 内嵌引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-内部引入方式"><span class="nav-text">2.2 内部引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3外部文件引入方式"><span class="nav-text">2.3外部文件引入方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-基本语法"><span class="nav-text">3.基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1变量"><span class="nav-text">3.1变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-数据类型"><span class="nav-text">3.2 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-运算符"><span class="nav-text">3.3 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-运算符优先级"><span class="nav-text">3.4 运算符优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-传值方式"><span class="nav-text">3.5 传值方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-变量之间的数据类型转换"><span class="nav-text">3.6 变量之间的数据类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-流程控制"><span class="nav-text">4.流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-顺序结构"><span class="nav-text">4.1 顺序结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-分支结构"><span class="nav-text">4.2 分支结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-循环结构"><span class="nav-text">4.3 循环结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-函数"><span class="nav-text">5.函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-函数的定义及调用"><span class="nav-text">5.1 函数的定义及调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2函数的参数返回值"><span class="nav-text">5.2函数的参数返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-参数"><span class="nav-text">5.2.1 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-arguments"><span class="nav-text">5.2.2 arguments</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-返回值"><span class="nav-text">5.2.3 返回值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-this"><span class="nav-text">5.3 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-函数对象"><span class="nav-text">5.4 函数对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-作用域和闭包"><span class="nav-text">6.作用域和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-作用域"><span class="nav-text">6.1 作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-闭包"><span class="nav-text">6.2 闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-运行过程"><span class="nav-text">7.运行过程</span></a></li></ol></div>
             
 
           </div>
