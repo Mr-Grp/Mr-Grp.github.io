@@ -77,13 +77,10 @@
 <meta property="og:site_name" content="Mr-Grp">
 <meta property="og:description" content="看起来可能会有些混乱，观看慕课的视频的笔记，官方文档也有详细教程（有中文文档）。 1.基本介绍1.1 介绍webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成少量的 bundle - 通常只">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.npmjs.com/package/html-webpack-plugin">
-<meta property="og:image" content="https://github.com/kangax/html-minifier#options-quick-reference">
-<meta property="og:updated_time" content="2017-11-13T04:18:50.826Z">
+<meta property="og:updated_time" content="2017-11-13T04:34:17.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
 <meta name="twitter:description" content="看起来可能会有些混乱，观看慕课的视频的笔记，官方文档也有详细教程（有中文文档）。 1.基本介绍1.1 介绍webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成少量的 bundle - 通常只">
-<meta name="twitter:image" content="https://www.npmjs.com/package/html-webpack-plugin">
 
 
 
@@ -370,7 +367,7 @@
 <p>2.context：默认为运行脚本的目录</p>
 <p>3.publicPath: ‘上线地址’，html模板中引入这个地址作为绝对地址的头。</p>
 <h2 id="3-html-webpack-plugin"><a href="#3-html-webpack-plugin" class="headerlink" title="3.html-webpack-plugin"></a>3.html-webpack-plugin</h2><p>用于自动生成html</p>
-<h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><p>npm i html-webpack-plugin<br>一些使用在npm上有具体文档。<br><img src="https://www.npmjs.com/package/html-webpack-plugin" alt="文档"></p>
+<h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><p>npm i html-webpack-plugin<br>一些使用在npm上有具体文档。<br><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="external">文档</a></p>
 <h3 id="3-2-引入"><a href="#3-2-引入" class="headerlink" title="3.2 引入"></a>3.2 引入</h3><p>在配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line"></div><div class="line"></div><div class="line">module.exports= &#123;</div><div class="line">	entry: &#123;</div><div class="line">		main: &apos;./src/script/main.js&apos;,</div><div class="line">		a: &apos;./src/script/a.js&apos;，</div><div class="line">	&#125;,</div><div class="line">	output: &#123;</div><div class="line">		path: __dirname + &apos;/dist&apos;,</div><div class="line">		filename: &apos;js/[name]-[hash].js&apos;,</div><div class="line">		publicPath: &apos;http://grpblog.com/&apos; //公共地址（头）</div><div class="line">	&#125;,</div><div class="line">	plugins: [</div><div class="line">		new htmlWebpackPlugin(&#123;</div><div class="line">			template: &apos;index.html&apos;</div><div class="line">		&#125;)</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>会默认在js目录中生成index.html，并且关联目录根目录的index.html<br>修改path和filename，将js放在js文件夹中，index.html放到dist中</p>
 <h3 id="3-3-配置模板的属性"><a href="#3-3-配置模板的属性" class="headerlink" title="3.3 配置模板的属性"></a>3.3 配置模板的属性</h3><p>plugins配置文件中属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">		new htmlWebpackPlugin(&#123;</div><div class="line">			template: &apos;index.html&apos;, //模板名</div><div class="line">			filename: &apos;index-[hash].html&apos;, //文件名，可以使用前面的占位符。</div><div class="line">			inject: &apos;head&apos;, //js插入位置，可以为false，不插入</div><div class="line">			title: &apos;hello&apos;,</div><div class="line">			date: new Date(),</div><div class="line">			//压缩</div><div class="line">			minify: &#123;</div><div class="line">				removeComments: true,  //注释</div><div class="line">				collapseWhitespace: true   //空格</div><div class="line">			&#125;,</div><div class="line">			chunks: [&apos;&apos;,&apos;&apos;], //只引入特定的chunk</div><div class="line">			excludeChunks: [&apos;b&apos;]</div><div class="line">		&#125;)</div><div class="line">	]</div></pre></td></tr></table></figure></p>
@@ -380,7 +377,7 @@
 <li>inject: ‘head’, //js插入位置，可以为false，不插入</li>
 <li>title: ‘hello’,</li>
 <li>date: new Date(),</li>
-<li><p>//压缩<br>minify: {<br>removeComments: true,  //注释<br>collapseWhitespace: true   //空格<br>},<br><img src="https://github.com/kangax/html-minifier#options-quick-reference" alt="压缩属性"></p>
+<li><p>//压缩<br>minify: {<br>removeComments: true,  //注释<br>collapseWhitespace: true   //空格<br>},<br><a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="external">压缩属性</a></p>
 </li>
 <li><p>chunks: [‘’,’’] //只引入特定的chunk</p>
 </li>
@@ -458,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/02/JSOOP1/" rel="next" title="js面向对象">
-                <i class="fa fa-chevron-left"></i> js面向对象
+              <a href="/2017/11/03/nodejs1/" rel="next" title="模块化（seajs）">
+                <i class="fa fa-chevron-left"></i> 模块化（seajs）
               </a>
             
           </div>
@@ -468,8 +465,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/03/nodejs1/" rel="prev" title="模块化（seajs）">
-                模块化（seajs） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/13/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
