@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,模块化，es6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1. 数组扩展1.1 生成数组1Array.of() 1234567&amp;#123;  let arr = Array.of(3,4,7,9,11);  console.log(&amp;apos;arr=&amp;apos;,arr);  let empty=Array.of();  console.log(&amp;apos;empty&amp;apos;,empty);&amp;#125; 12arr= (5) [3, 4, 7, 9">
+<meta name="keywords" content="前端,javascript,模块化，es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6-3">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/es6-3/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1. 数组扩展1.1 生成数组1Array.of() 1234567&amp;#123;  let arr = Array.of(3,4,7,9,11);  console.log(&amp;apos;arr=&amp;apos;,arr);  let empty=Array.of();  console.log(&amp;apos;empty&amp;apos;,empty);&amp;#125; 12arr= (5) [3, 4, 7, 9">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-17T12:45:51.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6-3">
+<meta name="twitter:description" content="1. 数组扩展1.1 生成数组1Array.of() 1234567&amp;#123;  let arr = Array.of(3,4,7,9,11);  console.log(&amp;apos;arr=&amp;apos;,arr);  let empty=Array.of();  console.log(&amp;apos;empty&amp;apos;,empty);&amp;#125; 12arr= (5) [3, 4, 7, 9">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/06/es6-3/"/>
+
+
+
+
+
+  <title>es6-3 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/es6-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">es6-3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T20:26:17+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-数组扩展"><a href="#1-数组扩展" class="headerlink" title="1. 数组扩展"></a>1. 数组扩展</h2><h3 id="1-1-生成数组1"><a href="#1-1-生成数组1" class="headerlink" title="1.1 生成数组1"></a>1.1 生成数组1</h3><p>Array.of()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let arr = Array.of(3,4,7,9,11);</div><div class="line">  console.log(&apos;arr=&apos;,arr);</div><div class="line"></div><div class="line">  let empty=Array.of();</div><div class="line">  console.log(&apos;empty&apos;,empty);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr= (5) [3, 4, 7, 9, 11]</div><div class="line">empty []</div></pre></td></tr></table></figure>
+<h3 id="1-2-生成数组2"><a href="#1-2-生成数组2" class="headerlink" title="1.2 生成数组2"></a>1.2 生成数组2</h3><p>Array.from()<br>把伪数组和集合转化成真正的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let p=document.querySelectorAll(&apos;p&apos;);</div><div class="line">  let pArr=Array.from(p);</div><div class="line">  pArr.forEach(function(item)&#123;</div><div class="line">    console.log(item.textContent);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  console.log(Array.from([1,3,5],function(item)&#123;return item*2&#125;));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>(3) [2, 6, 10]</code><br>没有p标签，所以没输出</p>
+<h3 id="1-3-填充数组"><a href="#1-3-填充数组" class="headerlink" title="1.3 填充数组"></a>1.3 填充数组</h3><p>arr.fill(填充，起始位置，截至位置)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(&apos;fill-7&apos;,[1,&apos;a&apos;,undefined].fill(7));</div><div class="line">  console.log(&apos;fill,pos&apos;,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;].fill(7,1,3));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fill-7 (3) [7, 7, 7]</div><div class="line">fill,pos (3) [&quot;a&quot;, 7, 7]</div></pre></td></tr></table></figure>
+<h3 id="1-4-keys-amp-values-amp-entries"><a href="#1-4-keys-amp-values-amp-entries" class="headerlink" title="1.4 keys &amp; values &amp; entries"></a>1.4 keys &amp; values &amp; entries</h3><p>arr.keys()<br>arr.values()<br>arr.entries()</p>
+<p>values() 有兼容问题（es7）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for(let index of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].keys())&#123;</div><div class="line">  console.log(&apos;keys&apos;,index);</div><div class="line">&#125;</div><div class="line">for(let value of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].values())&#123;</div><div class="line">  console.log(&apos;values&apos;,value);</div><div class="line">&#125;</div><div class="line">for(let [index,value] of [&apos;1&apos;,&apos;c&apos;,&apos;ks&apos;].entries())&#123;</div><div class="line">  console.log(&apos;values&apos;,index,value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">keys 0</div><div class="line">keys 1</div><div class="line">keys 2</div><div class="line">values 1</div><div class="line">values c</div><div class="line">values ks</div><div class="line">values 0 1</div><div class="line">values 1 c</div><div class="line">values 2 ks</div></pre></td></tr></table></figure>
+<h3 id="1-5-截取替换"><a href="#1-5-截取替换" class="headerlink" title="1.5 截取替换"></a>1.5 截取替换</h3><p>arr.copyWithin(开始替换位置，读取位置，读取结束位置)</p>
+<p><code>console.log([1,2,3,4,5].copyWithin(0,3,4));</code><br><code>(5) [4, 2, 3, 4, 5]</code></p>
+<h3 id="1-6-条件查找"><a href="#1-6-条件查找" class="headerlink" title="1.6 条件查找"></a>1.6 条件查找</h3><p>arr.find(function(item){retrun 条件为1})<br>返回值，只返回一个</p>
+<p>arr.findIndex()<br>返回index，也只返回一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([1,2,3,4,5,6].find(function(item)&#123;return item&gt;3&#125;));</div><div class="line">console.log([1,2,3,4,5,6].findIndex(function(item)&#123;return item&gt;3&#125;));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">4</div><div class="line">3</div></pre></td></tr></table></figure>
+<h3 id="1-7-是否包含"><a href="#1-7-是否包含" class="headerlink" title="1.7 是否包含"></a>1.7 是否包含</h3><p>arr.includes()<br>可以处理NaN(NaN不能做相等运算)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;number&apos;,[1,2,NaN].includes(1));</div><div class="line">console.log(&apos;number&apos;,[1,2,NaN].includes(NaN));</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">number true</div><div class="line">number true</div></pre></td></tr></table></figure>
+<h2 id="2-函数扩展"><a href="#2-函数扩展" class="headerlink" title="2. 函数扩展"></a>2. 函数扩展</h2><h3 id="2-1-参数默认值"><a href="#2-1-参数默认值" class="headerlink" title="2.1 参数默认值"></a>2.1 参数默认值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function test(x, y = &apos;world&apos;)&#123;</div><div class="line">    console.log(&apos;默认值&apos;,x,y);</div><div class="line">  &#125;</div><div class="line">  test(&apos;hello&apos;);</div><div class="line">  test(&apos;hello&apos;,&apos;kill&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">默认值 hello world</div><div class="line">默认值 hello kill</div></pre></td></tr></table></figure>
+<p>默认值一定要在最后</p>
+<h3 id="2-2-作用域"><a href="#2-2-作用域" class="headerlink" title="2.2 作用域"></a>2.2 作用域</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let x=&apos;test&apos;;</div><div class="line">  function test2(x,y=x)&#123;</div><div class="line">    console.log(&apos;作用域&apos;,x,y);</div><div class="line">  &#125;</div><div class="line">  test2(&apos;kill&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>作用域 kill kill</code></p>
+<h3 id="2-3-res参数"><a href="#2-3-res参数" class="headerlink" title="2.3 res参数"></a>2.3 res参数</h3><p>…arg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function test3(...arg)&#123;</div><div class="line">    for(let v of arg)&#123;</div><div class="line">      console.log(&apos;rest&apos;,v);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  test3(1,2,3,4,&apos;a&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rest 1</div><div class="line">rest 2</div><div class="line">rest 3</div><div class="line">rest 4</div><div class="line">rest a</div></pre></td></tr></table></figure>
+<h3 id="2-4-数组转成值"><a href="#2-4-数组转成值" class="headerlink" title="2.4 数组转成值"></a>2.4 数组转成值</h3><p>…arr<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(...[1,2,4]);</div><div class="line">  console.log(&apos;a&apos;,...[1,2,4]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1 2 4</div><div class="line">a 1 2 4</div></pre></td></tr></table></figure>
+<h3 id="2-5-箭头函数"><a href="#2-5-箭头函数" class="headerlink" title="2.5 箭头函数"></a>2.5 箭头函数</h3><p>函数名=参数=&gt;返回值<br>参数可以带括号，也可以不带<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let arrow = v =&gt; v*2;</div><div class="line">  let arrow2 = () =&gt; 5;</div><div class="line">  console.log(&apos;arrow&apos;,arrow(3));</div><div class="line">  console.log(arrow2());</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrow 6</div><div class="line">5</div></pre></td></tr></table></figure>
+<h3 id="2-6-尾调用"><a href="#2-6-尾调用" class="headerlink" title="2.6 尾调用"></a>2.6 尾调用</h3><p>最后一步必须是调用一个函数，不能有其他操作，可以提升性能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function tail(x)&#123;</div><div class="line">    console.log(&apos;tail&apos;,x);</div><div class="line">  &#125;</div><div class="line">  function fx(x)&#123;</div><div class="line">    return tail(x)</div><div class="line">  &#125;</div><div class="line">  fx(123)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>tail 123</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/模块化，es6/" rel="tag"># 模块化，es6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/05/es6-2/" rel="next" title="es6-2">
+                <i class="fa fa-chevron-left"></i> es6-2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/06/es6-4/" rel="prev" title="es6-4">
+                es6-4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组扩展"><span class="nav-text">1. 数组扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-生成数组1"><span class="nav-text">1.1 生成数组1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-生成数组2"><span class="nav-text">1.2 生成数组2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-填充数组"><span class="nav-text">1.3 填充数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-keys-amp-values-amp-entries"><span class="nav-text">1.4 keys & values & entries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-截取替换"><span class="nav-text">1.5 截取替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-条件查找"><span class="nav-text">1.6 条件查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-是否包含"><span class="nav-text">1.7 是否包含</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数扩展"><span class="nav-text">2. 函数扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-参数默认值"><span class="nav-text">2.1 参数默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-作用域"><span class="nav-text">2.2 作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-res参数"><span class="nav-text">2.3 res参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-数组转成值"><span class="nav-text">2.4 数组转成值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-箭头函数"><span class="nav-text">2.5 箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-尾调用"><span class="nav-text">2.6 尾调用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

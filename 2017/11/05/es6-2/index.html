@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,模块化，es6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1. 字符串1.1 es5&amp;amp;es6 比较1.es5超过两个字节不识别 console.log(&amp;#39;s&amp;#39;,\u20BB7);s ₻7 会把超过两字节的字符作为两个字符处理。123456let s=&amp;apos;𠮷&amp;apos;;console.log(&amp;apos;length&amp;apos;,s.length);console.log(&amp;apos;0&amp;apos;,s.charAt(0">
+<meta name="keywords" content="前端,javascript,模块化，es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6-2">
+<meta property="og:url" content="http://yoursite.com/2017/11/05/es6-2/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="1. 字符串1.1 es5&amp;amp;es6 比较1.es5超过两个字节不识别 console.log(&amp;#39;s&amp;#39;,\u20BB7);s ₻7 会把超过两字节的字符作为两个字符处理。123456let s=&amp;apos;𠮷&amp;apos;;console.log(&amp;apos;length&amp;apos;,s.length);console.log(&amp;apos;0&amp;apos;,s.charAt(0">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-17T12:45:21.423Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6-2">
+<meta name="twitter:description" content="1. 字符串1.1 es5&amp;amp;es6 比较1.es5超过两个字节不识别 console.log(&amp;#39;s&amp;#39;,\u20BB7);s ₻7 会把超过两字节的字符作为两个字符处理。123456let s=&amp;apos;𠮷&amp;apos;;console.log(&amp;apos;length&amp;apos;,s.length);console.log(&amp;apos;0&amp;apos;,s.charAt(0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/05/es6-2/"/>
+
+
+
+
+
+  <title>es6-2 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/es6-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">es6-2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T21:05:39+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1. 字符串"></a>1. 字符串</h2><h3 id="1-1-es5-amp-es6-比较"><a href="#1-1-es5-amp-es6-比较" class="headerlink" title="1.1 es5&amp;es6 比较"></a>1.1 es5&amp;es6 比较</h3><p>1.es5超过两个字节不识别</p>
+<p><code>console.log(&#39;s&#39;,</code>\u20BB7<code>);</code><br><code>s ₻7</code></p>
+<p>会把超过两字节的字符作为两个字符处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let s=&apos;𠮷&apos;;</div><div class="line">console.log(&apos;length&apos;,s.length);</div><div class="line">console.log(&apos;0&apos;,s.charAt(0));</div><div class="line">console.log(&apos;1&apos;,s.charAt(1));</div><div class="line">console.log(&apos;at0&apos;,s.charCodeAt(0));</div><div class="line">console.log(&apos;at1&apos;,s.charCodeAt(1));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">length 2</div><div class="line">0 �</div><div class="line">1 �</div><div class="line">at0 55362</div><div class="line">at1 57271</div></pre></td></tr></table></figure>
+<p>2.ES6识别大于两字节的字符</p>
+<p>console.log(‘s’,<code>\u{20BB7}</code>);<br><code>𠮷</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let s1=&apos;𠮷a&apos;;</div><div class="line">  console.log(&apos;length&apos;,s1.length);</div><div class="line">  console.log(&apos;code0&apos;,s1.codePointAt(0));</div><div class="line">  console.log(&apos;code0&apos;,s1.codePointAt(0).toString(16));</div><div class="line">  console.log(&apos;code1&apos;,s1.codePointAt(1));</div><div class="line">  console.log(&apos;code2&apos;,s1.codePointAt(2));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">length 3</div><div class="line">index.js:9219 code0 134071</div><div class="line">index.js:9220 code0 20bb7</div><div class="line">index.js:9221 code1 57271</div><div class="line">index.js:9222 code2 97</div></pre></td></tr></table></figure>
+<p>第一个为4字节字符，但第二个仍为两个字节</p>
+<h3 id="1-2-输出"><a href="#1-2-输出" class="headerlink" title="1.2 输出"></a>1.2 输出</h3><p>es5<br>String.fromCharCode(code)<br>es6<br>String.fromCodePoint(code)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(String.fromCharCode(&quot;0x20bb7&quot;));</div><div class="line">  console.log(String.fromCodePoint(&quot;0x20bb7&quot;));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ஷ</div><div class="line">𠮷</div></pre></td></tr></table></figure>
+<p>es6 的<code>String.fromCodePoint()</code>识别大于两字节的字符</p>
+<h3 id="1-3-遍历"><a href="#1-3-遍历" class="headerlink" title="1.3 遍历"></a>1.3 遍历</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let str=&apos;\u&#123;20bb7&#125;abc&apos;;</div><div class="line">  for(let i=0;i&lt;str.length;i++)&#123;</div><div class="line">    console.log(&apos;es5&apos;,str[i]);</div><div class="line">  &#125;</div><div class="line">  for(let code of str)&#123;</div><div class="line">    console.log(&apos;es6&apos;,code);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">es5 �</div><div class="line">es5 �</div><div class="line">es5 a</div><div class="line">es5 b</div><div class="line">es5 c</div><div class="line">es6 𠮷</div><div class="line">es6 a</div><div class="line">es6 b</div><div class="line">es6 c</div></pre></td></tr></table></figure>
+<p>es6遍历字符的方法可以识别大于两字节字符。</p>
+<h3 id="1-4-判断开始，结尾，包含"><a href="#1-4-判断开始，结尾，包含" class="headerlink" title="1.4 判断开始，结尾，包含"></a>1.4 判断开始，结尾，包含</h3><p>str.includes(‘str’)<br>str.startsWith(‘str’)<br>str.endsWith(‘str’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let str=&quot;string&quot;;</div><div class="line">  console.log(&apos;includes&apos;,str.includes(&quot;c&quot;));</div><div class="line">  console.log(&apos;start&apos;,str.startsWith(&apos;str&apos;));</div><div class="line">  console.log(&apos;end&apos;,str.endsWith(&apos;ng&apos;));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="1-5-重复"><a href="#1-5-重复" class="headerlink" title="1.5 重复"></a>1.5 重复</h3><p>str.repeat(num)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let str=&quot;abc&quot;;</div><div class="line">  console.log(str.repeat(2));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="1-6-模板字符串"><a href="#1-6-模板字符串" class="headerlink" title="1.6 模板字符串"></a>1.6 模板字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let name=&quot;list&quot;;</div><div class="line">  let info=&quot;hello world&quot;;</div><div class="line">  let m=`i am $&#123;name&#125;,$&#123;info&#125;`;</div><div class="line">  console.log(m);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意模板符号`，还要用${}包含</p>
+<h3 id="1-7-补白-es7"><a href="#1-7-补白-es7" class="headerlink" title="1.7 补白(es7)"></a>1.7 补白(es7)</h3><p>需要加包<code>babel-polyfill</code></p>
+<p>str.padStart(总长度,’con’)<br>str.padEnd(总长度,’con’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(&apos;1&apos;.padStart(2,&apos;0&apos;));</div><div class="line">  console.log(&apos;1&apos;.padEnd(2,&apos;0&apos;));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="1-8-标签模板"><a href="#1-8-标签模板" class="headerlink" title="1.8 标签模板"></a>1.8 标签模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let user=&#123;</div><div class="line">    name:&apos;list&apos;,</div><div class="line">    info:&apos;hello world&apos;</div><div class="line">  &#125;;</div><div class="line">  console.log(abc`i am $&#123;user.name&#125;,$&#123;user.info&#125;`);</div><div class="line">  function abc(s,v1,v2)&#123;</div><div class="line">    console.log(s);</div><div class="line">    return s[0]+v1+s[1]+v2</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(3) [&quot;i am &quot;, &quot;,&quot;, &quot;&quot;, raw: Array(3)]</div><div class="line">i am list,hello world</div></pre></td></tr></table></figure>
+<h3 id="1-9-识别模板中换行符"><a href="#1-9-识别模板中换行符" class="headerlink" title="1.9 识别模板中换行符"></a>1.9 识别模板中换行符</h3><p>String.raw `模板`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(String.raw`Hi\n$&#123;1+2&#125;`);</div><div class="line">  console.log(`Hi\n$&#123;1+2&#125;`);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>String.raw</p>
+<h2 id="2-数值扩展"><a href="#2-数值扩展" class="headerlink" title="2. 数值扩展"></a>2. 数值扩展</h2><h3 id="2-1-二进制-amp-八进制表示方法"><a href="#2-1-二进制-amp-八进制表示方法" class="headerlink" title="2.1 二进制&amp;八进制表示方法"></a>2.1 二进制&amp;八进制表示方法</h3><p>二进制：0B开头<br>八进制：0o开头<br>不区分大小写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  console.log(&apos;B&apos;,0B111110111);</div><div class="line">  console.log(0o767);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">B 503</div><div class="line">503</div></pre></td></tr></table></figure>
+<h3 id="2-2-判断是否有尽"><a href="#2-2-判断是否有尽" class="headerlink" title="2.2 判断是否有尽"></a>2.2 判断是否有尽</h3><p>Number.isFinite()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;15&apos;,Number.isFinite(15));</div><div class="line">console.log(&apos;NaN&apos;,Number.isFinite(NaN));</div><div class="line">console.log(&apos;1/0&apos;,Number.isFinite(&apos;true&apos;/0));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">15 true</div><div class="line">NaN false</div><div class="line">1/0 false</div></pre></td></tr></table></figure>
+<h3 id="2-2-判断是为数字"><a href="#2-2-判断是为数字" class="headerlink" title="2.2 判断是为数字"></a>2.2 判断是为数字</h3><p>Number.isNaN()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;NaN&apos;,Number.isNaN(NaN));</div><div class="line">console.log(&apos;0&apos;,Number.isNaN(0));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NaN true</div><div class="line">0 false</div></pre></td></tr></table></figure>
+<h3 id="2-3-判断是否为正数"><a href="#2-3-判断是否为正数" class="headerlink" title="2.3 判断是否为正数"></a>2.3 判断是否为正数</h3><p>Number.isInteger()<br>.0可以算正数<br>字符串会被认为是false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;25&apos;,Number.isInteger(25));</div><div class="line">console.log(&apos;25.0&apos;,Number.isInteger(25.0));</div><div class="line">console.log(&apos;25.1&apos;,Number.isInteger(25.1));</div><div class="line">console.log(&apos;25&apos;,Number.isInteger(&apos;25&apos;));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">25 true</div><div class="line">25.0 true</div><div class="line">25.1 false</div><div class="line">25 false</div></pre></td></tr></table></figure>
+<h3 id="2-4-数字是否在-2-53-和-2-53-之间"><a href="#2-4-数字是否在-2-53-和-2-53-之间" class="headerlink" title="2.4 数字是否在 (-2)^53 和 2^53 之间"></a>2.4 数字是否在 (-2)^53 和 2^53 之间</h3><p>Number.isSafeInteger()<br>非数字false<br>超过这个范围，存储将不准确，不包含这两个<br>Number.MAX_SAFE_INTEGER<br>Number.MIN_SAFE_INTEGER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER);</div><div class="line">console.log(&apos;10&apos;,Number.isSafeInteger(10))</div><div class="line">console.log(&apos;a&apos;,Number.isSafeInteger(&apos;a&apos;));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">9007199254740991 -9007199254740991</div><div class="line">10 true</div><div class="line">a false</div></pre></td></tr></table></figure>
+<h3 id="2-5-小数取整"><a href="#2-5-小数取整" class="headerlink" title="2.5 小数取整"></a>2.5 小数取整</h3><p>Math.trunc()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(4.1,Math.trunc(4.1));</div><div class="line">console.log(4.9,Math.trunc(4.9));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">4.1 4</div><div class="line">4.9 4</div></pre></td></tr></table></figure>
+<h3 id="2-6-正数-负数-0"><a href="#2-6-正数-负数-0" class="headerlink" title="2.6 正数/负数/0"></a>2.6 正数/负数/0</h3><p>Math.sign()<br>大于0 1<br>小于0 -1<br>0 0<br>支持数字字符串<br>非数字字符串 NaN<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;-5&apos;,Math.sign(-5));</div><div class="line">console.log(&apos;0&apos;,Math.sign(0));</div><div class="line">console.log(&apos;5&apos;,Math.sign(5));</div><div class="line">console.log(&apos;50&apos;,Math.sign(&apos;50&apos;));</div><div class="line">console.log(&apos;foo&apos;,Math.sign(&apos;foo&apos;));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-5 -1</div><div class="line">0 0</div><div class="line">5 1</div><div class="line">50 1</div><div class="line">foo NaN</div></pre></td></tr></table></figure>
+<h3 id="2-7-立方根"><a href="#2-7-立方根" class="headerlink" title="2.7 立方根"></a>2.7 立方根</h3><p>Math.cbrt()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;-1&apos;,Math.cbrt(-1));</div><div class="line">console.log(&apos;8&apos;,Math.cbrt(8));</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-1 -1</div><div class="line">8 2</div></pre></td></tr></table></figure>
+<p>三角函数，对数……</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/模块化，es6/" rel="tag"># 模块化，es6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/05/es6-1/" rel="next" title="es6-1">
+                <i class="fa fa-chevron-left"></i> es6-1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/06/es6-3/" rel="prev" title="es6-3">
+                es6-3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-字符串"><span class="nav-text">1. 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-es5-amp-es6-比较"><span class="nav-text">1.1 es5&es6 比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-输出"><span class="nav-text">1.2 输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-遍历"><span class="nav-text">1.3 遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-判断开始，结尾，包含"><span class="nav-text">1.4 判断开始，结尾，包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-重复"><span class="nav-text">1.5 重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-模板字符串"><span class="nav-text">1.6 模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-补白-es7"><span class="nav-text">1.7 补白(es7)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-标签模板"><span class="nav-text">1.8 标签模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-识别模板中换行符"><span class="nav-text">1.9 识别模板中换行符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数值扩展"><span class="nav-text">2. 数值扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-二进制-amp-八进制表示方法"><span class="nav-text">2.1 二进制&八进制表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-判断是否有尽"><span class="nav-text">2.2 判断是否有尽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-判断是为数字"><span class="nav-text">2.2 判断是为数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-判断是否为正数"><span class="nav-text">2.3 判断是否为正数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-数字是否在-2-53-和-2-53-之间"><span class="nav-text">2.4 数字是否在 (-2)^53 和 2^53 之间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-小数取整"><span class="nav-text">2.5 小数取整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-正数-负数-0"><span class="nav-text">2.6 正数/负数/0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-立方根"><span class="nav-text">2.7 立方根</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

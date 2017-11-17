@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,模块化，es6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="es6想运行需要webpack和babel-loader的支持，使用gulp等自动化工具还可以使用更方便。 1. let和const1.1 块作用域简单说，一个{}就是一个块作用域 1.2 let只在块作用域有效不能重复声明 es5 严格模式use strictes6 默认启动严格模式，所以变量未声明使用等，会报错。 1.3 const定义一个常量  块作用域 常量不能修改 对象常量可以修改（引用">
+<meta name="keywords" content="前端,javascript,模块化，es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6-1">
+<meta property="og:url" content="http://yoursite.com/2017/11/05/es6-1/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="es6想运行需要webpack和babel-loader的支持，使用gulp等自动化工具还可以使用更方便。 1. let和const1.1 块作用域简单说，一个{}就是一个块作用域 1.2 let只在块作用域有效不能重复声明 es5 严格模式use strictes6 默认启动严格模式，所以变量未声明使用等，会报错。 1.3 const定义一个常量  块作用域 常量不能修改 对象常量可以修改（引用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-17T12:44:59.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6-1">
+<meta name="twitter:description" content="es6想运行需要webpack和babel-loader的支持，使用gulp等自动化工具还可以使用更方便。 1. let和const1.1 块作用域简单说，一个{}就是一个块作用域 1.2 let只在块作用域有效不能重复声明 es5 严格模式use strictes6 默认启动严格模式，所以变量未声明使用等，会报错。 1.3 const定义一个常量  块作用域 常量不能修改 对象常量可以修改（引用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/05/es6-1/"/>
+
+
+
+
+
+  <title>es6-1 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/es6-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">es6-1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T16:46:52+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>es6想运行需要webpack和babel-loader的支持，使用gulp等自动化工具还可以使用更方便。</p>
+<h2 id="1-let和const"><a href="#1-let和const" class="headerlink" title="1. let和const"></a>1. let和const</h2><h3 id="1-1-块作用域"><a href="#1-1-块作用域" class="headerlink" title="1.1 块作用域"></a>1.1 块作用域</h3><p>简单说，一个{}就是一个块作用域</p>
+<h3 id="1-2-let"><a href="#1-2-let" class="headerlink" title="1.2 let"></a>1.2 let</h3><p>只在块作用域有效<br>不能重复声明</p>
+<p>es5 严格模式<code>use strict</code><br>es6 默认启动严格模式，所以变量未声明使用等，会报错。</p>
+<h3 id="1-3-const"><a href="#1-3-const" class="headerlink" title="1.3 const"></a>1.3 const</h3><p>定义一个常量</p>
+<ul>
+<li>块作用域</li>
+<li>常量不能修改</li>
+<li>对象常量可以修改（引用类型，保存的是地址，内容可以修改）</li>
+<li>必须赋值</li>
+</ul>
+<h2 id="2-解构赋值"><a href="#2-解构赋值" class="headerlink" title="2. 解构赋值"></a>2. 解构赋值</h2><h3 id="2-1-what"><a href="#2-1-what" class="headerlink" title="2.1 what"></a>2.1 what</h3><p>左右数据类型一样的赋值</p>
+<h3 id="2-2-分类"><a href="#2-2-分类" class="headerlink" title="2.2 分类"></a>2.2 分类</h3><p>主要分为对象和数组，还可以细分为字符串解构赋值，布尔值解构赋值，函数参数解构赋值，数值解构赋值</p>
+<h3 id="2-3-数组解构赋值"><a href="#2-3-数组解构赋值" class="headerlink" title="2.3 数组解构赋值"></a>2.3 数组解构赋值</h3><h4 id="2-3-1-赋值"><a href="#2-3-1-赋值" class="headerlink" title="2.3.1 赋值"></a>2.3.1 赋值</h4><p>1.值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a,b,rest;</div><div class="line">  [a,b]=[1,2];</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 2</code></p>
+<p>2.数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a,b,rest;</div><div class="line">  [a,b,...rest]=[1,2,3,4,5,6];</div><div class="line">  console.log(a,b,rest);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 2 (4) [3, 4, 5, 6]</code></p>
+<p>3.默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a,b,c,rest;</div><div class="line">  [a,b,c=3]=[1,2];</div><div class="line">  console.log(a,b,c);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 2 3</code><br>如果不写默认值，c是undefind</p>
+<h4 id="2-3-2-应用"><a href="#2-3-2-应用" class="headerlink" title="2.3.2 应用"></a>2.3.2 应用</h4><p>1.变量交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a=1;</div><div class="line">  let b=2;</div><div class="line">  [a,b]=[b,a];</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>2 1</code><br>交换变量不需要中间变量</p>
+<p>2.接收函数返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function f()&#123;</div><div class="line">    return [1,2]</div><div class="line">  &#125;</div><div class="line">  let a,b;</div><div class="line">  [a,b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 2</code></p>
+<p>3.选择接收函数返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function f()&#123;</div><div class="line">    return [1,2,3,4,5]</div><div class="line">  &#125;</div><div class="line">  let a,b,c;</div><div class="line">  [a,,,b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 4</code></p>
+<p>4.选择性接收变量和数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  function f()&#123;</div><div class="line">    return [1,2,3,4,5]</div><div class="line">  &#125;</div><div class="line">  let a,b,c;</div><div class="line">  [a,,...b]=f();</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 (3) [3, 4, 5]</code></p>
+<h3 id="2-4-对象解构赋值"><a href="#2-4-对象解构赋值" class="headerlink" title="2.4 对象解构赋值"></a>2.4 对象解构赋值</h3><h4 id="2-4-1-赋值"><a href="#2-4-1-赋值" class="headerlink" title="2.4.1 赋值"></a>2.4.1 赋值</h4><p>1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let a,b;</div><div class="line">  (&#123;a,b&#125;=&#123;a:1,b:2&#125;)</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>1 2</code></p>
+<p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let o=&#123;p:42,q:true&#125;;</div><div class="line">  let &#123;p,q&#125;=o;</div><div class="line">  console.log(p,q);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>42 true</code></p>
+<p>3.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let &#123;a=10,b=5&#125;=&#123;a:3&#125;;</div><div class="line">  console.log(a,b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>3 5</code></p>
+<h4 id="2-4-2-JSON对象"><a href="#2-4-2-JSON对象" class="headerlink" title="2.4.2 JSON对象"></a>2.4.2 JSON对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  let metaData=&#123;</div><div class="line">    title:&apos;abc&apos;,</div><div class="line">    test:[&#123;</div><div class="line">      title:&apos;test&apos;,</div><div class="line">      desc:&apos;description&apos;</div><div class="line">    &#125;]</div><div class="line">  &#125;</div><div class="line">  let &#123;title:esTitle,test:[&#123;title:cnTitle&#125;]&#125;=metaData;</div><div class="line">  console.log(esTitle,cnTitle);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>abc test</code></p>
+<h2 id="3-正则扩展"><a href="#3-正则扩展" class="headerlink" title="3. 正则扩展"></a>3. 正则扩展</h2><h3 id="3-1-构造函数"><a href="#3-1-构造函数" class="headerlink" title="3.1 构造函数"></a>3.1 构造函数</h3><p>ES5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let regex = new RegExp(&apos;xyz&apos;, &apos;i&apos;); //第一个参数是字符串，第二个是修饰符</div><div class="line">let regex2 = new RegExp(/xyz/i); //第一个参数是正则表达式，不接受第二个参数，否则会报错</div></pre></td></tr></table></figure></p>
+<p>ES6<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let regex3 = new RegExp(/abc/ig, &apos;i&apos;);</div><div class="line">console.log(regex3.flags); //</div></pre></td></tr></table></figure></p>
+<p><code>.flags</code>用于查询修饰符<br>方式二可以有两个参数，原有正则对象的修饰符是ig，它会被第二个参数i覆盖</p>
+<h3 id="3-2-修饰符"><a href="#3-2-修饰符" class="headerlink" title="3.2 修饰符"></a>3.2 修饰符</h3><h4 id="3-2-1-y修饰符"><a href="#3-2-1-y修饰符" class="headerlink" title="3.2.1 y修饰符"></a>3.2.1 y修饰符</h4><p>粘连模式<br>全局匹配，但必须从头开始连续匹配（不能跳过字符）<br><code>.sticky</code>用于判断是否开启y修饰符</p>
+<h4 id="3-2-2-u修饰符"><a href="#3-2-2-u修饰符" class="headerlink" title="3.2.2 u修饰符"></a>3.2.2 u修饰符</h4><ul>
+<li><p><code>console.log(&#39;u修饰符&#39;,/^\uD83D/u.test(&#39;\uD83D\uDC2A&#39;)); //false,会认为&#39;\uD83D\uDC2A&#39;是一个字符</code><br>识别Unicode字符</p>
+</li>
+<li><p>大括号表示Unicode字符，只有加上u才能识别<br><code>console.log(/\u{61}/u.test(&#39;a&#39;));</code> 返回 <code>true</code></p>
+</li>
+<li><p>点（.）字符不能识别码点大于0xFFFF的Unicode字符，必须加上u修饰符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   // #正则表达式中，点（.）是一个特殊字符，代表任意的单个字符</div><div class="line">//行终止符（line terminator character）</div><div class="line">   // U+000A 换行符（\n）</div><div class="line">   // U+000D 回车符（\r）</div><div class="line">   // U+2028 行分隔符（line separator）</div><div class="line">   // U+2029 段分隔符（paragraph separator）</div><div class="line">   // 只是一个提案目前还不支持</div><div class="line">   // let reg=/test.go/s;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/模块化，es6/" rel="tag"># 模块化，es6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/03/node5/" rel="next" title="node-文件上传">
+                <i class="fa fa-chevron-left"></i> node-文件上传
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/05/es6-2/" rel="prev" title="es6-2">
+                es6-2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-let和const"><span class="nav-text">1. let和const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-块作用域"><span class="nav-text">1.1 块作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-let"><span class="nav-text">1.2 let</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-const"><span class="nav-text">1.3 const</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-解构赋值"><span class="nav-text">2. 解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-what"><span class="nav-text">2.1 what</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-分类"><span class="nav-text">2.2 分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-数组解构赋值"><span class="nav-text">2.3 数组解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-赋值"><span class="nav-text">2.3.1 赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-应用"><span class="nav-text">2.3.2 应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-对象解构赋值"><span class="nav-text">2.4 对象解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-赋值"><span class="nav-text">2.4.1 赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-JSON对象"><span class="nav-text">2.4.2 JSON对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-正则扩展"><span class="nav-text">3. 正则扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-构造函数"><span class="nav-text">3.1 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-修饰符"><span class="nav-text">3.2 修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-y修饰符"><span class="nav-text">3.2.1 y修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-u修饰符"><span class="nav-text">3.2.2 u修饰符</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
