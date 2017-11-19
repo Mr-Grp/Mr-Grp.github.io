@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,javascript,模块化,组件化,vue," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这个还是看官网挨个实现比较好，抄一遍加深印象。官网入门介绍 2.Vue实例2.1 创建一个 Vue 的实例123var vm = new Vue(&amp;#123;  // 选项&amp;#125;) 一个 Vue 应用由一个通过 new Vue 创建的根 Vue 实例，以及可选的嵌套的、可复用的组件树组成。举个例子，一个 todo 应用的组件树可以是这样的：12345678Root Instance|- To">
+<meta name="keywords" content="前端,javascript,模块化,组件化,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-2">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/Vue-2/index.html">
+<meta property="og:site_name" content="Mr-Grp">
+<meta property="og:description" content="这个还是看官网挨个实现比较好，抄一遍加深印象。官网入门介绍 2.Vue实例2.1 创建一个 Vue 的实例123var vm = new Vue(&amp;#123;  // 选项&amp;#125;) 一个 Vue 应用由一个通过 new Vue 创建的根 Vue 实例，以及可选的嵌套的、可复用的组件树组成。举个例子，一个 todo 应用的组件树可以是这样的：12345678Root Instance|- To">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://grpblog.com/images/Vuepic/lifecycle.png">
+<meta property="og:updated_time" content="2017-11-19T16:18:20.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-2">
+<meta name="twitter:description" content="这个还是看官网挨个实现比较好，抄一遍加深印象。官网入门介绍 2.Vue实例2.1 创建一个 Vue 的实例123var vm = new Vue(&amp;#123;  // 选项&amp;#125;) 一个 Vue 应用由一个通过 new Vue 创建的根 Vue 实例，以及可选的嵌套的、可复用的组件树组成。举个例子，一个 todo 应用的组件树可以是这样的：12345678Root Instance|- To">
+<meta name="twitter:image" content="http://grpblog.com/images/Vuepic/lifecycle.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/11/Vue-2/"/>
+
+
+
+
+
+  <title>vue-2 | Mr-Grp</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mr-Grp</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都再努力一些</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/11/Vue-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr-Grp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr-Grp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue-2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T17:56:17+08:00">
+                2017-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这个还是看官网挨个实现比较好，抄一遍加深印象。<br><a href="https://cn.vuejs.org/v2/guide/instance.html" target="_blank" rel="external">官网入门介绍</a></p>
+<h1 id="2-Vue实例"><a href="#2-Vue实例" class="headerlink" title="2.Vue实例"></a>2.Vue实例</h1><h2 id="2-1-创建一个-Vue-的实例"><a href="#2-1-创建一个-Vue-的实例" class="headerlink" title="2.1 创建一个 Vue 的实例"></a>2.1 创建一个 Vue 的实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  // 选项</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>一个 Vue 应用由一个通过 new Vue 创建的根 Vue 实例，以及可选的嵌套的、可复用的组件树组成。举个例子，一个 todo 应用的组件树可以是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Root Instance</div><div class="line">|- TodoList</div><div class="line">   |- TodoItem</div><div class="line">      |- DeleteTodoButton</div><div class="line">      |- EditTodoButton</div><div class="line">   |- TodoListFooter</div><div class="line">      |- ClearTodosButton</div><div class="line">      |- TodoListStatistics</div></pre></td></tr></table></figure></p>
+<p>所有的 Vue 组件都是 Vue 实例。</p>
+<h2 id="2-2-数据与方法"><a href="#2-2-数据与方法" class="headerlink" title="2.2 数据与方法"></a>2.2 数据与方法</h2><p>当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var data = &#123; a: 1 &#125;</div><div class="line">// 该对象被加入到一个 Vue 实例中</div><div class="line">var vm = new Vue(&#123;</div><div class="line">  data: data,</div><div class="line">  el:&apos;#app&apos;</div><div class="line">&#125;)</div><div class="line">// 他们引用相同的对象！</div><div class="line">vm.a === data.a // =&gt; true</div><div class="line">// 设置属性也会影响到原始数据</div><div class="line">vm.a = 2</div><div class="line">console.log(data.a)// =&gt; 2</div><div class="line">// ... 反之亦然</div><div class="line">data.a = 3</div><div class="line">console.log(vm.a )// =&gt; 3</div></pre></td></tr></table></figure>
+<p>当这些数据改变时，视图会进行重渲染。值得注意的是只有当实例被创建时 data 中存在的属性是响应式的，也就是说如果你添加一个新的属性</p>
+<p><code>vm.b = &#39;hi&#39;</code></p>
+<p>那么对 b 的改动将不会触发任何视图的更新。<br>如果你知道你会在晚些时候需要一个属性，但是一开始它为空或不存在，那么需要设置一些初始值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  newTodoText: &apos;&apos;,</div><div class="line">  visitCount: 0,</div><div class="line">  hideCompletedTodos: false,</div><div class="line">  todos: [],</div><div class="line">  error: null</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>除了 data 属性，Vue 实例暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var data = &#123; a: 1 &#125;</div><div class="line">var vm = new Vue(&#123;</div><div class="line">  el: &apos;#example&apos;,</div><div class="line">  data: data</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$data === data // =&gt; true</div><div class="line">vm.$el === document.getElementById(&apos;example&apos;) // =&gt; true</div><div class="line"></div><div class="line">// $watch 是一个实例方法</div><div class="line">vm.$watch(&apos;a&apos;, function (newValue, oldValue) &#123;</div><div class="line">  // 这个回调将在 `vm.a` 改变后调用</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-3-实例生命周期"><a href="#2-3-实例生命周期" class="headerlink" title="2.3 实例生命周期"></a>2.3 实例生命周期</h2><p>每个 Vue 实例在被创建之前都要经过一系列的初始化过程。例如需要设置数据监听、编译模板、挂载实例到 DOM、在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，给予用户机会在一些特定的场景下添加他们自己的代码。</p>
+<p>比如 created 钩子可以用来在一个实例被创建之后执行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: 1</div><div class="line">  &#125;,</div><div class="line">  created: function () &#123;</div><div class="line">    // `this` 指向 vm 实例</div><div class="line">    console.log(&apos;a is: &apos; + this.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt; &quot;a is: 1&quot;</div></pre></td></tr></table></figure>
+<p>也有一些其它的钩子，在实例生命周期的不同场景下调用，如 mounted、updated、destroyed。钩子的 this 指向调用它的 Vue 实例。</p>
+<p>不要在选项属性或回调上使用箭头函数，箭头函数是和父级上下文绑定在一起的，this 不会是如你所预期的 Vue 实例。</p>
+<p><img src="http://grpblog.com/images/Vuepic/lifecycle.png" alt=""></p>
+<h1 id="3-模板语法"><a href="#3-模板语法" class="headerlink" title="3. 模板语法"></a>3. 模板语法</h1><p>Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML ，所以能被遵循规范的浏览器和 HTML 解析器解析。</p>
+<p>在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，在应用状态改变时，Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上。</p>
+<h2 id="3-1-插值"><a href="#3-1-插值" class="headerlink" title="3.1 插值"></a>3.1 插值</h2><h3 id="3-1-1-文本"><a href="#3-1-1-文本" class="headerlink" title="3.1.1 文本"></a>3.1.1 文本</h3><p>数据绑定最常见的形式就是使用“Mustache”语法 (双大括号) 的文本插值：</p>
+<p><code>&lt;span&gt;Message: &lt;/span&gt;</code></p>
+<p>Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论何时，绑定的数据对象上 msg 属性发生了改变，插值处的内容都会更新。</p>
+<p>通过使用 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。但请留心这会影响到该节点上所有的数据绑定：</p>
+<p><code>&lt;span v-once&gt;这个将不会改变: &lt;/span&gt;</code></p>
+<h3 id="3-1-2-原始-HTML"><a href="#3-1-2-原始-HTML" class="headerlink" title="3.1.2 原始 HTML"></a>3.1.2 原始 HTML</h3><p>双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Using mustaches: &#123;&#123; rawHtml &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;p&gt;Using v-html directive: &lt;span v-html=&quot;rawHtml&quot;&gt;&lt;/span&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>这个 span 的内容将会被替换成为属性值 rawHtml，直接作为 HTML——会忽略解析属性值中的数据绑定。</p>
+<h3 id="3-1-3-特性"><a href="#3-1-3-特性" class="headerlink" title="3.1.3 特性"></a>3.1.3 特性</h3><p>Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令：</p>
+<p><code>&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;</code></p>
+<p>在布尔特性的情况下，它们的存在即暗示为 true，v-bind 工作起来略有不同，在这个例子中：</p>
+<p><code>&lt;button v-bind:disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;</code></p>
+<p>如果 isButtonDisabled 的值是 null、undefined 或 false，则 disabled 特性甚至不会被包含在渲染出来的 <button> 元素中。</button></p>
+<h3 id="3-1-4-使用-JavaScript-表达式"><a href="#3-1-4-使用-JavaScript-表达式" class="headerlink" title="3.1.4 使用 JavaScript 表达式"></a>3.1.4 使用 JavaScript 表达式</h3><p>迄今为止，在我们的模板中，我们一直都只绑定简单的属性键值。但实际上，对于所有的数据绑定，Vue.js 都提供了完全的 JavaScript 表达式支持。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; number + 1 &#125;&#125;</div><div class="line">&#123;&#123; ok ? &apos;YES&apos; : &apos;NO&apos; &#125;&#125;</div><div class="line">&#123;&#123; message.split(&apos;&apos;).reverse().join(&apos;&apos;) &#125;&#125;</div><div class="line">&lt;div v-bind:id=&quot;&apos;list-&apos; + id&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>这些表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析。有个限制就是，每个绑定都只能包含单个表达式，所以下面的例子都不会生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 这是语句，不是表达式 --&gt;</div><div class="line">&#123;&#123; var a = 1 &#125;&#125;</div><div class="line">&lt;!-- 流控制也不会生效，请使用三元表达式 --&gt;</div><div class="line">&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-2-指令"><a href="#3-2-指令" class="headerlink" title="3.2 指令"></a>3.2 指令</h2><p>指令 (Directives) 是带有 v- 前缀的特殊属性。指令属性的值预期是单个 JavaScript 表达式 (v-for 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。回顾我们在介绍中看到的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>这里，v-if 指令将根据表达式 seen 的值的真假来插入/移除 </p><p> 元素。</p>
+<h3 id="3-2-1-参数"><a href="#3-2-1-参数" class="headerlink" title="3.2.1 参数"></a>3.2.1 参数</h3><p>一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML 属性：</p>
+<p><code>&lt;a v-bind:href=&quot;url&quot;&gt;...&lt;/a&gt;</code></p>
+<p>在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定。<br>另一个例子是 v-on 指令，它用于监听 DOM 事件：</p>
+<p><code>&lt;a v-on:click=&quot;doSomething&quot;&gt;...&lt;/a&gt;</code></p>
+<h3 id="3-2-2-修饰符"><a href="#3-2-2-修饰符" class="headerlink" title="3.2.2 修饰符"></a>3.2.2 修饰符</h3><p>修饰符 (Modifiers) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：</p>
+<p><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;</code></p>
+<h3 id="3-2-3-缩写"><a href="#3-2-3-缩写" class="headerlink" title="3.2.3 缩写"></a>3.2.3 缩写</h3><p>v- 前缀作为一种视觉提示，用来识别模板中 Vue 特定的特性。当你在使用 Vue.js 为现有标签添加动态行为 (dynamic behavior) 时，v- 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐。同时，在构建由 Vue.js 管理所有模板的单页面应用程序 (SPA - single page application) 时，v- 前缀也变得没那么重要了。因此，Vue.js 为 v-bind 和 v-on 这两个最常用的指令，提供了特定简写：</p>
+<p>v-bind 缩写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-bind:href=&quot;url&quot;&gt;...&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a :href=&quot;url&quot;&gt;...&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">v-on 缩写</div><div class="line"></div><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;...&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a @click=&quot;doSomething&quot;&gt;...&lt;/a&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/模块化/" rel="tag"># 模块化</a>
+          
+            <a href="/tags/组件化/" rel="tag"># 组件化</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/11/Vue-1/" rel="next" title="vue-1">
+                <i class="fa fa-chevron-left"></i> vue-1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/head.gif"
+              alt="Mr-Grp" />
+          
+            <p class="site-author-name" itemprop="name">Mr-Grp</p>
+            <p class="site-description motion-element" itemprop="description">日积月累</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=406238&auto=0&height=66"></iframe>
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Vue实例"><span class="nav-text">2.Vue实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-创建一个-Vue-的实例"><span class="nav-text">2.1 创建一个 Vue 的实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-数据与方法"><span class="nav-text">2.2 数据与方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实例生命周期"><span class="nav-text">2.3 实例生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-模板语法"><span class="nav-text">3. 模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-插值"><span class="nav-text">3.1 插值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-文本"><span class="nav-text">3.1.1 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-原始-HTML"><span class="nav-text">3.1.2 原始 HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-特性"><span class="nav-text">3.1.3 特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-使用-JavaScript-表达式"><span class="nav-text">3.1.4 使用 JavaScript 表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-指令"><span class="nav-text">3.2 指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-参数"><span class="nav-text">3.2.1 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-修饰符"><span class="nav-text">3.2.2 修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-缩写"><span class="nav-text">3.2.3 缩写</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr-Grp</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
